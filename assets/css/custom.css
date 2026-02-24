@@ -15,3 +15,26 @@
     margin-top: 1rem;
     font-style: italic;
   }
+
+/* Homepage social icons */
+.home-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.home-social a {
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.home-social a:hover {
+    opacity: 1;
+}
+
+.home-social svg {
+    width: 24px;
+    height: 24px;
+}
