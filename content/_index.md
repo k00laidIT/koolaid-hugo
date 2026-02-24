@@ -6,4 +6,5 @@ title = ''
 <div class="home-intro">
     <img src="/img/koolaid-round.png" alt="koolaid.info logo">
     <p>A Minor Subset of the Greater Series of Tubes</p>
-  </div>
+</div>
+{{< social >}}

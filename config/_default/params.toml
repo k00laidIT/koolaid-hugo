@@ -23,3 +23,15 @@
     name = "Jim Jones"
     headline = "Infra nerd. Cloud, VMs, and automation."
     bio = ""
+    links = [
+        {github = "https://github.com/k00laidIT"},
+        {linkedin = "https://www.linkedin.com/in/k00laidIT"},
+        {bluesky = "https://bsky.app/profile/koolaid.info"},
+        {instagram = "https://www.instagram.com/k00laidIT"},
+        [reddit = "https://www.reddit.com/user/k00laidIT/"],
+    ]
+
+    [footer]
+    showThemeAttribution = false
+    showScrollToTop = true
+    showSocial = true

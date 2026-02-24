@@ -1,0 +1,21 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Hugo module cache
+/tmp/
+
+# OS
+.DS_Store
+
+# Raw/large image formats — optimize before committing
+*.tif
+*.tiff
+*.psd
+*.raw
+*.bmp
+
+# Editor
+.vscode/
+.idea/
