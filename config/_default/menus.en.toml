@@ -12,8 +12,3 @@
     name = "Veeam"
     url = "/tags/veeam/"
     weight = 30
-
-[[main]]
-    name = "About"
-    pageRef = "about"
-    weight = 40

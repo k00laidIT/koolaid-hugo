@@ -1,6 +1,7 @@
   colorScheme = "github"
   defaultAppearance = "dark"
   autoSwitchAppearance = false
+  logo = "img/koolaid-round.png"
 
   [homepage]
     layout = "page"
@@ -25,6 +26,7 @@
     name = "Jim Jones"
     headline = "Infra nerd. Cloud, VMs, and automation."
     bio = ""
+    # image = "img/jim.jpg"
     links = [
         {github = "https://github.com/k00laidIT"},
         {linkedin = "https://www.linkedin.com/in/k00laidIT"},
