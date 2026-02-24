@@ -1,0 +1,25 @@
+  colorScheme = "github"
+  defaultAppearance = "dark"
+  autoSwitchAppearance = false
+
+  [homepage]
+    layout = "page"
+    showRecent = true
+    recentLimit = 7
+
+  [article]
+    showDate = true
+    showAuthor = true
+    showReadingTime = true
+    showTags = true
+
+  [list]
+    showSummary = true
+
+  [taxonomy]
+    showTermCount = true
+
+  [author]
+    name = "Jim Jones"
+    headline = "Infra nerd. Cloud, VMs, and automation."
+    bio = ""

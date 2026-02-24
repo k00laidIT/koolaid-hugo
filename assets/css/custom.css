@@ -1,0 +1,17 @@
+  /* Homepage intro block */
+  .home-intro {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .home-intro img {
+    width: 250px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .home-intro p {
+    margin-top: 1rem;
+    font-style: italic;
+  }

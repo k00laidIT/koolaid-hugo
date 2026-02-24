@@ -1,0 +1,12 @@
+baseURL = 'https://dev.koolaid.info'
+languageCode = 'en-us'
+title = 'koolaid.info'
+
+[module]
+[[module.imports]]
+    path = "github.com/nunocoracao/blowfish/v2"
+
+[markup]
+    [markup.goldmark]
+      [markup.goldmark.renderer]
+        unsafe = true

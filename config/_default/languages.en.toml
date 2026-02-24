@@ -1,0 +1,9 @@
+  languageCode = "en"
+  weight = 1
+  title = "koolaid.info"
+
+  [params]
+    displayName = "EN"
+    isoCode = "en"
+    dateFormat = "January 2, 2006"
+    description = "Jim's personal blog and tech notes."

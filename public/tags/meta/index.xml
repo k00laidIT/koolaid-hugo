@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meta on koolaid.info</title>
+    <link>http://localhost:1313/tags/meta/</link>
+    <description>Recent content in Meta on koolaid.info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jim Jones</copyright>
+    <lastBuildDate>Mon, 23 Feb 2026 16:32:12 -0500</lastBuildDate><atom:link href="http://localhost:1313/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Mon, 23 Feb 2026 16:32:12 -0500</pubDate>
+      
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;p&gt;The WordPress era is over. This site now runs on Hugo with the Blowfish&#xA;theme, deployed via Cloudflare Pages.&lt;/p&gt;&#xA;&lt;p&gt;More posts coming soon.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
