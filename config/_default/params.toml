@@ -28,10 +28,10 @@
         {linkedin = "https://www.linkedin.com/in/k00laidIT"},
         {bluesky = "https://bsky.app/profile/koolaid.info"},
         {instagram = "https://www.instagram.com/k00laidIT"},
-        [reddit = "https://www.reddit.com/user/k00laidIT/"],
+        {reddit = "https://www.reddit.com/user/k00laidIT/"},
     ]
 
     [footer]
-    showThemeAttribution = false
-    showScrollToTop = true
-    showSocial = true
+      showThemeAttribution = false
+      showScrollToTop = true
+      showSocial = true
