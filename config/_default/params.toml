@@ -12,6 +12,8 @@
     showAuthor = true
     showReadingTime = true
     showTags = true
+    showHero = true
+    heroStyle = "basic"
 
   [list]
     showSummary = true
@@ -32,7 +34,7 @@
         {reddit = "https://www.reddit.com/user/k00laidIT/"},
     ]
 
-    [footer]
-      showThemeAttribution = false
-      showScrollToTop = true
-      showSocial = true
+[footer]
+  showThemeAttribution = false
+  showScrollToTop = true
+  showAppearanceSwitcher = false
