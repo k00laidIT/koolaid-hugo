@@ -7,6 +7,6 @@ tags = ["meta"]
 +++
 
 The WordPress era is over. This site now runs on Hugo with the Blowfish
-theme, deployed via Cloudflare Pages.
+theme, deployed via Cloudflare Pages. Please watch this space for new and legacy content!
 
 More posts coming soon.
