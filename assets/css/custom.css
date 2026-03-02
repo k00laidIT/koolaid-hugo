@@ -54,6 +54,17 @@ body::before {
     filter: brightness(0.6);
 }
 
+/* About page profile image */
+.about-avatar {
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 1rem;
+}
+
 /* Footer logo badges */
 .footer-logos img {
     padding: 0.5rem;

@@ -7,7 +7,7 @@ title = 'About'
         weight = 99
 +++
 
-![[jim.jpg]]
+<img src="/img/jim.jpg" alt="Jim Jones" class="about-avatar nozoom">
 Hi there and welcome to koolaid.info! My name is Jim Jones, a Geek of Many Hats living in West Virginia.
 
 This site was created for the purpose of being a locker full of all the handy things I’ve learned over the years, know I’m going to need again and know I’ll forget. It’s morphed a bit over the years as all things do but still that’s the main purpose. If you’d like to know more about me check out any of the social links at the top left of the site, I’m pretty much an open book.
