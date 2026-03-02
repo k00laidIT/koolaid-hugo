@@ -3,6 +3,7 @@ date = "2026-02-23T16:32:22-05:00"
 draft = false
 title = "About"
 showTitle = false
+showPagination = false
 [menu]
     [menu.main]
         weight = 99
