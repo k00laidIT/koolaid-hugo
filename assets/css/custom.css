@@ -70,6 +70,15 @@ body::before {
     padding: 0.5rem;
 }
 
+/* Dark card background on single pages */
+main article {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    backdrop-filter: blur(3px);
+}
+
 /* Recent post cards — dark mode default */
 .article-link--simple {
     background: rgba(0, 0, 0, 0.2);
