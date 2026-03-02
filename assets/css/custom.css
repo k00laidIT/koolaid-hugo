@@ -46,7 +46,7 @@ body::before {
     top: 0;
     left: 0;
     background-image: url('/img/bg/zion.jpg');
-    background-size: 100% auto;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
     z-index: -20;
