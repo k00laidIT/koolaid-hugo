@@ -8,6 +8,7 @@ resources/_gen/
 
 # OS
 .DS_Store
+**/.DS_Store
 
 # Raw/large image formats — optimize before committing
 *.tif
