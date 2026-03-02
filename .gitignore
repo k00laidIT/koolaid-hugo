@@ -20,3 +20,11 @@ resources/_gen/
 .vscode/
 .idea/
 .DS_Store
+
+# Obsidian
+.obsidian/
+
+# WordPress import / migration
+*.xml
+wp-import/
+/tmp/wp-import/
