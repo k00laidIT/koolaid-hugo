@@ -1,5 +1,13 @@
 <footer id="site-footer" class="py-10 print:hidden">
-  <div class="flex flex-col items-end">
+  <div class="flex flex-row items-end justify-between">
+
+    {{/* Logo badges — bottom left */}}
+    <div class="footer-logos flex flex-row items-end gap-3">
+      <img src="/img/logos/aws-cb.png" alt="AWS badge" class="nozoom" style="max-width:100px;">
+      <img src="/img/logos/vexpert.png" alt="vExpert badge" class="nozoom" style="max-width:100px;">
+    </div>
+
+    <div class="flex flex-col items-end">
 
     {{/* Social icons */}}
     <div class="flex gap-4 mb-3">
@@ -38,6 +46,8 @@
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       {{ "Interstellar background image courtesy of [Sjors Robroek](https://www.instagram.com/theworldthroughsjors/)" | markdownify }}
     </p>
+
+    </div>{{/* end right column */}}
 
   </div>
 
