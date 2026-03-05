@@ -1,0 +1,11 @@
++++
+title = "Presenting at VeeamON 2015: Design, Manage and Test Your Data Protection with Veeam Availabilty Suite"
+date = "2015-11-02T15:16:49Z"
+draft = false
+tags = [ "blogging", "conferences", "vDM30in30", "veeam", "Veeam Vanguard", "veeamon",]
+categories = [ "Education", "Veeam", "Virtualization",]
+featureimage = "featured.jpg"
++++
+
+
+Last week I was presented with the honor of being invited to speak at [Veeam Software](http://www.veeam.com)'s annual user conference, [VeeamON](http://www.veeam.com/veeamon). While this was not my first time doing so I was very happy with the end result this year, with 30-40 attendees and positive feedback both from people I knew beforehand as well as new acquaintances who attended. My session is what I like to think of as the 1-1000 MPH with Veeam, specifically targeting the SMB space but with lots of general guidelines for how to get your DR system up and running fast and as error-free as possible. Some of the things I do with Veeam buck the Best Practices guide but we have been able to maintain high levels of protection over many years without much interruption. The session starts with the basics of designing your DR plan, then designing your Veeam infrastructure components to suit your needs, followed by tips for the actual implementation and other tricks and gotchas I've run into over the years. Anyway due to the amount of information that was covered I promised attendee's that I would put my slide deck out here for reference so here it is. If anybody has comments, questions or anything in between please feel free to reach out to me either through the comments here or [on twitter](https://twitter.com/k00laidIT). For attendees please keep an eye on your e-mail and the #VeeamON hashtag as the videos of all presentations should be made available in the coming weeks. <iframe frameborder="0" height="367px" src="https://onedrive.live.com/embed?cid=F0DE8C538A3613F2&resid=F0DE8C538A3613F2%21132788&authkey=AJucL7VoUI3PMRY&em=2&wdAr=1.7776203966005666" width="610px">This is an embedded [Microsoft Office](http://office.com) presentation, powered by [Office Online](http://office.com/webapps).</iframe>

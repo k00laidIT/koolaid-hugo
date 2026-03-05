@@ -65,6 +65,17 @@ body::before {
     margin-bottom: 1rem;
 }
 
+/* Footer text links */
+#site-footer p a {
+    text-decoration: underline;
+}
+
+/* Author block — right-aligned at bottom of post */
+.author {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
 /* Footer logo badges */
 .footer-logos img {
     padding: 0.5rem;
@@ -89,3 +100,20 @@ main article:not(.prose) {
     backdrop-filter: blur(3px);
 }
 
+.right {
+  float:right;
+  max-width: 40%;
+  margin-left: 5px
+}
+
+.left {
+  float:left;
+  max-width: 40%;
+  margin-right: 20px
+}
+
+.center {
+  display: block;
+  margin: auto;
+  text-align: center;
+}

@@ -29,3 +29,9 @@ resources/_gen/
 *.xml
 wp-import/
 /tmp/wp-import/
+
+# Migration / tooling scripts (keep in claude-workspace/scripts instead)
+*.py
+*.go
+go.mod
+go.sum

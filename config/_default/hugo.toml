@@ -1,6 +1,7 @@
 baseURL = 'https://dev.koolaid.info'
 languageCode = 'en-us'
 title = 'koolaid.info'
+enableRobotsTXT = true
 
 [module]
 [[module.imports]]

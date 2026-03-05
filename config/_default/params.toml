@@ -3,6 +3,8 @@
   defaultAppearance = "dark"
   autoSwitchAppearance = false
   logo = "img/koolaid-round.png"
+  enableCodeCopy = true
+  enableSearch = true
 
   [homepage]
     layout = "page"
@@ -10,13 +12,18 @@
     recentLimit = 7
 
   [article]
-    showDate = false
-    showAuthor = false
-    showReadingTime = false
+    showDate = true
+    showAuthor = true
+    showAuthorBottom = true
+    showReadingTime = true
     showWordCount = false
-    showTags = true
+    showTaxonomies = true
     showHero = true
     heroStyle = "basic"
+    showPagination = false
+    showRelatedContent = true
+    relatedContentLimit = 3
+    sharingLinks = ["linkedin", "twitter", "bluesky", "mastodon", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram", "line"]
 
   [list]
     showSummary = true
@@ -26,7 +33,7 @@
 
   [author]
     name = "Jim Jones"
-    headline = "Infra nerd. Cloud, VMs, and automation."
+    headline = ""
     bio = ""
     # image = "img/jim.jpg"
     links = [
@@ -35,8 +42,14 @@
         {twitter = "https://twitter.com/k00laidIT"},
         {bluesky = "https://bsky.app/profile/koolaid.info"},
         {instagram = "https://www.instagram.com/k00laidIT"},
-        {reddit = "https://www.reddit.com/user/k00laidIT/"},
+        {rss = "https://dev.koolaid.info/posts/index.xml"},
     ]
+
+# config/_default/params.toml
+
+[umamiAnalytics]
+  websiteid = "27abc18f-48be-4f7f-a5b6-09c28a9a15cc"  
+  enableTrackEvent = true
 
 [footer]
   showThemeAttribution = false

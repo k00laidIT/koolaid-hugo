@@ -1,0 +1,24 @@
+{{ with .Params.sharingLinks | default (.Site.Params.article.sharingLinks | default false) }}
+  {{ $links := site.Data.sharing }}
+  <section class="pt-4">
+    <button
+      onclick="this.nextElementSibling.classList.toggle('hidden')"
+      class="flex items-center gap-2 rounded bg-neutral-300 px-3 py-1.5 text-sm text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800">
+      Share this
+    </button>
+    <div class="hidden flex flex-row flex-wrap mt-2 text-xl">
+      {{ range . }}
+        {{ with index $links . }}
+          <a
+            target="_blank"
+            class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+            href="{{ printf .url $.Permalink $.Title }}"
+            title="{{ i18n .title }}"
+            aria-label="{{ i18n .title }}">
+            {{ partial "icon.html" .icon }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

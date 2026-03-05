@@ -1,0 +1,35 @@
++++
+title = "DR Scenarios For You and Your Business Part 1: The Old Guard"
+date = "2019-04-16T13:14:07Z"
+draft = false
+tags = [ "backup", "disaster recovery", "how to", "veeam",]
+categories = [ "Systems", "Veeam", "Virtualization",]
+featureimage = "featured.png"
++++
+
+
+It is Disaster Recovery review season again here at This Old Datacenter and reviewing our plans sparked the idea to outline some of the modern strategies for those who are new to the game or looking to modernize. I’m continually amazed by the number of people who I talk to that are using modern compute methodologies (virtualization on premises, partner IaaS, public cloud) but are still using the same backup systems they were using in the 2000s. In this post I’m going to talk about some basic strategies using Veeam Backup and Replication because that is primarily what I use, but all of these are capable with any of the current data backup vendors with varying levels of advantages and disadvantages per vendor. The important part is to understand the different ways about protecting your data to start with and then pick a vendor that fits your needs. One constant that you will see here is the idea of each strategy consisting of 2 parts. A local backup first to handle basic things like a failing VM, file restore, and other things that aren’t responding to all systems down. Secondly then archiving that backup to somewhere outside of your primary location and datacenter to deal with that systems down or virus consideration. You will often hear this referred to as the 3-2-1 rule:
+
+- 3 copies of your data
+- 2 copies on different types of physical media or systems
+- 1 copy (at least) in a different geographical location (offsite)
+ 
+##### **On Premises Backup/Archive to Removable Media Backup**
+
+![Diagram showing VMs on VMware/Hyper-V in a Production Datacenter backed up to a Disk Backup Repo, then copied to a VTL Tape Library](removable-media-300x102.png)
+
+This is essentially an evolution on your traditional backup system. Each night you take a backup of your critical systems to a local resource and then copy that to something removable so that it can be taken to somewhere offsite each evening. In the past this was probably only one step, you ran backups to tape and then you took that tape somewhere the next morning. Today I would hope the backups would land on disk somewhere local and then be copied to tape or a USB hard disk but everybody has their ways. This method has the ability to get the job done but has a lot of drawbacks. First you must have human intervention to get your backups somewhere. Second restores may be quick if you are restoring from your primary backup method but if you have to go to your second you first have to physically locate that correct data set and then especially in the case of tape it can take some time to get that back to functional. Finally you own and have to maintain all the hardware involved in the backup system, hardware that effectively isn’t used for anything else. ##### **Active/Passive Disaster Recovery**
+
+ [
+
+![](active-passive-300x69.png)
+
+](active-passive.png)Historically the step up for many organizations from removable media is to maintain a set of hardware or at least a backup location somewhere else. This could be just a tape library, a NAS or an old server loaded with disks either in a remote branch or at a co-location facility. Usually you would have some dark hardware there that could allow systems to be restored if needed. In any case you still would perform backups locally and maintain a set on premises for the primary restore, then leverage the remote location for a systems down event. This method definitely has advantages over the first in that you don’t have to dedicate a person’s time to ensuring that the backups go offsite and you might have some resources available to take over in case of a massive issue at your datacenter, but this method can get very expensive, very fast. All the hardware is owned by you and is used exclusively for you, if ever used at all. In many cases datacenter hardware is “retired” to this location and it may or may not have enough horsepower to cover your needs. Others may buy for the dark site at the same time as buying for the primary datacenter, effectively doubling the price of updating. Layer on top of this the cost of connectivity, power consumption and possibly rack space and you are talking about real money. Further you are on your own in terms of getting things going if you do have a DR event. All that being said this is a true Disaster Recovery model, which differentiates from the first option. You have everything you need (possibly) if you experience a disaster at your primary site. ##### **Active/Active Disaster Recovery**
+
+ [
+
+![](active-active-300x70.png)
+
+](active-active.png)Does your organization have multiple sites, with datacenter capabilities in each place? If so then this model might be for you. With Active/Active you design you multisite datacenters with redundant space in mind so that in the case of an event in either location you can run both workloads in a single location. The ability to have "hot" resources available at your DR site is attractive in that you can easily make use of not only backup operations but replication as well, significantly shortening your Restore Time Objective (RTO), usually with the ability to rollback to production when the event is over. Think about a case where you have critical customer facing applications that cannot handle much downtime at all but you lose connectivity at your primary site. This workload could fairly easily be failed over to the replica in the far side DC, all the while your replication product (Think Veeam Backup &amp; Replication or Zerto) is tracking the changes. When connectivity is restored you tell the application to fallback and you are running with changes intact back in your primary datacenter. So what's the downside? Well first off it requires you to have multiple locations to be able to support this in the first place. Beyond that you are still in a world of needing to support the load in case of having an event, so your hardware and software licensing costs will most likely go up to support this event that may never happen. Also supporting replication is a good bit more complex than backup when you include things like the need for ReIP, external DNS, etc. so you should definitely be testing this early and often, maintaining a living document that outlines the steps needed to failover and fallback. ##### Conclusion
+
+ This post covers what I consider the "old school" models of Disaster Recovery, where your organization owns all the hardware and such to power the system. But who wants to own physical things anymore, aren't we living in the virtual age? In the next post we'll look at some more "modern" approaches to the same ol' concepts.

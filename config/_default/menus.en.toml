@@ -4,11 +4,16 @@
     weight = 10
 
 [[main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 20
+    name = "Veeam"
+    url = "/categories/veeam/"
+    weight = 30
 
 [[main]]
-    name = "Veeam"
-    url = "/tags/veeam/"
-    weight = 30
+    name = "Virtualization"
+    url = "/categories/virtualization/"
+    weight = 40
+
+[[main]]
+    name = "Presentations"
+    url = "/categories/presentations/"
+    weight = 50

@@ -1,0 +1,11 @@
++++
+title = "Learning To Pick The Right Tech Conference at vBrisket- TOMORROW!"
+date = "2017-02-23T12:25:54Z"
+draft = false
+tags = [ "community", "vbrisket", "virtualization",]
+categories = [ "Education", "Virtualization",]
+featureimage = "featured.png"
++++
+
+
+Hey all, just a quick post to mention that the fine folks at[ vBrisket](http://www.vbrisket.com/) will be having [a get together February 24th at 2 PM](http://www.vbrisket.com/vbrisket-event-tech-conferences-what-are-the-right-ones-for-you/) at [Grist House Craft Brewery](http://gristhouse.com/) in Pittsburgh. If you work in the virtualization industry and haven't heard of vBrisket yet you should get to know them because they have a great thing going. vBrisket takes the typical User Group back to its vendor independence roots, allowing you to focus more on your general virtualization career and less on the path of any particular vendor. At the same time it gives [Clint](https://twitter.com/ClintWyckoff), [Gabe](https://twitter.com/gmaentz), [Jaison](https://twitter.com/penlem166), and [John](https://twitter.com/johnbrescia) a great reason to bring out the smokers and prepare enough meat to feed a brewery full of techies. I'm honored to have been invited to join the panel discussion this time. The topic is "*Tech Conferences – What are the right ones for you?*" This will be moderated by the vBrisket team and includes myself, [John White](https://twitter.com/johna_white), [Mike Muto](https://twitter.com/doctorsquat), and [Justin Paul](https://twitter.com/recklessop). As I see my attendance at various conferences as a big driver in the success of my career and my growth as a technology worker I'm excited to be included. Of course this meeting wouldn't be possible without the sponsorship from [Zerto](https://twitter.com/zerto). At the meeting they'll be talking I'm sure about their new conference,[ ZertoCON](http://www.zerto.com/zertocon/) in Boston May 22-24th. So if you are in the Pittsburgh area tomorrow and would like to attend just be there at 2, I look forward to meeting up!

@@ -13,5 +13,5 @@ title = ''
       <a href="https://twitter.com/k00laidIT" target="_blank">{{< icon "twitter" >}}</a>
       <a href="https://bsky.app/profile/koolaid.info" target="_blank">{{< icon "bluesky" >}}</a>
       <a href="https://www.instagram.com/k00laidIT" target="_blank">{{< icon "instagram" >}}</a>
-      <a href="https://www.reddit.com/user/k00laidIT/" target="_blank">{{< icon "reddit" >}}</a>
+      <a href="https://dev.koolaid.info/posts/index.xml" target="_blank">{{< icon "rss" >}}</a>
 </div>
