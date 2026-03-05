@@ -20,11 +20,11 @@ With Veeam's [upcoming v12 release](https://go.veeam.com/v12) of Veeam Backup an
 
 1\. Once you have v12 Console installed, either the local or remote version, open it and navigate to Users and Roles
 
-![](Screenshot-2023-02-02-at-6.43.52-PM.png)
+{{< figure src="Screenshot-2023-02-02-at-6.43.52-PM.png" alt="" >}}
 
 2\. MFA in VBR is not supported with any use of groups. By default members of the local Adminstrators group are given the Veeam Backup Administrator role so we need to start by adding your own login first. You can do this with the Add... button.
 
-![](Screenshot-2023-02-02-at-6.45.18-PM.png)
+{{< figure src="Screenshot-2023-02-02-at-6.45.18-PM.png" alt="" >}}
 
 If you weren't already aware you'll notice that there are number of roles that can be selected. More information about what each of these can do is available in the [helpcenter documentation](https://helpcenter.veeam.com/archive/backup/120/vsphere/users_roles.html).
 
@@ -32,21 +32,21 @@ If you weren't already aware you'll notice that there are number of roles that c
 
 2a. If by chance you do not remove the groups before enabling MFA and hitting OK you will be presented with an error. Again, simply remove the groups to get past this.
 
-![](Screenshot-2023-02-02-at-6.46.23-PM.png)
+{{< figure src="Screenshot-2023-02-02-at-6.46.23-PM.png" alt="" >}}
 
 3\. It is important to understand that once you protect an account with MFA you will not be able to use it with automation methods such as PowerShell. To allow for this you will need to create an automation specific user, preferably with a very robust and often changed password, and set it in VBR as a service account to disable MFA. Complete adding your needed users and check the "Require two-factor authentication for interactive logon" to complete the server setup portion.
 
-![](Screenshot-2023-02-02-at-6.51.24-PM.png)
+{{< figure src="Screenshot-2023-02-02-at-6.51.24-PM.png" alt="" >}}
 
 4\. Once you setup your accounts in Veeam Console you will need to close out and relaunch to get into the MFA registration wizard. You would do this as you normally would, either using Windows session authentication or filling in the username and password.
 
-![](Screenshot-2023-02-02-at-6.52.43-PM.png)
+{{< figure src="Screenshot-2023-02-02-at-6.52.43-PM.png" alt="" >}}
 
 5\. Once you hit Connect you will get the standard MFA QR code for registration. Simply open the app of your choice and add by scanning the QR code then supply an active confirmation code to complete setup.
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
-![](Screenshot-2023-02-02-at-6.54.56-PM.png)
+{{< figure src="Screenshot-2023-02-02-at-6.54.56-PM.png" alt="" >}}
 
 And with that you have now enabled 2 factor authentication for your Veeam Backup and Replication Users. You can potentially increase this further by not giving permissions to the user's Windows logon account but instead doing a secondary, application specific account making them type in a username and password in step 4 above. With that you would have to authenticate to Windows, authenticate to Veeam and then provide an MFA code. That would all just depend on your organization's security needs.
 

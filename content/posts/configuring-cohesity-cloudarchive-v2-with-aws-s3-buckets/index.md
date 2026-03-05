@@ -16,7 +16,7 @@ So you'll notice that I using all kinds of terms here for different things. In t
 
 Enter Incremental Forever, or CAv2, which starts with using Cloud Formation to programmatically build out Lambda functions and the infrastructure required to link them and the bucket that can be triggered by the job runs to efficiently perform deduplication across the replication set without the need for periodic fulls or repeated remote API calls against the bucket. While their documentation is gatekept by a login if you have access a longer comparison is available in their [7.1.2 LTS documentation set](https://docs.cohesity.com/7_1_2/Web/UserGuide/Content/Dashboard/Platform/archival-differences.htm?tocpath=External%20Targets%7CRegister%20an%20External%20Target%7CRegister%20an%20External%20Target%20for%20Archival%7C_____1).
 
-![Cohesity documentation table comparing Cloud Archive with Incremental Periodic Full versus Cloud Archive with Incremental Forever Archival, describing how each handles full and incremental archive cycles](image-10.png)
+{{< figure src="image-10.png" alt="Cohesity documentation table comparing Cloud Archive with Incremental Periodic Full versus Cloud Archive with Incremental Forever Archival, describing how each handles full and incremental archive cycles" >}}
 
 ## IAM Pre-Work
 
@@ -86,7 +86,7 @@ Now that we've setup our access and created our bucket let's switch over to the 
 
 Once we click "Add External Target" we'll have a few choices to make that annoyingly their UI makes you manually walk through. As you can see in the image below there are quite a few settings with information we've created through the steps above. Of note here is I've selected the S3-IA Storage Class. I am a big proponent of this class for data backup purposes, just be mindful of the default limitations and financial aspects of it if you haven't covered those off as is done with the 1[1:11 Cloud Object Storage for Amazon S3](https://1111systems.com/services/object-storage/) product.
 
-![Cohesity Register External Target form showing AWS storage type, S3-IA storage class, bucket name, AWS US East Ohio region, account ID, access key fields, and Incremental Forever archival format selected with a prompt to download the Cloud Formation Template](image-11.png)
+{{< figure src="image-11.png" alt="Cohesity Register External Target form showing AWS storage type, S3-IA storage class, bucket name, AWS US East Ohio region, account ID, access key fields, and Incremental Forever archival format selected with a prompt to download the Cloud Formation Template" >}}
 
 Once you select Incremental Forever for the Archival Format you'll be prompted to download the Cloud Formation Template (cft.json) file. Please do as we'll need this for our next steps.
 
@@ -96,23 +96,23 @@ If you aren't familiar [Cloud Formation](https://aws.amazon.com/cloudformation/)
 
 To get started you will need to navigate to Cloud Formation in the AWS console and click Create Stack. In this first screen simply leave the default of using an existing template, choose upload a template file and then supply the file you downloaded from the External Target UI.
 
-![AWS CloudFormation Create Stack screen with Upload a template file selected and cft.json uploaded as the template source](image-3.png)
+{{< figure src="image-3.png" alt="AWS CloudFormation Create Stack screen with Upload a template file selected and cft.json uploaded as the template source" >}}
 
 The next screen has a lot of prompts that you can largely leave empty unless you are using AWS Direct or other connectivity solutions that require the data to be routed through AWS VPC infrastructure. What you DO have to fill in is a stack name, that can be anything you want but I tend to like using the bucket name, and the BucketName parameter. This is the target bucket name and this will link your created bucket to the created Lambda resources.
 
-![AWS CloudFormation Specify Stack Details screen with stack name and BucketName parameter filled in using the target bucket name, and optional VPC security group and subnet fields left empty](image-4.png)
+{{< figure src="image-4.png" alt="AWS CloudFormation Specify Stack Details screen with stack name and BucketName parameter filled in using the target bucket name, and optional VPC security group and subnet fields left empty" >}}
 
 In the next screen you need to acknowledge that AWS will create cloud resources on your behalf and you agree to pay for them. This is typically very important to Amazon. ;)
 
-![AWS CloudFormation Capabilities screen with the IAM resource acknowledgment checkbox checked, confirming CloudFormation may create IAM roles](image-5.png)
+{{< figure src="image-5.png" alt="AWS CloudFormation Capabilities screen with the IAM resource acknowledgment checkbox checked, confirming CloudFormation may create IAM roles" >}}
 
 In the final confirmation page click submit for the stack to be created and it will think immediately kick off running.
 
-![AWS CloudFormation Review and Create screen showing the quick-create link option and Submit button to kick off stack creation](image-6.png)
+{{< figure src="image-6.png" alt="AWS CloudFormation Review and Create screen showing the quick-create link option and Submit button to kick off stack creation" >}}
 
 Now that our stack is created it will then begin running. This will probably take 3-5 minutes to complete, but I will note that in my experience it's worth giving some time for global sync to complete once you see CREATE\_COMPLETE under the task on the left. In practice I've found that if you flip back over immediately after completion it tends to fail for up to 5 minutes after the stack is built out.
 
-![AWS CloudFormation stack Events tab showing the stack creation in progress with a mix of CREATE_COMPLETE and CREATE_IN_PROGRESS statuses for Lambda functions, IAM roles, and policies](image-7.png)
+{{< figure src="image-7.png" alt="AWS CloudFormation stack Events tab showing the stack creation in progress with a mix of CREATE_COMPLETE and CREATE_IN_PROGRESS statuses for Lambda functions, IAM roles, and policies" >}}
 
 Now that our Cloud Formation stack has completed you can view what it's done under the Outputs tab and navigate to the Lambda service to review the code they've added or IAM to review modifications to roles and policies. Once done it's time to flip back to Cohesity UI to finish up.
 
@@ -120,7 +120,7 @@ Now that our Cloud Formation stack has completed you can view what it's done und
 
 Now that our template has run we simply need to review any other settings at the bottom of the external target registration screen and click Register. If successful you will see your target added to the external targets list.
 
-![Cohesity Register External Target bottom of form showing Encryption enabled with Internal KMS, Compression enabled, Bandwidth Throttling disabled, and the Register button](image-9.png)
+{{< figure src="image-9.png" alt="Cohesity Register External Target bottom of form showing Encryption enabled with Internal KMS, Compression enabled, Bandwidth Throttling disabled, and the Register button" >}}
 
 ## Creating and Applying Policy
 
@@ -137,11 +137,11 @@ Now that we have our external target we need to create a policy that can be appl
 
 You'll need to click the "More Options" button to get into our fun stuff but once you do that it's relatively simple. Simply fill in the blanks for the primary copy then click "Add Archive" and complete as needed.
 
-![Cohesity Create Policy screen showing daily backup with 30-day local retention and DataLock, plus an archive target configured to run every job with 90-day retention and 90-day lock](image-12.png)
+{{< figure src="image-12.png" alt="Cohesity Create Policy screen showing daily backup with 30-day local retention and DataLock, plus an archive target configured to run every job with 90-day retention and 90-day lock" >}}
 
 Once your policy is created it can be applied to any type of Protection you have. This can be VMs, M365 data, File Shares, etc. which is nice.
 
-![Cohesity New Protection screen showing the Local30D-Remote90D-imm policy applied to a VM protection group covering 6 virtual machines from a vCenter server](image-13.png)
+{{< figure src="image-13.png" alt="Cohesity New Protection screen showing the Local30D-Remote90D-imm policy applied to a VM protection group covering 6 virtual machines from a vCenter server" >}}
 
 And now we're done!
 

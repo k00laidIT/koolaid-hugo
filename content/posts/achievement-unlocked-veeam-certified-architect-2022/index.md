@@ -40,7 +40,7 @@ Once you get through the scenario there will be a number of multiple choice ques
 
 As I stated above I was lucky enough to be able to take the course while in beta status so my impressions of the course itself may not be in line with what is currently being put out there. That said the core idea of the class is very good, that it teaches you the Veeam architect way of thinking through a design based around customer requirements. This is especially on point because the Subject Matter Experts for the course itself were the Global Solutions Architect group within Veeam, some of the most knowledgeable people I know on the subject. The course walks you through what they consider the six stages of the solution lifecycle, which in turn make up the six sections of your exam, with each being tested against.
 
-![Veeam Design Lifecycle diagram showing six stages arranged in a hexagonal cycle: Discovery, Conceptual, Logical, Physical, Implementation and Governance, and Validation and Iteration](img_0268-293x300.jpg)
+{{< figure src="img_0268-293x300.jpg" alt="Veeam Design Lifecycle diagram showing six stages arranged in a hexagonal cycle: Discovery, Conceptual, Logical, Physical, Implementation and Governance, and Validation and Iteration" >}}
 
 Further the course focuses on the four basic design principles;
 

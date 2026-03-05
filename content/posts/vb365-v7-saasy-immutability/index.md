@@ -24,25 +24,25 @@ With VB365 v7 both statements have changed. First backup copies can now land on 
 
 <figure class="wp-block-gallery aligncenter has-nested-images columns-4">
 
-![](Screenshot-2023-02-03-at-10.56.19-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-10.56.19-AM.png" alt="" >}}
 
-![](Screenshot-2023-02-03-at-10.56.34-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-10.56.34-AM.png" alt="" >}}
 
-![](Screenshot-2023-02-03-at-10.56.44-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-10.56.44-AM.png" alt="" >}}
 
-![](Screenshot-2023-02-03-at-10.56.56-AM.png)</figure>2\. Add your secondary object storage and VBO repositories. These should arguably be setup in a different object storage environment as your primary copy but still well connected. Because you will be writing data that is set to object-lock for the retention period of the repository you should consider the shortest retention period here in accordance with your organization’s data policy and standards.
+{{< figure src="Screenshot-2023-02-03-at-10.56.56-AM.png" alt="" >}}</figure>2\. Add your secondary object storage and VBO repositories. These should arguably be setup in a different object storage environment as your primary copy but still well connected. Because you will be writing data that is set to object-lock for the retention period of the repository you should consider the shortest retention period here in accordance with your organization’s data policy and standards.
 
 <figure class="wp-block-gallery aligncenter has-nested-images columns-default is-cropped">
 
-![](Screenshot-2023-02-03-at-10.57.11-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-10.57.11-AM.png" alt="" >}}
 
-![](Screenshot-2023-02-03-at-10.57.22-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-10.57.22-AM.png" alt="" >}}
 
-![](Screenshot-2023-02-03-at-10.57.37-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-10.57.37-AM.png" alt="" >}}
 
 </figure>3\. Create backup jobs targeting your primary backup repositories. These will automatically copy to the secondary repository and become immutable as it is written.
 
-![](Screenshot-2023-02-03-at-11.06.47-AM.png)
+{{< figure src="Screenshot-2023-02-03-at-11.06.47-AM.png" alt="" >}}
 
 ## Conclusion
 

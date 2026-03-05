@@ -23,7 +23,7 @@ Ahead of its annual [<span class="scayt-misspell-word" data-scayt-word="Vmworld"
  
  **Virtual Volumes** [
 
-![large_VVols](large_VVols.png)
+{{< figure src="large_VVols.png" alt="large_VVols" >}}
 
 ](large_VVols.png)Virtual Volumes is storage centric feature that has been discussed and released to the public as a technical preview since at least 2012 and is a spin off idea from the original concept of <span class="scayt-misspell-word" data-scayt-word="VAAI">VAAI</span>. Typically when creating a new VM a VMware Admin needs to either contact the Storage Admin carve out a LUN each time, do so themselves, or what many, myself included do, create impossibly large <span class="scayt-misspell-word" data-scayt-word="LUNs">LUNs</span> and then have multiple VMs within which is actually pretty wasteful and negatively impacts system performance. The goal of <span class="scayt-misspell-word" data-scayt-word="VVOLs">VVOLs</span> is to make storage VM-centric rather than <span class="scayt-misspell-word" data-scayt-word="LUN-centric">LUN-centric</span> by leveraging that <span class="scayt-misspell-word" data-scayt-word="vSphere">vSphere</span> API for Array Integration (<span class="scayt-misspell-word" data-scayt-word="VAAI">VAAI</span>) to make the deployment of storage just a component of deploying a VM in whatever manner you choose to do so. Put as simply as possible… > **<span class="scayt-misspell-word" data-scayt-word="VVOLs">VVOLs</span> is the storage of VM files directly on the storage system without a LUN middle man.**
 

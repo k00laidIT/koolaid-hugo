@@ -30,47 +30,47 @@ Install all the needed applications. By default DSM has no data protection appli
 
 **Activate Active Backup product.** Upon first launch of the application you will need to activate it. As there is no additional cost to use the software I am not sure why this is necessary, here we are.
 
-![](12E58FD5-C111-47D8-B586-A081CC8523D4.png)
+{{< figure src="12E58FD5-C111-47D8-B586-A081CC8523D4.png" alt="" >}}
 
 **Create a folder for your backups.** This to be honest is an optional task but one that fits my own tendencies. Installation automatically creates an ActiveBackupforBusiness\\ActiveBackupforMicrosoft365 folder structure upon installation but I assume I may have a point where I want to protect more than a single organization so I create a folder for each organization.
 
-![](image-13.png)
+{{< figure src="image-13.png" alt="" >}}
 
 **Create a Active Backup Task.** In Synology's terminology a backup job is a task married to an organization. There really isn't a concept of creating multiple jobs for a single organization, but as i stated earlier, it errs on the side of simplicity.
 
-![](image-14.png)
+{{< figure src="image-14.png" alt="" >}}
 
 **Create a Certificate Password for Entra ID authentication.** Like all the other M365 data protection products that make use of Modern Authentication you must have a local certificate generated to authenticate to the Entra ID Application used to provide access. I do like that Synology has chosen to protect this certificate with a password.
 
-![](image-18.png)
+{{< figure src="image-18.png" alt="" >}}
 
 **Authenticate and grant rights.** As opposed to the old device code method Active Backup launches directly into authenticating to your M365 organization immediately after clicking next. The workflow that follows is much like adding your account to Apple Mail or Outlook so I won't go into what's involved there but it is good to know what rights you are granting to the Microsoft365 organization. It is important to note that you should only try to do this with an account with global administrator rights.
 
-![](image-15.png)
+{{< figure src="image-15.png" alt="" >}}
 
 **Creating an Azure AD application.** Those that know the ire I have in my heart for the Entra ID name that Azure AD has been changed to will recognize the happiness I felt in seeing the Synology UI using the old name. That said, it should probably be updated to the new one if I'm being picky, but the app registration is definitely straight forward enough and automatic.
 
-![](image-16.png)
+{{< figure src="image-16.png" alt="" >}}
 
 **Save an offline copy of your certificate.** Once you have successfully authenticated and created your AD app (sorry, old habits) the application will prompt you to save a copy of your certificate in a safe place. This will be important in case the link is ever broken for some reason.
 
-![](image-17.png)
+{{< figure src="image-17.png" alt="" >}}
 
 Once you have linked your account you can then create a backup task. In my case I'm going to keep it simple and backup everything for my 2 users but you can be far more granular, selecting different users and M365 services by clicking Edit. You can also optionally enable the web base portal that allow for self service restores. For my little use case it isn't needed but I'll enable for this purpose.
 
-![](image-4.png)
+{{< figure src="image-4.png" alt="" >}}
 
 Now one thing I really do like about Synology's Active Backup is the Auto-discovery capability. In the next sscreen you can predefine what to look for in terms of linked accounts and data types to automatically handle any new users or external entities that become linked to your account.
 
-![](image-5.png)
+{{< figure src="image-5.png" alt="" >}}
 
 Finally you set your backup policy. It's most appropriate for you to choose what matters for your own organization here but I would say a daily backup is sufficient for most organizations.
 
-![](image-6.png)
+{{< figure src="image-6.png" alt="" >}}
 
 And with that you are done with the backup portion. You will be prompted to run now and it's worth doing so. Once completed you should have green checks across the board and Backup status of Complete.
 
-![](image-11.png)
+{{< figure src="image-11.png" alt="" >}}
 
 ## 2. Setting Up Immutable Snapshots
 
@@ -78,15 +78,15 @@ While I have already covered off this topic some in another post, [Two Simple Wa
 
 We'll now quickly launch the Snapshot Replication app and click on our shared folder and choose settings. We can then enable a snapshot schedule in hours|days|weeks|etc. to fit our needs. As I'm only doing a daily backup a daily snapshot should be sufficient as well. I'll also enable the immutable snapshots here. While you can select up to 30 days 7 is good for my needs.
 
-![](image-8.png)
+{{< figure src="image-8.png" alt="" >}}
 
 Next you'll want to click on the retention tab and enable a retention policy, limiting the number of snapshots you keep. As we are only keeping 30 versions of the backup day 30 days worth should be good here as well.
 
-![](image-9.png)
+{{< figure src="image-9.png" alt="" >}}
 
 Once completed you can click Snapshot, take a snapshot to go ahead and get your first one done.
 
-![](image-10.png)
+{{< figure src="image-10.png" alt="" >}}
 
 ## Conclusion
 

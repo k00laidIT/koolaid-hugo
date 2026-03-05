@@ -10,7 +10,7 @@ featureimage = "featured.png"
 
 Recently I've found myself thinking deep thoughts about a variety of subjects. Like any normal person glutton for punishment I find that writing these thoughts down helps me to process and further I've decided that if I'm going to write it down why not put these thoughts out for to world see! It's worth noting that these are not going to be the most polished posts you see in this space as it's more like long form notes, but on the flip side I truly plan on coming back and revising content here regularly as well as these thoughts evolve and flesh themselves out more.
 
-![](1-el4nHcOQdfHxzzcTC99jDw.webp)
+{{< figure src="1-el4nHcOQdfHxzzcTC99jDw.webp" alt="" >}}
 
 First up in this hopefully successful series is quite a lot of thoughts around the concept of Hybrid Cloud. If you aren't familiar with the idea of Hybrid Cloud you probably at least have heard about the mythical and ever evolving "Cloud" in a computing sense; a location where things work and you just shouldn't think or know about what happens under the covers. Hybrid cloud is the concept of needing to mix and match services between your on-premises datacenter(s) and the public cloud(s).
 

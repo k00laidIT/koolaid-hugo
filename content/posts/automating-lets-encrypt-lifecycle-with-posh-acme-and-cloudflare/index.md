@@ -18,7 +18,7 @@ We need to start by creating a DNS record in cloudflare that aligns to the host 
 2. Under the DNS management section click Add record and add your record type as needed. If you need more information than this I'll refer you to this [excellent primer](https://wizardzines.com/comics/dns-records/) by [Julia Evans](https://bsky.app/profile/b0rk.jvns.ca).
 3. Save your newly added record
 
-![Cloudflare DNS record editor showing an A record for dal32-vbo8 with proxy status set to Proxied](image-1.png)
+{{< figure src="image-1.png" alt="Cloudflare DNS record editor showing an A record for dal32-vbo8 with proxy status set to Proxied" >}}
 
 ### Create Cloudflare API Token
 
@@ -32,7 +32,7 @@ Next we need to create an API token in Cloudflare for your uses. While you can u
 6. Click Continue to summary and then create token
 7. Capture your created token and save securely. You'll use this later.
 
-![Cloudflare Account API Tokens page showing an Edit zone DNS API token summary scoped to all zones with DNS:Edit permissions](image.png)
+{{< figure src="image.png" alt="Cloudflare Account API Tokens page showing an Edit zone DNS API token summary scoped to all zones with DNS:Edit permissions" >}}
 
 ### Install the Posh-ACME module
 

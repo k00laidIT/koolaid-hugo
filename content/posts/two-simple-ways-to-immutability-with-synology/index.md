@@ -18,15 +18,15 @@ The first and most common method you may consider for standard NAS file share us
 
 First start creating or editing a shared folder as normal. While I have the recycle bin enabled here be aware that it will not be compatible with WORM and will be disabled later.
 
-![](image-19.png)
+{{< figure src="image-19.png" alt="" >}}
 
 In the next screen we can enable Synology's [WriteOnce](https://kb.synology.com/en-in/WP/WriteOnce_White_Paper/1) feature, their implementation of WORM.
 
-![](image-20.png)
+{{< figure src="image-20.png" alt="" >}}
 
 As mentioned as soon as you enable WriteOnce it will prompt you to disable the Recycle Bin. Click Yes to continue.
 
-![](image-21.png)
+{{< figure src="image-21.png" alt="" >}}
 
 Now we get into the interesting bits. On the WriteOnce implementation screen that will look familiar to anybody used to working with object lock. First off WriteOnce defaults to Enterprise mode, which is nice but any named administrator account can override the immutability. This is equivalent in object world of [Governance Mode](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) and while it may sound fine is not optimal in a product set where most devices are only ever set up with a single, administrative user.
 
@@ -34,7 +34,7 @@ Next we want to enable AutoLock. While you can play with the Timer I would recom
 
 Finally in regards to Lock state if you are primarily working with documents it may be optimal to leave the default of append-only, allowing files to grow but never deleted or shrunk. I am going to use Immutable here though.
 
-![](image-3.png)
+{{< figure src="image-3.png" alt="" >}}
 
 While there are other settings past this you can keep the defaults here. I would advise if you use Enterprise mode that you create a non-administrative user (or more than one!) and enable MFA on your admin user to protect that data.
 
@@ -50,17 +50,17 @@ If not present you may need to start with installing the "Snapshot Replication" 
 
 Once you launch the Snapshot Replication app navigate to the Snapshots menu item. From here you can see a set of lists of shared folders and LUNs and their protection status. To enable immutable local snapshots click on a storage container and then choose settings.
 
-![](image-30.png)
+{{< figure src="image-30.png" alt="" >}}
 
 In your settings you'll need to enable a schedule and the define as desired. Below is an example of running a simple daily snapshot that is protected for 7 days. While with immutable shared folders we could set long term immutability know that with snapshots you hit the maximum at 30 days and [Synology's recommendation](https://kb.synology.com/en-us/DSM/tutorial/what_is_an_immutable_snapshot#x_anchor_id9699dcd945) is 7-14 days.
 
-![](image-31.png)
+{{< figure src="image-31.png" alt="" >}}
 
 Next if you click the retention tab along the top you will want to enable a retention policy, otherwise it will continue to accrue until you delete or run out of space. This is truly a choose what is best for you in terms of choosing between number to keep or keep for so many days, but if you are doing more than 1 a day be mindful of the math if you choose the first option.
 
-![](image-32.png)
+{{< figure src="image-32.png" alt="" >}}
 
-![](image-34.png)
+{{< figure src="image-34.png" alt="" >}}
 
 ## Conclusion
 

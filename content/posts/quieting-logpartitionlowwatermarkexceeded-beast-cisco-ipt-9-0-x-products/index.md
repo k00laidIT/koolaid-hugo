@@ -12,23 +12,23 @@ As a SysAdmin I'm used to waking up, grabbing my phone and seeing the 20 or so e
 
 | Go back to the RTMT application, and connect to the affected component server. Once there you will need to navigate to the Trace &amp; Log Central tool then double-click on the Remote Browse option. | [
 
-![remote-browse](remote-browse-269x300.jpg)
+{{< figure src="remote-browse-269x300.jpg" alt="remote-browse" >}}
 
 ](remote-browse.jpg) |
 |---|---|
 | Once in the Remote Browse dialog box choose "Trace Files" and then we really only need one of the services selected, Cisco Unified Intelligence Center Serviceability Service and then Next, Next, Finish. | [
 
-![select-cuic](select-cuic-261x300.jpg)
+{{< figure src="select-cuic-261x300.jpg" alt="select-cuic" >}}
 
 ](select-cuic.jpg) |
 | Once it is done gathering all of the log files it will tell you your browse is ready. You then need to drill all the way down through the menu on each node until you reach "jmx." Once you double-click on jmx you will see the bonanza of logs. It is best to just click one, Ctrl+A to select all and then just hit the Delete button. | [
 
-![browse-to-node](browse-to-node-300x198.jpg)
+{{< figure src="browse-to-node-300x198.jpg" alt="browse-to-node" >}}
 
 ](browse-to-node.jpg) |
 | After you hit delete it will probably take it quite a while to process through. You will then want to click on the node name and hit refresh to check but when done you should be left with just the currently active log file. Afterwards if you have multiple nodes of the application you will need to repeat this process for the other. | [
 
-![all-clean](all-clean-300x178.jpg)
+{{< figure src="all-clean-300x178.jpg" alt="all-clean" >}}
 
 ](all-clean.jpg) |
 

@@ -16,7 +16,7 @@ It's appropriate to level set on the technologies at hand first. [Veeam Cloud Co
 
 <figure class="wp-block-image size-large">
 
-![](img_0667.jpg)
+{{< figure src="img_0667.jpg" alt="" >}}
 
 <figcaption class="wp-element-caption">https://helpcenter.veeam.com/archive/backup/120/cloud/cloud\_infrastructure.html</figcaption></figure>Veeam Cloud Connect Backup allows for a service provider to provision a slice of cloud storage and securely provision that a customer as a tenant. That storage can have further enhancements such as Immutability if on Linux repositories or with v12 object storage and Insider Protection, an out-of-band temporary storage location for deleted cloud backups as part of a ransomware mitigation strategy. Once the tenant is provisioned on the SP side a customer only needs to enter 3 pieces of information to add that storage as a repository or repositories to their backup infrastructure. Afterwards they can simply target that repo for backup copy or in some situations even direct backup jobs.
 
@@ -46,7 +46,7 @@ All that begs the question, should I as a Veeam Backup &amp; Replication adminis
 
 <figure class="wp-block-image size-large">
 
-![](featured.jpg)
+{{< figure src="featured.jpg" alt="" >}}
 
 </figure>In the end my biggest reason why I would still choose VCC-B today is the restore scenarios. With Object Storage unless you are utilizing a VCSP like [11:11 Systems](https://www.1111systems.com) you aren't going to be able to have the object storage close enough to a VMware native compute to facilitate timely restore. Your other options are the opposite ends of the spectrum; low cost providers who have no compute capabilities and may have extra charges that may apply to your organization depending on deletion.Data egress or API calls along with hyperscalers that do have compute adjacent but are a completely different architecture to vSphere are other concerns. These scenarios require conversion of backups to instances and rely on your IT staff having the skillset to securely create an environment for these workloads to run from.
 

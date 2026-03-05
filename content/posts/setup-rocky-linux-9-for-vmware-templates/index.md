@@ -14,7 +14,7 @@ Aside from the name pretty much everything in Rocky looks and feels the same as 
 
 Luckily there are a couple of options that VMware has finally documented in [KB59557](https://kb.vmware.com/s/article/59557). The first of which is kind of janky, edit the /etc/redhat-release file and change the word "Rocky" to "CentOS." Sure this works but anytime you run a system upgrade it's going to change it back. The better option is to install and configure Canonical's [cloud-init](https://cloud-init.io/). If you haven't looked at cloud-init yet it's definitely time as it allows you to be a bit more distribution agnostic in how you automatically provision virtual machines and cloud instances. As it is from the same maker Ubuntu has been supporting it and installs it by default for some time now so having support here is just nice.
 
-![](image-1.png)
+{{< figure src="image-1.png" alt="" >}}
 
 So first thing's first when you go to build your template source VM set the distribution to CentOS 8. This is as close as you are going to get until you upgrade to 7.0u3c or later. You then can build out your VM template as you normally would. Once the system is up you simply need to install cloud-init.
 
@@ -24,8 +24,8 @@ yum -y cloud-init
 ```
 Once installed it's worth checking out /etc/cloud/cloud.cfg and ensure that the `disable_vmware_customization` parameter is set to false. This will allow VMware to utilize cloud-init if it is available.
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
 Now that you have installed cloud-init you can shutdown the VM (after making sure the system is up to date of course) and convert it to a template. It is then just a matter of using your VMware Customization Specification under Policies and Profiles to supply your rules for how you will automate the deployment.
 
-![](image-2.png)
+{{< figure src="image-2.png" alt="" >}}

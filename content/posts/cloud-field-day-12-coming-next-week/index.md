@@ -15,7 +15,7 @@ In the interests of full disclosure it is worth noting that [Gesalt IT](https://
 
 ## Schedule
 
-![Cloud Field Day 12 sponsor logos including MemVerge, Red Hat, Prosimo, Yotascale, Juniper Networks, Ondat, and Veeam](image.png)
+{{< figure src="image.png" alt="Cloud Field Day 12 sponsor logos including MemVerge, Red Hat, Prosimo, Yotascale, Juniper Networks, Ondat, and Veeam" >}}
 
 All presentations will be able to be viewed online live at the base event link <https://techfieldday.com/event/cfd12/> and if you are following along the other delegates and I will be happy to pass along questions that are sent via twitter with the #CFD12 tag. In PST times the presentations will be on this schedule:
 

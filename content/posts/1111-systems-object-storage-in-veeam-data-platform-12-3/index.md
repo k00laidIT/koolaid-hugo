@@ -14,7 +14,7 @@ With the 12.3 release of the Veeam Data Platform 11:11 Systems low cost and Veea
 
 While this starts with the Backup &amp; Replication Console application there are many ways to interact with this new storage with Veeam. There are new cmdlets in the Powershell modules, API calls to automate deployment, management and monitoring and finally a full suite of capabilities in Veeam ONE.
 
-![Veeam ONE repository summary dashboard for an 11:11 Cloud Object Storage for Amazon S3 repository showing 257.7 GB used, 30-day immutability, S3 Standard-IA storage class, and a daily space usage bar chart](image-25.png)
+{{< figure src="image-25.png" alt="Veeam ONE repository summary dashboard for an 11:11 Cloud Object Storage for Amazon S3 repository showing 257.7 GB used, 30-day immutability, S3 Standard-IA storage class, and a daily space usage bar chart" >}}
 
 ## Documentation
 
@@ -41,25 +41,25 @@ aws --profile premlab-ca-central-1 s3api create-bucket --object-lock-enabled-for
 ```
 **Add Backup Repository**
 
-![Veeam Add Backup Repository dialog with Object Storage option highlighted](image-15.png)
+{{< figure src="image-15.png" alt="Veeam Add Backup Repository dialog with Object Storage option highlighted" >}}
 
 **Choose Additional Providers**
 
-![Veeam Object Storage type selection dialog with Additional Providers option highlighted](image-16.png)
+{{< figure src="image-16.png" alt="Veeam Object Storage type selection dialog with Additional Providers option highlighted" >}}
 
 **Choose 11:11 Cloud Object Storage**
 
-![Veeam Additional Providers list showing 11:11 Cloud Object Storage, IBM Cloud Object Storage, and Wasabi Cloud Storage options with 11:11 selected](image-17.png)
+{{< figure src="image-17.png" alt="Veeam Additional Providers list showing 11:11 Cloud Object Storage, IBM Cloud Object Storage, and Wasabi Cloud Storage options with 11:11 selected" >}}
 
 **Name repository** - I like to use bucket name but this should align to your own needs.
 
-![Veeam New 11:11 Object Storage Repository Name step with bucket name entered as the repository name](image-18.png)
+{{< figure src="image-18.png" alt="Veeam New 11:11 Object Storage Repository Name step with bucket name entered as the repository name" >}}
 
 **Select your added Cloud Credentials** - You may have already added these via menu &gt; Credentials &gt; Cloud Credentials. If not you can do so by selecting Add &gt; AWS access key.
 
 For most use cases except where you may be doing a direct connectivity solution between your datacenter and AWS you will want to leave the Connection Mode to Direct.
 
-![Veeam New 11:11 Object Storage Repository Account step with cloud credentials selected and Connection Mode set to Direct](image-19.png)
+{{< figure src="image-19.png" alt="Veeam New 11:11 Object Storage Repository Account step with cloud credentials selected and Connection Mode set to Direct" >}}
 
 **Select Bucket Configuration Items**
 
@@ -69,19 +69,19 @@ For most use cases except where you may be doing a direct connectivity solution 
 - Immutability - If your bucket is created with object lock then you have to enable immutability. We recommend 30 days
 - Use infrequent access storage class - recommendation is to leave this enabled. The 11:11 S3 product is optimized around this storage class. While there are use cases where you might want to and you can disable it and use Standard S3 instead know that those will result in burst charges on your bill.
 
-![Veeam New 11:11 Object Storage Repository Bucket step showing Canada Central datacenter, bucket name, Veeam folder, 30-day immutability, and infrequent access storage class enabled](image-20.png)
+{{< figure src="image-20.png" alt="Veeam New 11:11 Object Storage Repository Bucket step showing Canada Central datacenter, bucket name, Veeam folder, 30-day immutability, and infrequent access storage class enabled" >}}
 
 **Mount Server** - leaving defaults is fine for most use cases.
 
-![Veeam New 11:11 Object Storage Repository Mount Server step with backup server selected, vPower NFS enabled, and helper appliance configured successfully](image-21.png)
+{{< figure src="image-21.png" alt="Veeam New 11:11 Object Storage Repository Mount Server step with backup server selected, vPower NFS enabled, and helper appliance configured successfully" >}}
 
 **Confirm and search for backups** - unless you are bringing in an existing 11:11 repository you can just Apply.
 
-![Veeam New 11:11 Object Storage Repository Review step listing vPower NFS, Mount Server, VMware VDDK, and Veeam Threat Hunter components as already existing on the target server](image-22.png)
+{{< figure src="image-22.png" alt="Veeam New 11:11 Object Storage Repository Review step listing vPower NFS, Mount Server, VMware VDDK, and Veeam Threat Hunter components as already existing on the target server" >}}
 
 **Finish up** - Once completed you will get confirmation of all the things and then prompted to Finish.
 
-![Veeam New 11:11 Object Storage Repository Apply step showing all infrastructure components registered successfully and object storage repository saved](image-23.png)
+{{< figure src="image-23.png" alt="Veeam New 11:11 Object Storage Repository Apply step showing all infrastructure components registered successfully and object storage repository saved" >}}
 
 ## Job Setup Recommendations
 

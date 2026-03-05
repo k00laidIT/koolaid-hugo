@@ -38,7 +38,7 @@ So now we've cleaned out the bad stuff and we just need to run ADprep. If you ha
 
 <div class="wp-block-image"><figure class="aligncenter">
 
-![](adprep-result.jpg)
+{{< figure src="adprep-result.jpg" alt="" >}}
 
 <figcaption>Yay! It actually worked!</figcaption></figure></div>1. Mount the ISO file for your given operating system to your domain controller. You can either do this by putting the ISO on the system, right click, mount or do so through your virtualization platform.
 2. Open up a command line or powershell prompt and navigate to &lt;CDROOT&gt;:\\support\\adprep

@@ -53,7 +53,7 @@ brew install awscli
 ```
 Once you have it installed you are going to need to interact with 2 local files in your .aws directory on your user profile, config and credentials. You can get these created by using the `<strong>aws configure</strong>` command. Further aws cli supports the concept of profiles so you can create multiple connections and accounts. To get started with this you would simply use `<strong>aws configure --profile obj-test</strong> `where obj-test is whatever name you want to use. This will then walk through prompting you for 3 of those 4 pieces of information, access key, secret key and default region. Just as an FYI this command impacts 2 files within your user profile, regardless of OS, ~/.aws/config and ~/.aws/credentials. These are worth reviewing after you configure to become familiar with the format and security implications.
 
-![](aws-configure.jpg)
+{{< figure src="aws-configure.jpg" alt="" >}}
 
 ## Getting Started with CLI
 
@@ -67,7 +67,7 @@ A good first step will be creating a basic bucket. You can do this leveraging th
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api create-bucket --bucket test-bucket-1
 ```
-![](image.png)
+{{< figure src="image.png" alt="" >}}
 
 Awesome! We've got our first bucket in our repository. That's cool but I want my bucket to be able to leverage this object lock capability Jim keeps going on about. To do that you use the same command but add the --object-lock-enabled-for-bucket parameter.
 
@@ -79,7 +79,7 @@ Cool, let's go and check our work with the s3api get-object-lock-configuration c
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api get-object-lock-configuration --bucket test-bucket-2-locked
 ```
-![](image-1.png)
+{{< figure src="image-1.png" alt="" >}}
 
 So yeah, good to go there. Next let's dive into that s3api list-buckets command seen in the previous screenshot. Listing buckets is a good example for understanding that when you access s3 or s3 compatible storage you are really talking about 2 things; s3 protocol and the s3api. For listing buckets you can use either:
 
@@ -89,7 +89,7 @@ aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3 ls
 ```
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
 While these are similar it's worth noting the return will not be the same. The ls command will return data much like what it would in a standard Linux shell while s3api list-buckets will return JSON formatted data by default.
 
@@ -102,14 +102,14 @@ Again writing data, especially if you are familar with the \*nix methods to s3 c
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3 cp ./IMG_4881.jpg s3://test-bucket-2-locked/
 ```
-![](image-4.png)
+{{< figure src="image-4.png" alt="" >}}
 
 If I'm not doing this by hand but rather building into automation I can also write data via the s3api.
 
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object --bucket test-bucket-2-locked --body ./aws-configure.jpg --key folder1/aws-config.jpg
 ```
-![](image-3.png)
+{{< figure src="image-3.png" alt="" >}}
 
 Now that we've written a couple files let's look at what we have. As you can see above once again you can do the same actions via both methods, it's just the s3api way will consistently give you more information and more capability. Here's what the api output would look like.
 
@@ -118,7 +118,7 @@ aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com
 ```
 Take note of a few things here. While the s3 ls command gives more traditional file system output s3api refers to the objects with their entire "path" as the key. Essentially in object storage for our benefit it still has the concept of file and folder structure but it views each unique object as a single flat thing on the file system without a true tree. Key is also important because as we start to consider more advanced object storage capabilities such as object lock, encryption, etc. the key is often what you need to supply to complete the commands.
 
-![](image-5.png)
+{{< figure src="image-5.png" alt="" >}}
 
 ## A Few Notes About Object Lock/Immutability
 
@@ -139,28 +139,28 @@ Cool, now to check that compliance we can simply use s3api get-object-lock-confi
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api get-object-lock-configuration --bucket test-bucket-2-locked
 ```
-![](image-7.png)
+{{< figure src="image-7.png" alt="" >}}
 
 Ok, so we've applied a baseline policy of compliance and retention of 21 days to our bucket and confirmed that it's set. Now let's look at the objects within. You can view a particular object's retention with the s3api get-object-retention command. As we are dealing with advanced features at the object level you will need to capture the key for an object to test. If you'll remember we found those using the s3api list-objects command.
 
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api get-object-retention --bucket test-bucket-2-locked --key "folder1/aws-config.jpg"
 ```
-![](image-8.png)
+{{< figure src="image-8.png" alt="" >}}
 
 So as you can see we have both mode and retention date set on the individual object. What if we wanted this particular object to have a different retention period than the bucket itself? Let's now use the s3api put-object-retention option to work and try to set that down to 14 days instead. While we use a general purpose number of days when creating the policy when we set object level retention it's done by modifying the actual date stamp so we'll simply pick a day 14 days from today.
 
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-retention --bucket test-bucket-2-locked --key "folder1/aws-config.jpg" --retention '{ "Mode": "GOVERNANCE", "RetainUntilDate": "2022-02-16T00:00:00" }'
 ```
-![](image-6.png)
+{{< figure src="image-6.png" alt="" >}}
 
 Doh! Remember what we said about compliance mode? That you could make the retention shorter than what was previously set? We are running into that here and can see that it in fact works! Instead let's try this again and set it to 22 days.
 
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-retention --bucket test-bucket-2-locked --key "folder1/aws-config.jpg" --retention '{ "Mode": "GOVERNANCE", "RetainUntilDate": "2022-02-24T00:00:00" }'
 ```
-![](image-9.png)
+{{< figure src="image-9.png" alt="" >}}
 
 As you can see now not only did we not get an error but when you check your retention it is now showing for defined timestamp so it definitely worked.
 

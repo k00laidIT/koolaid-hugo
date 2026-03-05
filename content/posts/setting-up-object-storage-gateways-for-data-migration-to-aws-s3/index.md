@@ -16,11 +16,11 @@ To this end as I've been writing about Veeam capabilities such as VeeaMover and 
 
 By default when an object storage repository is created in Veeam it uses what is called “Direct” mode which will leverage the Veeam Backup and Replication (VBR) server itself to facilitate any data management tasks.
 
-![Veeam Edit Object Storage Repository wizard showing the Account tab with Connection Mode set to Direct](image-36.png)
+{{< figure src="image-36.png" alt="Veeam Edit Object Storage Repository wizard showing the Account tab with Connection Mode set to Direct" >}}
 
 To overcome this the customer can deploy Object Storage Gateways in AWS to support a more efficient data transfer.
 
-![Architecture diagram showing on-premises Veeam VBR server managing data migration from source buckets in another cloud through AWS VPC gateway VMs to AWS S3 destination buckets via Internet Gateway and S3 Endpoint Gateway](image-37.png)
+{{< figure src="image-37.png" alt="Architecture diagram showing on-premises Veeam VBR server managing data migration from source buckets in another cloud through AWS VPC gateway VMs to AWS S3 destination buckets via Internet Gateway and S3 Endpoint Gateway" >}}
 
 ## Considerations
 
@@ -35,11 +35,11 @@ To facilitate this architecture a few things should be considered:
 - Deploy an appropriately sized VM/instance(s) in AWS EC2 or Amazon Elastic VMware Service (EVS) for each concurrent task to be processed. Both Windows and Linux Managed servers are supported as long as the version/distribution is [supported by Veeam](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=120#gateway-server).
 - Add these VM/instance(s) to Veeam as Managed Servers under Backup Infrastructure. In this example 10.71.90.17 will be our object storage gateway.
 
-![Veeam Backup Infrastructure Managed Servers list showing Linux host 10.71.90.17 added as an object storage gateway alongside existing Windows and vCenter servers](image-38.png)
+{{< figure src="image-38.png" alt="Veeam Backup Infrastructure Managed Servers list showing Linux host 10.71.90.17 added as an object storage gateway alongside existing Windows and vCenter servers" >}}
 
 - For each object storage repository source / destination pair modify the Connection Mode to “Through a gateway server” and select the appropriate gateway server.
 
-![Veeam Edit Object Storage Repository Connection Mode dialog with Through a gateway server selected and host 10.71.90.17 chosen from the list](featured.png)
+{{< figure src="featured.png" alt="Veeam Edit Object Storage Repository Connection Mode dialog with Through a gateway server selected and host 10.71.90.17 chosen from the list" >}}
 
 - Click Next, Next, Finish to save the properties modification. Repeat process for each pair of source/destination buckets.
 - NOTE: Once data migration tasks have been completed you will probably want to revert all this work, putting the data migration path for these buckets back to "Direct" and terminate your cloud resources. Think of this as a temporary migration infrastructure so be sure to take note of everything you deploy to support this so you can destroy it once finished.

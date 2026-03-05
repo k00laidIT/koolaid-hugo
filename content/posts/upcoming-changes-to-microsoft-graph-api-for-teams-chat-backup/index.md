@@ -28,7 +28,7 @@ It is worth noting that regardless of if you have opted in or not Veeam will not
 
 <figure class="wp-block-image">
 
-![](6304c34a-7d98-4834-8aea-6e72c9dad116-83331-000006c4d6a35153_file.jpg)
+{{< figure src="6304c34a-7d98-4834-8aea-6e72c9dad116-83331-000006c4d6a35153_file.jpg" alt="" >}}
 
 </figure>## Microsoft 365 Customer Responsibility
 
@@ -38,13 +38,13 @@ Further once this process has been completed customers will need to access their
 
 <figure class="wp-block-image">
 
-![](featured.jpg)
+{{< figure src="featured.jpg" alt="" >}}
 
 </figure>Finally as mentioned above once and if a customer chooses to backup Teams chat the customer will need to access their jobs and select to backup Chats on a per job, per channel basis. Any existing jobs prior to the upgrade will have this new, granular Chats option available per channel but disabled, having the effect of turning off Teams Chat backup. This option was not available before as Chat was just a portion of the overall service. This is actually a positive in that they will have more granular ability to choose when and where to enable chat backup to minimize costs.
 
 <figure class="wp-block-image">
 
-![](9fcc7dc1-67fa-40f3-a4b1-32a71c72bb82-83331-000006c298657005_file.jpg)
+{{< figure src="9fcc7dc1-67fa-40f3-a4b1-32a71c72bb82-83331-000006c298657005_file.jpg" alt="" >}}
 
 </figure>## Conclusion
 

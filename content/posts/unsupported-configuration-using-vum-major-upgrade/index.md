@@ -18,7 +18,7 @@ I've recently been working on getting my environment upgraded from vSphere 5.1 t
 ```
  [
 
-![tasks-and-events-output](tasks-and-events-output-300x69.jpg)
+{{< figure src="tasks-and-events-output-300x69.jpg" alt="tasks-and-events-output" >}}
 
 ](tasks-and-events-output.jpg)This is great except as I've moved from Veeam server to Veeam server with different names and I dismounted and removed the different datastores from the hosts the old lines of config weren't removed from esx.conf. Further after finally seeing the "Error in ESX configuration file (esx.conf)" we got lead down the rabbit hole of the preprocessing of a VUM upgrade. Evidently one of the first steps (at the 12% mark of the remediate task in my case) is to run a variant of the esxcfg-info CLI command which in my case was producing this: ```
 ~ # esxcfg-info | grep 'System UUID'
@@ -27,13 +27,13 @@ Error: Unable to resolve hostname 'backupserver.domain.local'
 ```
  [
 
-![scan-after](scan-after-300x188.jpg)
+{{< figure src="scan-after-300x188.jpg" alt="scan-after" >}}
 
 ](scan-after.jpg)where backupserver.domain.local was the name of an old Veeam server we had used. When the unfiltered esxcfg-info command it would begin listing but would eventually bomb with the same error. After seeing the command output I opened up the esx.conf file with vi, found the offending lines of configuration and removed them. After saving the file I was able to scan the host again and the scan reported the host as being non-compliant instead of incompatible, just what we were looking for. A remediation then was successful and I was back in business. One item of note if you find yourself wanting to try this yourself is make sure you take a backup of the esx.conf file as a miss step here could result in production datastore being unavailable. For those not too familar with Linux style commands you can do this easily with ```
 cp /etc/vmware/esx.conf /tmp/esx.conf
 ```
  **[
 
-![original-error](original-error-300x188.jpg)
+{{< figure src="original-error-300x188.jpg" alt="original-error" >}}
 
 ](original-error.jpg)Conclusion** In the end what I do know is that the act of adding a NFS datastore to an ESX host and then later removing it both from ESXi configuration as well as the underlying DNS zone is what caused the blocking of my upgrade. Now what I don't know if this is due to it being programmatically added by Veeam and then manually removed at a later date or if this is a situation that is common to the use of NFS datastores in general. More importantly, it would be great if VMware would work on how it is reporting such configuration issues. Even taking me out of the equation, if it takes your own Support Engineer 1.5 hours to track it down it isn't documented enough.

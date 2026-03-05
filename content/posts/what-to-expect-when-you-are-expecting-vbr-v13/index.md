@@ -16,7 +16,7 @@ While much of the commentary going back as far as last year but especially since
 
 The first thing to know is that there will be a concept of staged releases over a relatively short period of time. When initially released VBR v13 will come as what is being call the "Veeam Secure Appliance," a VMware OVA or ISO for hardware/other deployments that has relatively strict requirements. This will be what is referred to as the 13.0 release and will be what I call "Linux all the things."
 
-![VSA v13 console screen](image.png)
+{{< figure src="image.png" alt="VSA v13 console screen" >}}
 
  All supported components will be available in Linux variants, more specifically Veeam's security-hardened version of Rocky Linux they are calling Just Enough OS or JeOS. The OVA and ISO for the VBR controller will be based on this and installation of the controller will be as simple as booting to the ISO/OVA and configuring the network via a TUI. Further an ISO for JeOS will be made available for download as well so. you can utilize it for your proxies and Veeam Hardened Repositories. Just as importantly with Veeam's vision of the appliance/hardened OS model of deployment all updates, both application and operating system, will be managed by Veeam to create a more holistically managed system.
 
@@ -27,13 +27,13 @@ In terms of security capabilities for the 13.0 release this is where we will see
 - Backup deletion
 - etc.
 
-![](image-2.png)
+{{< figure src="image-2.png" alt="" >}}
 
  That already seems like a lot, right? But in the spirit of typing this on my Apple Macbook Pro, One more thing...
 
 v13 will also begin the move of the primary User Interface for VBR to a Web UI! This UI in v13 will not be feature complete, trivial things like support for adding Object Storage repositories will not be there for example. For these things a new installable console will also be available for those things that are not already built in. If you are an old head like me and remember the VMware transition from thick console to Web Client this will feel very familiar. Oh, and also.... Dark Mode!
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
  Finally I've been told that both VeeamONE and Veeam Service Provider Console will also be getting new releases when VBR 13.0 drops but as neither of these products have had betas alongside VBR I won't state any knowledge as to what will or won't be there. I continue to be very disappointed by the lack of holistic beta programs for the full picture of what a major version upgrade looks like but it is what it is.
 

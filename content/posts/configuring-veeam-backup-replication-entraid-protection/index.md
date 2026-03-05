@@ -30,30 +30,30 @@ With all that being said let’s get down to the fun work of protecting Entra ID
 
 **Access** <https://entra.microsoft.com> **and copy your Tenant ID.** You’ll need this to add your Entra organization to Veeam Backup and Replication.
 
-![Microsoft Entra admin center showing ilandproduct tenant with Tenant ID field highlighted and counts of 31 users, 22 groups, 1 device, and 122 apps](image.png)
+{{< figure src="image.png" alt="Microsoft Entra admin center showing ilandproduct tenant with Tenant ID field highlighted and counts of 31 users, 22 groups, 1 device, and 122 apps" >}}
 
 **Add your Tenant organization to VBR Inventory**
 
 - Navigate to Inventory in VBR Console, right click Microsoft Entra ID, click “Add Microsoft Entra ID tenant…”
 - In wizard paste your Tenant ID from Entra admin center
 
-![VBR Add Microsoft Entra ID Tenant wizard with Tenant ID field and description showing ilandproduct/1111innovation.com](image-1.png)
+{{< figure src="image-1.png" alt="VBR Add Microsoft Entra ID Tenant wizard with Tenant ID field and description showing ilandproduct/1111innovation.com" >}}
 
 - Choose to create a new account which will have the effect of creating a new app registration. If you’ve previously protected this tenant or need to create an app registration manually for compliance reasons then you can reuse an existing app by providing the app ID.
 
-![VBR Entra ID Tenant Account Type step with Create a new account selected](image-2.png)
+{{< figure src="image-2.png" alt="VBR Entra ID Tenant Account Type step with Create a new account selected" >}}
 
 - Copy the provided passcode and enter it at <https://microsoft.com/devicelogin>.
 
-![VBR Entra ID Tenant Authentication step showing one-time passcode E5YB4JQRP for device login](image-3.png)
+{{< figure src="image-3.png" alt="VBR Entra ID Tenant Authentication step showing one-time passcode E5YB4JQRP for device login" >}}
 
 - Complete login and confirm you are logging into Azure CLI. If you have registered an organization for VB365 this is a similar workflow.
 
-![Microsoft Azure device login confirmation asking if you are trying to sign in to Microsoft Azure CLI](image-4.png)
+{{< figure src="image-4.png" alt="Microsoft Azure device login confirmation asking if you are trying to sign in to Microsoft Azure CLI" >}}
 
 - Click Apply and Finish to complete adding your tenant organization
 
-![VBR Entra ID Tenant Apply step showing all tasks completed successfully including PostgreSQL verification and tenant added](image-5.png)
+{{< figure src="image-5.png" alt="VBR Entra ID Tenant Apply step showing all tasks completed successfully including PostgreSQL verification and tenant added" >}}
 
 **OPTIONAL: Enabling backup of Conditional Access Policies**
 
@@ -67,45 +67,45 @@ If you would like to backup your [conditional access policies](https://learn.mic
     - Add Policy.Read.All under Microsoft Graph &gt; Application
     - Click “Grant admin consent”
 
-![Entra app registration API permissions list showing Microsoft Graph permissions including Policy.Read.All with admin consent granted](image-6.png)
+{{< figure src="image-6.png" alt="Entra app registration API permissions list showing Microsoft Graph permissions including Policy.Read.All with admin consent granted" >}}
 
 **Protect Entra ID Tenant Data**
 
 - From Home right click Backup, choosing Backup Entra ID &gt; Tenant…
 
-![VBR Home context menu showing Backup > Microsoft Entra ID > Tenant option highlighted](image-7.png)
+{{< figure src="image-7.png" alt="VBR Home context menu showing Backup > Microsoft Entra ID > Tenant option highlighted" >}}
 
 - Name your Backup Job then select your tenant, set your retention (default is 7 days), It is always recommended to encrypt your backups so be sure to click Advanced and enable Backup Data Encryption
 
-![VBR New Entra ID Tenant Backup Job showing ilandproduct tenant selected with 7-day retention and Advanced Settings open with encryption enabled](image-8.png)
+{{< figure src="image-8.png" alt="VBR New Entra ID Tenant Backup Job showing ilandproduct tenant selected with 7-day retention and Advanced Settings open with encryption enabled" >}}
 
 - Enable the job to run automatically on whatever schedule you need and click Apply &amp; Finish, letting the job run when finished.
 
-![VBR New Entra ID Tenant Backup Job schedule step showing daily at 10PM with automatic retry 3 times every 10 minutes](image-9.png)
+{{< figure src="image-9.png" alt="VBR New Entra ID Tenant Backup Job schedule step showing daily at 10PM with automatic retry 3 times every 10 minutes" >}}
 
 **Protect Entra ID Logs**
 
 - Create 11:11 Object Storage repository to store EntraID Logs. You can reuse an existing one if you need to but I always like to at least segregate my repositories based on the workload type. I’ve covered how to add these repositories [in a past blog](https://1111systems.com/blog/1111-systems-object-storage-in-veeam-data-platform-12-3/) if you need help.
 
-![VBR New Object Storage Repository bucket step showing 11:11 Systems bucket for Entra logs with immutability enabled for 30 days](image-10.png)
+{{< figure src="image-10.png" alt="VBR New Object Storage Repository bucket step showing 11:11 Systems bucket for Entra logs with immutability enabled for 30 days" >}}
 
 - Once the Entra ID Tenant job has successfully completed right click Backup again and choose Microsoft Entra ID &gt; Logs…, name your job and select your Tenant.
 
-![VBR New Entra ID Log Backup Job tenant step with ilandproduct tenant selected](image-11.png)
+{{< figure src="image-11.png" alt="VBR New Entra ID Log Backup Job tenant step with ilandproduct tenant selected" >}}
 
 - Select your newly created repository and set retention. Once again be sure to click Advanced and at least enable Encryption as well as any other settings you might need.
 
-![VBR New Entra ID Log Backup Job storage step showing repository selection and Advanced Settings with encryption enabled](image-12.png)
+{{< figure src="image-12.png" alt="VBR New Entra ID Log Backup Job storage step showing repository selection and Advanced Settings with encryption enabled" >}}
 
 - Enable the job to run automatically on whatever schedule you need and click Apply &amp; Finish, letting the job run when finished.
 
-![VBR New Entra ID Log Backup Job summary showing job named 1111innovation.com Entra Logs successfully created with PowerShell cmdlet](image-13.png)
+{{< figure src="image-13.png" alt="VBR New Entra ID Log Backup Job summary showing job named 1111innovation.com Entra Logs successfully created with PowerShell cmdlet" >}}
 
 **Determine Licensing Needs**
 
 - Navigate to Home &gt; Licensing and click “Create Report…” after your jobs have successfully ran your Tenant job. This will show you how many licenses you will need to protect your entire Tenant as well as any other workloads this VBR is protection. Remember that you will need a single composite license for all things protected by a Veeam Backup &amp; Replication installation.
 
-![VBR licensing report summary showing 5 virtual machines at 55 points and 3 Microsoft Entra ID units at 30 points for a total of 85 points](image-14.png)
+{{< figure src="image-14.png" alt="VBR licensing report summary showing 5 virtual machines at 55 points and 3 Microsoft Entra ID units at 30 points for a total of 85 points" >}}
 
 ## Conclusion
 

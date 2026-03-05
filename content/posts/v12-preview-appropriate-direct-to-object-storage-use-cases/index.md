@@ -22,7 +22,7 @@ The first and in my opinion most exciting use case for direct to object storage 
 
 As we find ourselves in the world of remote work in 2023 systems administrators have more concerns than in the past about protecting those laptops that our remote workers are using as critical company data further escapes the datacenter. By combining Veeam Backup and Replication v12, Veeam Service Provider Console v7 and public object storage services such as 11:11 Systems’ offering we can create a robust solution for managing these backups securely and at scale with self-service capabilities included.
 
-![](Direct-to-Object-Agents.jpeg)
+{{< figure src="Direct-to-Object-Agents.jpeg" alt="" >}}
 
 ### ✅ NAS Backups
 

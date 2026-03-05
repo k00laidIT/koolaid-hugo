@@ -16,45 +16,45 @@ VBM exposes its use of object storage under the Object Storage Repositories sect
 
 Let's start by going to the backup proxy server, in this case the VBM server itself, and create folder structure for our desired Backup Repositories.
 
-![Windows Explorer showing backup repository folders for ilandproduct-exch, ilandproduct-od, ilandproduct-sp, and ilandproduct-teams](image-17.png)
+{{< figure src="image-17.png" alt="Windows Explorer showing backup repository folders for ilandproduct-exch, ilandproduct-od, ilandproduct-sp, and ilandproduct-teams" >}}
 
 Now that we have folders let's go create some corresponding buckets to back them. We'll do this via the [AWS S3 CLI](https://aws.amazon.com/cli/) as I showed in my last post. At this point VBM does not support advanced object features such as Immutability so no need to be fancy and use the s3api, but I just prefer the command structure.
 
-![Terminal showing AWS CLI s3api create-bucket commands and s3 ls output confirming 4 VBM buckets created](image-18.png)
+{{< figure src="image-18.png" alt="Terminal showing AWS CLI s3api create-bucket commands and s3 ls output confirming 4 VBM buckets created" >}}
 
 Ok so now we have folder and buckets, time to hop in to Veeam. First we need to add our object credentials to the server. This is a simple setup and most likely you will only need one set of credentials for all your buckets. Because in this example I will be consuming iland Secure Cloud Object Storage I need to choose the "S3 Compatible access key" under the "Add..." button in Cloud Credential Manager (menu&gt; Cloud Credentials). These should be the access key and secret provided to you by your service provider.
 
-![VBM Cloud Credential Manager Add Credential dialog for S3 compatible access key and secret key](image-19.png)
+{{< figure src="image-19.png" alt="VBM Cloud Credential Manager Add Credential dialog for S3 compatible access key and secret key" >}}
 
 Now we need to go to Backup Infrastructure &gt; Object Storage Repositories to add our various buckets. Start by right clicking and choose "Add Object Storage."
 
-![VBM New Object Storage Repository name step with "ilandproduct-exch" entered](image-20.png)
+{{< figure src="image-20.png" alt="VBM New Object Storage Repository name step with "ilandproduct-exch" entered" >}}
 
-![VBM object storage type selection with S3 Compatible option chosen](image-21.png)
+{{< figure src="image-21.png" alt="VBM object storage type selection with S3 Compatible option chosen" >}}
 
-![VBM S3 compatible storage configuration showing endpoint URL, region, and credentials fields](image-22.png)
+{{< figure src="image-22.png" alt="VBM S3 compatible storage configuration showing endpoint URL, region, and credentials fields" >}}
 
-![VBM S3 bucket dropdown showing all available ilandproduct VBM buckets](image-23.png)
+{{< figure src="image-23.png" alt="VBM S3 bucket dropdown showing all available ilandproduct VBM buckets" >}}
 
-![VBM bucket step with bucket and folder selected and Finish button ready](image-24.png)
+{{< figure src="image-24.png" alt="VBM bucket step with bucket and folder selected and Finish button ready" >}}
 
 Now simply repeat the process above for any and all buckets you need for this task.
 
-![VBM Object Storage Repositories list showing 4 configured S3 compatible repositories](featured.png)
+{{< figure src="featured.png" alt="VBM Object Storage Repositories list showing 4 configured S3 compatible repositories" >}}
 
 Now that we have all our object buckets added we need to pair these up with our on premises repository folders. It's worth noting that the on-prem repo is a bit misleading, no backup data as long as you use the defaults will ever live locally in that repository. Rather it will hold a metadata file in the form of a single jetDB file that service as pointers to the objects that is the actual data. For this reason the storage consumption here is really really low and shouldn't be part of your design constraints.
 
 Under Backup Infrastructure &gt; Backup Repositories we're going to click "Add Repository.." and let the wizard guide us.
 
-![VBM New Backup Repository name step with "ilandproduct-exch" entered](image-26.png)
+{{< figure src="image-26.png" alt="VBM New Backup Repository name step with "ilandproduct-exch" entered" >}}
 
-![VBM New Backup Repository location step specifying proxy server and folder path](image-27.png)
+{{< figure src="image-27.png" alt="VBM New Backup Repository location step specifying proxy server and folder path" >}}
 
-![VBM Add Password dialog for encryption with hint "ilandproduct Encryption Password"](image-29.png)
+{{< figure src="image-29.png" alt="VBM Add Password dialog for encryption with hint "ilandproduct Encryption Password"" >}}
 
-![VBM object storage backup repository step with offload and encrypt checkboxes enabled](image-30.png)
+{{< figure src="image-30.png" alt="VBM object storage backup repository step with offload and encrypt checkboxes enabled" >}}
 
-![VBM retention policy step showing 7 years retention with item-level retention selected](image-31.png)
+{{< figure src="image-31.png" alt="VBM retention policy step showing 7 years retention with item-level retention selected" >}}
 
 One note on that final step above. Often organization will take the "Keep Forever" option that is allowed here and I will say I highly advise against this. You should specify a retention policy that is agreed upon with your business/organization stakeholders as keeping any backup data longer than needed may have unintended consequences should a legal situation arise; data the organization believes to be long since gone is now discoverable through these backups.
 
@@ -62,30 +62,30 @@ Also worth noting item-level retention is great if you are using a service provi
 
 Once you've got one added again, rinse and repeat for any other repositories you need to add.
 
-![VBM Backup Repositories list showing 4 repositories with item-level retention and 50GB capacity each](image-28.png)
+{{< figure src="image-28.png" alt="VBM Backup Repositories list showing 4 repositories with item-level retention and 50GB capacity each" >}}
 
 Finally the only step left to do is create jobs targeting our newly created repositories. This is going to have way more variables based on your organization size, retention needs, and other factors than I can truly do justice in the space of this blog post but I will show how to create a simple, entire organization, single workload job.
 
 You can start the process under Organizations &gt; Your Organization &gt; Add to backup job...
 
-![VBM New Backup Job name step with "ilandproduct-exch" entered](image-32.png)
+{{< figure src="image-32.png" alt="VBM New Backup Job name step with "ilandproduct-exch" entered" >}}
 
-![VBM New Backup Job select objects step with Add dropdown showing Organization option highlighted](image-33.png)
+{{< figure src="image-33.png" alt="VBM New Backup Job select objects step with Add dropdown showing Organization option highlighted" >}}
 
-![VBM Add Objects dialog showing ilandproduct.onmicrosoft.com organization checked](image-34.png)
+{{< figure src="image-34.png" alt="VBM Add Objects dialog showing ilandproduct.onmicrosoft.com organization checked" >}}
 
-![VBM Edit Processing Options showing Mail and Archive checked, OneDrive, Sites, and Teams unchecked](image-35.png)
+{{< figure src="image-35.png" alt="VBM Edit Processing Options showing Mail and Archive checked, OneDrive, Sites, and Teams unchecked" >}}
 
-![VBM New Backup Job showing ilandproduct organization with Mail and Archive listed in process column](image-36.png)
+{{< figure src="image-36.png" alt="VBM New Backup Job showing ilandproduct organization with Mail and Archive listed in process column" >}}
 
-![VBM Select objects to exclude step with empty exclusion list](image-37.png)
+{{< figure src="image-37.png" alt="VBM Select objects to exclude step with empty exclusion list" >}}
 
-![VBM Specify backup proxy and repository step showing CUSTOMER-VBO proxy and ilandproduct-exch repository selected](image-38.png)
+{{< figure src="image-38.png" alt="VBM Specify backup proxy and repository step showing CUSTOMER-VBO proxy and ilandproduct-exch repository selected" >}}
 
-![VBM Select scheduling options showing daily run at 10PM with retry 3 times configured](image-39.png)
+{{< figure src="image-39.png" alt="VBM Select scheduling options showing daily run at 10PM with retry 3 times configured" >}}
 
 Once again you'd want to repeat the above steps for all your different workload types but that's it! If we do a s3 ls on our s3://premlab-ilandproduct-vbm365-exch/Veeam/Backup365/ilandproduct-vbm365-exch/ full path we'll see a full folder structure where it's working with the backup data, proving that we're doing what we tried to do!
 
-![AWS CLI s3 ls output showing Veeam folder structure in bucket including CommonInfo, CriticalDataBackup, Encryption, Organizations, and RepositoryLock folders](image-40.png)
+{{< figure src="image-40.png" alt="AWS CLI s3 ls output showing Veeam folder structure in bucket including CommonInfo, CriticalDataBackup, Encryption, Organizations, and RepositoryLock folders" >}}
 
 In conclusion I went way into depth of what is needed here but in practice it isn't that difficult considering the benefits you gain by using object storage for Veeam Backup for Microsoft365. These benefits include large scale storage, encryption and better data compression. Hope you find this helpful and check back soon for more!

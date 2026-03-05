@@ -23,23 +23,23 @@ Let's take a look at Storage Lens and S3 Inventory and see how they can help.
 
 Think of Storage Lens as the SaaSy, easy button to looking at your AWS Storage at a 1000 foot level. This service allows you to create dashboards, updated daily, to allow for the monitoring of your storage consumption and data at as high as an organization level and as low as a specific prefix or sub-folder. When you setup an AWS account and create an S3 bucket you will then be able see a default dashboard by clicking the "View dashboard" button in the Account Snapshot portion of the Amazon S3 homescreen under your AWS account.
 
-![](image-51.png)
+{{< figure src="image-51.png" alt="" >}}
 
 Once in the Storage Lens dashboard your default view will show you a snapshot of what all buckets across all regions looks like for you for the current day for all of the accounts available under your logged in account's management. These metrics are only pulled once a day and by default will only show you the data that is available for free, but it's a lot.
 
-![](image-50.png)
+{{< figure src="image-50.png" alt="" >}}
 
 There are a number of tabs that allow you to view the data on a different set of focus such as Regions, storage classes and buckets. In each of those tabs there is a consistent set of categories of metric categories allowing for more information to be shown. I'll say that what I do not like about Storage Lens is that there isn't a way to make these selections sticky, you have to re-select them each time.
 
-![](image-52.png)
+{{< figure src="image-52.png" alt="" >}}
 
 As I mentioned above there is a concept of free versus paid metrics. The paid metrics are exposed when you create your own dashboards and can provide a deeper look into your data. These can include anything from expired object delete marker lifecycle rule count to total lifecycle rule count. For a full list you can check out the [metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) page. While the [pricing](https://aws.amazon.com/s3/pricing/) feels like it is high it's relatively minor depending on your use case. If you have 1 PB of Veeam Backup files advanced metric will cost you about 40 cents per month.
 
-![](image-53.png)
+{{< figure src="image-53.png" alt="" >}}
 
 One last thing about Storage Lens is that if you configure your own dashboard, which has all the same data, you can have it do a once a day export of the data to an S3 bucket for external analysis. This external export can be stored in CSV or Apache Parquet format and stored either in the source account or any other AWS account that is provided access to it. This will be based on either the free or advanced metrics so understand you will be charged for any data that is stored in the bucket so either be careful with your choices or enable a Lifecycle Policy on the destination bucket to expire and delete data after a given period of time.
 
-![](image-54.png)
+{{< figure src="image-54.png" alt="" >}}
 
 ## S3 Inventory
 
@@ -53,7 +53,7 @@ An example of when I use S3 Inventory is when I start evaluating how a new backu
 
 S3 Inventory definitely isn't for everyone but it's a good tool to know its there when the bill skyrockets and you don't know why. If you'd like to set up S3 Inventory know that much like for AWS Server Access Logging you need to first provide the logging service access to the destination log bucket, then configure each bucket to enable the service. This can be done via the Console UI under Management and Inventory Configurations. Be sure to take note of all the "optional" data under the metadata fields
 
-![](image-55.png)
+{{< figure src="image-55.png" alt="" >}}
 
 Much like the S3 Server Access Logging that I recently covered I am fundamentally lazy and don't want to have to do this over and over again for each bucket so in the [same script ](https://github.com/k00laidIT/AWS/blob/main/S3Logging/s3-invandlogging.ps1)shared for access logs I've also have the option for S3 Inventory Service. It's worth noting in the script access logging is enabled by default but S3 Inventory is not since it creates so much information.
 

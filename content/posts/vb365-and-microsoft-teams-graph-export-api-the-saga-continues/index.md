@@ -12,7 +12,7 @@ I feel like I could write, produce, direct and star in a saga based in a galaxy 
 
 Recently I started to hear of support cases where users were doing the needful by filling out Microsoft’s form and then after the prescribed 5-7 business days attempting to enable support for Teams Chat backup available in VB365 versions 6a and 7 only to be presented with the error “*To call this API the app must be associated with an Azure subscription, see* [*https://aka.ms/teams-api-payment-requirements*](https://aka.ms/teams-api-payment-requirements) *for details.*”
 
-![](image.png)
+{{< figure src="image.png" alt="" >}}
 
 For those who have been dealing with the Teams Graph Export metered API it’s a telltale sign that for whatever reason the Azure subscription ID associated with the organization modern application used to do backups was not available. Upon looking at [the form](https://aka.ms/teamsgraph/requestaccess) I noticed that it no longer requires a subscription ID meaning that, once again, Microsoft has changed the process and not told anyone, leaving backup vendors as well as their partners scrambling to make sure our customers are properly suited. This has been well covered at this point by Ian Sanderson in his blog “[Protecting Microsoft Teams Channel Chat Data: Are You Prepared?](https://1111systems.com/blog/preparing-your-organisation-for-microsoft-teams-chat-backup-with-1111-and-veeam-backup-for-microsoft-365/)”
 
@@ -35,6 +35,6 @@ That should return a block of JSON that looks like this:
 
 `{<br></br>"extendedLocation": null,<br></br>"id": "/subscriptions/3047753f-7bb6-47ff-802b-55358facde54/resourceGroups/myResourceGroup/providers/Microsoft.GraphServices/accounts/myGraphAppBilling",<br></br>"identity": null,<br></br>"kind": null,<br></br>"location": "Global",<br></br>"managedBy": null,<br></br>"name": "myGraphAppBilling",<br></br>"plan": null,<br></br>"properties": {<br></br>"appId": "MYAPPLICATIONID",<br></br>"billingPlanId": "MYNEWBILLINGPLANID",<br></br>"provisioningState": "Succeeded"<br></br>},<br></br>"resourceGroup": "myResourceGroup",<br></br>"sku": null,<br></br>"systemData": {<br></br>"createdAt": "2023-03-27T17:16:29.8280947Z",<br></br>"createdByType": "User",<br></br>"lastModifiedAt": "2023-03-27T17:16:29.8280947Z",<br></br>"lastModifiedByType": "User"<br></br>},<br></br>"tags": null,<br></br>"type": "microsoft.graphservices/accounts"<br></br>}`
 
-![](image-3.png)
+{{< figure src="image-3.png" alt="" >}}
 
 Once that provisioningState shows as succeeded you should be able to go run your Teams Chat enabled VB365 job again and find some success, at least until Microsoft decides to mess with it again. I will add personally that they are truly doing a disservice to their ecosystem; their partners don't really seem to have a good idea of when/if changes are going to happen and those of us downstream, both Service Providers and Customers, are put into a perpetual state of trying to catch up to poorly considered implementations.

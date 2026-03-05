@@ -20,7 +20,7 @@ VMware Edge Cloud Orchestrator is built upon the basic VMware hypervisor ESXi an
 
 The mentioned management overlay is where I think the true differentiator lives. As opposed to the vCenter server that we all know and love these hosts report directly to the SaaS service in most cases today. While there is no right click &gt; create virtual machine native capability the configuration of both the hosts as well as any workloads that run on them is provided by Infrastructure as Code style deployment, with each virtual machine or container deployed and managed via a git repositories through CI/CD pipelines. Some example workloads and configurations can be found in Alan's [GitHub repository](https://github.com/alanrenouf/ECSExample).
 
-![](image-2.png)
+{{< figure src="image-2.png" alt="" >}}
 
 While I appreciate the focus on a more modern deployment mechanism that allows for zero touch orchestration I do wish that VMware would have leaned on their pointy clicky past here to allow for modernization of administrators themselves. By all means, back the configuration of workloads with GitOps but if administrators were to be able to define those workloads via UI and have it spit out well formatted YAML files out the back can you imagine the evolution those admins would have?
 

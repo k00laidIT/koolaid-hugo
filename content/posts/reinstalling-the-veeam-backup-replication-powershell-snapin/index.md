@@ -16,7 +16,7 @@ Add-PSSnapin VeeamPSSnapin
 ```
  [
 
-![](VBRsnapin-afterinstall-150x150.png)
+{{< figure src="VBRsnapin-afterinstall-150x150.png" alt="" >}}
 
 ](VBRsnapin-afterinstall.png)Then to load it and be able to use it simply ```
 Get-PSSnapin VeeamPSSnapin

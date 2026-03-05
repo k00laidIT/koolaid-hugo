@@ -26,32 +26,32 @@ In my day job at [iland cloud](https://www.iland.com) we’ve been able to exten
 
 <div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide"><div class="wp-block-jetpack-slideshow_container swiper-container">- <figure>
 
-![](image-1024x224.png)
+{{< figure src="image-1024x224.png" alt="" >}}
 
 <figcaption class="wp-block-jetpack-slideshow_caption gallery-caption">Select Update MS Credentials from the Action menu of your M365 Organization in the iland console</figcaption></figure>
 - <figure>
 
-![](image-1.png)
+{{< figure src="image-1.png" alt="" >}}
 
 <figcaption class="wp-block-jetpack-slideshow_caption gallery-caption">Select that you want to use Modern Application Only, the data types you wish to protect, then finally supply a name you would like to use for the application you create in Azure Active Directory</figcaption></figure>
 - <figure>
 
-![](image-2.png)
+{{< figure src="image-2.png" alt="" >}}
 
 <figcaption class="wp-block-jetpack-slideshow_caption gallery-caption">Supply the code that is generated in the iland console screen to microsoft.com/devicelogin.</figcaption></figure>
 - <figure>
 
-![](image-3.png)
+{{< figure src="image-3.png" alt="" >}}
 
 <figcaption class="wp-block-jetpack-slideshow_caption gallery-caption">Confirm that you are attempting to authenticate via Azure CLI</figcaption></figure>
 - <figure>
 
-![](image-4.png)
+{{< figure src="image-4.png" alt="" >}}
 
 <figcaption class="wp-block-jetpack-slideshow_caption gallery-caption">Confirm authentication, close this window and then hit submit in the iland console.</figcaption></figure>
 
 <a class="wp-block-jetpack-slideshow_button-prev swiper-button-prev swiper-button-white" role="button"></a><a class="wp-block-jetpack-slideshow_button-next swiper-button-next swiper-button-white" role="button"></a><a aria-label="Pause Slideshow" class="wp-block-jetpack-slideshow_button-pause" role="button"></a><div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"></div></div></div>This isn't some magical black box, messing with your organization's security without any ability to see what is happening. If you navigate to [Azure Active Directory](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview) and Enterprise Applications you will find your created application there and you can review and document as needed any permissions and roles added. Understand that future builds/versions of Veeam Backup for M365 may require new permissions (the new [Graph Teams Export API](https://www.koolaid.info/upcoming-changes-to-microsoft-graph-api-for-teams-chat-backup/) coming in 6a immediately comes to mind) so this will not be a completely static list but you will need to authenticate to the application any time changes will need to be made, we have no ability or rights to do this on our own.
 
-![](image-5.png)
+{{< figure src="image-5.png" alt="" >}}
 
 And that’s it! Once you authenticate the created application’s token is saved to the underlying VB365 server and your jobs will continue working as they always have. This will also be the methodology for any restores you need to perform to M365 going forward, giving you an additional level of security in that any restores will require not only a user with administrative rights but also have Multi-Factor Authentication enabled as well. Enjoy and happy data protecting!

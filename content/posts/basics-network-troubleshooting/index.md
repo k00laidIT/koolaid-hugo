@@ -18,7 +18,7 @@ We often get issues which are reported as application issues but end up being ne
     
      7. Application: app needs to send/receive something (HTTP, HTTPS, FTP, anything that the user touches and begins/ends network transmission) 6. Presentation: formatting &amp; encryption (VPN and DNS host names) 5. Session: interhost communication (nothing to see here:)) 4. Transport: end to end negotiations, reliability (the age old TCP vs. UDP debate) 3. Network: path and logical addressing (IP addresses &amp; routing) 2. Data Link: physical addressing (MAC addresses &amp; switches) 1. Physical: physical connectivity (Is it plugged in?) The image below is a great cheat card for keeping these somewhat clear: \[caption id="attachment\_477" align="aligncenter" width="800"\][
 
-![OSI_2014](OSI_2014-1024x363.jpg)
+{{< figure src="OSI_2014-1024x363.jpg" alt="OSI_2014" >}}
 
 ](OSI_2014.jpg) Image source: http://www.gargasz.info/osi-model-how-internet-works/\[/caption\] How OSI is used today is as a template for how to understand and thus troubleshoot networking issues. The best way to troubleshoot any IT problem that has the potential to have a network issue is from the bottom of the stack upwards. Here are a few basic steps to get you going with troubleshooting.
 2. **<span id="step_title_334b3416-ad21-4dc9-b4d1-38978d023705">Is it plugged in?</span>**

@@ -12,7 +12,7 @@ Today's release of vSphere 6 brings about quite a few new technologies worth get
 
 <div class="separator" style="clear: both; text-align: center;">[
 
-![](wpid-Photo-20150202174221711.jpg)
+{{< figure src="wpid-Photo-20150202174221711.jpg" alt="" >}}
 
 ](wpid-Photo-20150202174221711.jpg)</div>If you are already Enterprise Plus level licensed you are in great shape as everything discussed today except VSAN is included. Specifically this includes
 

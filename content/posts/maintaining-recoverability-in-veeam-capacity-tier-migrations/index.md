@@ -17,7 +17,7 @@ Historically the way to address object storage in VBR is through a [Scale Out Ba
 
 As you can see in the screenshot below you can also choose both options to allow for both offload of storage and 3-2-1 level data protection. Since version 12 VBR now allows for multiple buckets in the capacity tier, but they must all be of the same time (object or block) and in the case of object of the same Cloud Service Provider type ([Amazon S3](https://aws.amazon.com/s3/), [Azure Blob](https://azure.microsoft.com/en-us/products/storage/blobs), [S3 Compatible](https://1111systems.com/services/object-storage/), etc.)
 
-![Veeam Edit Scale-out Backup Repository wizard showing the Capacity Tier configuration panel with "lax-cap-tier2" repository selected, both Copy and Move options checked, and Move set to files older than 1 day](image-8.png)
+{{< figure src="image-8.png" alt="Veeam Edit Scale-out Backup Repository wizard showing the Capacity Tier configuration panel with "lax-cap-tier2" repository selected, both Copy and Move options checked, and Move set to files older than 1 day" >}}
 
 ### Changing to a new Cloud Service Provider
 
@@ -47,10 +47,10 @@ Now we reach the meat of our post. Veeam does not allow you to directly view cap
 - Right click your SOBR and choose Rescan. This should take a bit of time as it indexes all the files in the object storage repositories and brings them into inventory.
 - If the scan indexes properly then if you go to Home &gt; Backups you will either see your backups under Disk (Encrypted) if they were written with encryption enabled or into Capacity Tier (Imported) if not. Please encrypt your backups. ;)
 
-![Veeam Home panel showing the Backups tree with "Disk (Encrypted)" selected and "Cust Workloads" backup job listed with backup path "Cust_Workloads"](image-10.png)
+{{< figure src="image-10.png" alt="Veeam Home panel showing the Backups tree with "Disk (Encrypted)" selected and "Cust Workloads" backup job listed with backup path "Cust_Workloads"" >}}
 
 - If they are encrypted right click on each backup job listed and choose “Decrypt…” entering your encryption password when prompted. Once successfully decrypted for the use of this VBR then your backups will be populated under Capacity Tier (Imported.)
 
-![Veeam "Specify Password" dialog with a hint showing "Created by PREM\jjones at 7/26/2023 12:36 AM" and a masked password entered, overlaid on the Backups tree showing "Disk (Encrypted)" selected with "Cust Workloads" listed](image-11.png)
+{{< figure src="image-11.png" alt="Veeam "Specify Password" dialog with a hint showing "Created by PREM\jjones at 7/26/2023 12:36 AM" and a masked password entered, overlaid on the Backups tree showing "Disk (Encrypted)" selected with "Cust Workloads" listed" >}}
 
 Your backups are now available for any normal restore or interaction purposes. Understand that unless immutability is set on your backups it is possible to interact with this data, so if you are planning to migrate the data you should tread lightly. I would also either destroy this temporary landing spot or put your capacity tier repositories into maintenance mode before proceeding with your migration.

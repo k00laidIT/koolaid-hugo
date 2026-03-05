@@ -24,7 +24,7 @@ Just a quick how to, wanting to document a task I have recently had need of. Thi
     3. Double click on Certificate Services Client- Auto-Enrollment and set - Configuration Model: Enabled - Check Renew expired certificates... - Check Update certificates that use certificate templates - Hit OK
 5. [
 
-![Digital Signature Verification Preferences](preferences-250x300.jpg)
+{{< figure src="preferences-250x300.jpg" alt="Digital Signature Verification Preferences" >}}
 
 ](preferences.jpg)By default Adobe Acrobat and Reader only recognize certificates that are signed by the usual public authorities as trusted, so you have to tell it to look at what is available in the local Windows Certificate Store. In Adobe Acrobat or Acrobat Reader you can do this in Preferences, under Signatures&gt;Verification and enable "Validating Signatures" under Windows Integration. This can be cumbersome across the enterprise but luckily this data is saved in a registry key, which means that through Group Policy Preferences we can manage this setting. The fix below will work for all Acrobat or Acrobat Reader versions 7 or later 
     1. Select the GPO of your choice to edit (again, I recommend the Default Domain Policy) and navigate to User Configuration&gt; Preferences&gt; Registry
@@ -32,7 +32,7 @@ Just a quick how to, wanting to document a task I have recently had need of. Thi
     3. You will need to create an entry with the following attributes: - Hive: HKEY\_CURRENT\_USER - Key Path: Software\\Adobe\\*product*\\*versionnumber*\\Security\\cASPKI\\cMSCAPI\_DirectoryProvider *\* (Example for Acrobat Pro 11: Software\\Adobe\\Adobe Acrobat\\11.0\\Security\\cASPKI\\cMSCAPI\_DirectoryProvider)* - Value name: iMSStoreTrusted - Value type: REG\_DWORD - Value data: 60 (hexidecimal) - Hit OK
     4. [
 
-![gp-pref](gp-pref-300x167.jpg)
+{{< figure src="gp-pref-300x167.jpg" alt="gp-pref" >}}
 
 ](gp-pref.jpg)Repeat steps B &amp; C for each product/version combination you have in your environment. For example, in our environment we only have one version of Reader, but 3 different major versions of Acrobat Pro, so I needed 4 variants of this key to cover each of them.
  

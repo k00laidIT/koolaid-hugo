@@ -57,7 +57,7 @@ ufw allow 5433/udp
 ```
 **5.Install Veeam Backup for Microsoft365 v8.** After clicking the "Customize Settings" link use the information you've created above to connect to your PostgreSQL server.
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
   
 6**.Set Server Limits via Powershell.** Once VB365 is installed one big improvement is how you can inject the database tuning via VB365 Powershell. From the VB365 controller you've just rolled out you can simply run the cmdlet, specifying Linux as the OS, CPU count and RAM and it will do the magic for you. In the past and for VBR purposes you've historically had to create an export and then run the PSQL file. As an example for a system with 8 vCPU and 16 GB of RAM you'd do the following:

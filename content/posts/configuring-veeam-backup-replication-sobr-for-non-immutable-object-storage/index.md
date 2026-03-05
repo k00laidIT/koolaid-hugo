@@ -30,33 +30,33 @@ make_bucket: premlab-sobr-unlocked-move
 ```
 2\. Now access your VBR server and start with adding the access key pair provided for the customer. You do this in Menu &gt; Manage Cloud Credentials.
 
-![](1.png)
+{{< figure src="1.png" alt="" >}}
 
 3\. Click on Backup Infrastructure then right click on Backup Repositories, selecting Add Backup Repository.
 
 4\. Select Object Storage as type.
 
-![](2.png)
+{{< figure src="2.png" alt="" >}}
 
 5\. Select S3 Compatible as object storage type
 
-![](3.png)
+{{< figure src="3.png" alt="" >}}
 
 6\. Provide a name for your object repository and hit next.
 
 7\. For the Account Settings screen enter the endpoint, region and select your created credentials.
 
-![](4.png)
+{{< figure src="4.png" alt="" >}}
 
 8\. In the Bucket settings window click Browse and select your created bucket then click the Browse button beside the Folder blank and create a subfolder within your bucket with the “New Folder…” button. **I'll note here do NOT check the box for “Make recent backups immutable for…” here as the bucket we have created above does not support object-lock. Doing so will cause an error.**
 
-![](5.png)
+{{< figure src="5.png" alt="" >}}
 
 9\. Click Apply.
 
 10\. Create or select from existing traditional, Direct Storage repository or repositories to be used in your SOBR. Note: You cannot choose the repository that your Configuration Backups are targeting.
 
-![](6.png)
+{{< figure src="6.png" alt="" >}}
 
 11\. Right click on Scale-out Backup Repositories and select “Add Scale-out Backup Repository…”
 
@@ -64,7 +64,7 @@ make_bucket: premlab-sobr-unlocked-move
 
 13\. Click Add in your Performance Tier screen and select your repository or repositories desired. Hit Ok and then Next.
 
-![](7.png)
+{{< figure src="7.png" alt="" >}}
 
 14\. Leave Data Locality selected as the Placement Policy for most scenarios.
 
@@ -72,23 +72,23 @@ make_bucket: premlab-sobr-unlocked-move
 
 16\. (Optional but highly recommended): Check the Encrypt data uploaded to object storage and create an encryption password. Hit Apply.
 
-![](8.png)
+{{< figure src="8.png" alt="" >}}
 
 17\. This will have the effect of creating an exact copy of any backup jobs that target the SOBR both on premises and into the object store. To leverage Move mode rather than Copy you simply check the other box instead/in addition to and set the number of days you would like to keep on premises.
 
-![](9.png)
+{{< figure src="9.png" alt="" >}}
 
 Now you simply need to target a job at your new SOBR to have it start working.
 
-![](10.png)
+{{< figure src="10.png" alt="" >}}
 
 In conclusion let's cover a bit about how we are going to see our data get written to object storage. For the Copy mode example it should start writing to data to the object store immediately upon completion of each run. In the case of leveraging Move mode you will see objects written after the run after the day specified to move archive. For example if you set it to move anything older than 7 days on-prem dehydration will occur after the run on day 8. These operations can be seen in the Storage Management section of the History tab in the VBR console.
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
 Further if I recursively list my bucket via command line I can see lots of data now, data is good. ;)
 
 ```bash
 % aws --endpoint=https://us-central-1a.object.ilandcloud.com --profile=premlab s3 ls s3://premlab-sobr-unlocked-copy/ --recursive
 ```
-![](image-41.png)
+{{< figure src="image-41.png" alt="" >}}

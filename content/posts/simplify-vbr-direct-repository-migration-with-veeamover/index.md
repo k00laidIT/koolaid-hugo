@@ -31,25 +31,25 @@ Backup jobs cannot be moved while being actively run so one way or another you w
 - Add your new destination repository if it does not exist already.
 - Locate the backup job under Home &gt; Backups and right click, choosing “Move backup…”
 
-![Veeam VBR console Backups list with right-click context menu open on a backup job, highlighting the Move backup option](image-30.png)
+{{< figure src="image-30.png" alt="Veeam VBR console Backups list with right-click context menu open on a backup job, highlighting the Move backup option" >}}
 
 - Select the repository that you want to move the backup job to. Optionally click “Show backups” to see size of backup job to be moved.
 
-![Veeam Move Backup to Another Location dialog showing destination repository selection and backup job size of 318 GB](featured.png)
+{{< figure src="featured.png" alt="Veeam Move Backup to Another Location dialog showing destination repository selection and backup job size of 318 GB" >}}
 
 Once the migration begins if the job is active it will be disabled automatically. The move can then be monitored from History&gt; System&gt; Move and Copy and choose statistics like any other Veeam job. Once it completes the job will automatically update to the new repository and be re-enabled automatically.
 
-![Veeam VBR Move Backup job progress showing four VMs with Moving status and log messages confirming the migration is in progress](image-32.png)
+{{< figure src="image-32.png" alt="Veeam VBR Move Backup job progress showing four VMs with Moving status and log messages confirming the migration is in progress" >}}
 
 **Migrating a VM between backup jobs**
 
 - Open up your Backups list under Home in the VBR Console. Open a supported backup set and identify the VM you wish to move between backups. Click "Move Backup"
 
-![Veeam VBR Home Backups list with right-click context menu on an individual VM within a backup job, showing the Move backup option highlighted](image-33.png)
+{{< figure src="image-33.png" alt="Veeam VBR Home Backups list with right-click context menu on an individual VM within a backup job, showing the Move backup option highlighted" >}}
 
 - Choose a supported job to migrate the VM's backups to and click OK to begin migration.
 
-![Veeam Move Backup to Another Job dialog showing destination job selection and gsp-cf01 VM backup at 17.6 GB to be moved](image-35.png)
+{{< figure src="image-35.png" alt="Veeam Move Backup to Another Job dialog showing destination job selection and gsp-cf01 VM backup at 17.6 GB to be moved" >}}
 
 NOTE: A inter-backup job migration is a 1 way process. Once you migrated a VM to a different job you will not be able to migrate it back unless all restore points of that VM have aged out or have been removed.
 

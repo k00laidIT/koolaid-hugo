@@ -23,7 +23,7 @@ If you’ll remember there are a number of object types within Entra ID that can
 
 The first and arguably the hardest part of restoring Entra ID tenant objects for me was finding where to kick off the restore from. As this 12.3 represents the first release of the capability it’s natural to realize that the full UI implementation may not be complete, especially with the upcoming UI overhaul coming in v13. To begin a restore session navigate to Home &gt; Backups in the VBR UI, expand your tenant job and click on your protected tenant. Once done you’ll have a “Entra ID Tenant Restore” option available in the task bar or your can simply right click on the tenant under the job.
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
 ### Metadata Comparison
 
@@ -31,27 +31,27 @@ Once clicked you will be met with the modern version of a Veeam Explorer, if you
 
 One of the things I love about the Entra ID restore workflow is that they’ve included a metadata comparison option, allowing you to pull a selected restore point and compare that against what’s present in Entra ID. As somebody who’s had to deal with permissions mess ups and group memberships in AD in the past this is a very welcome change. To use it select an item in the restore window and from the restore button choose “Metadata Comparison.”
 
-![](image-16.png)
+{{< figure src="image-16.png" alt="" >}}
 
 Oh no, it looks like Hackerman’s got to me! I should go restore these properties on my user. I can do that by simply selecting all the fields and hitting next. This will prompt me to login to Entra ID with the regular device code method.
 
-![](image-17.png)
+{{< figure src="image-17.png" alt="" >}}
 
 Once you successfully authenticate it will inform you and you can proceed.
 
-![](image-18.png)
+{{< figure src="image-18.png" alt="" >}}
 
 You will need to provide a restore reason as is common with standard Veeam restores.
 
-![](image-19.png)
+{{< figure src="image-19.png" alt="" >}}
 
 Once you hit Next and finish the protected metadata will be sent back to the user and restored. Success can be tracked within the job.
 
-![](image-20.png)
+{{< figure src="image-20.png" alt="" >}}
 
 As you can see the user properties have now been restored.
 
-![](image-21.png)
+{{< figure src="image-21.png" alt="" >}}
 
 ### Full User/Object Recovery
 
@@ -59,35 +59,35 @@ While the metadata recovery is great what if my entire user account (or other pr
 
 Similar to our metadata restore we select the account(s) we want to restore and then click Full Restore.
 
-![](image-22.png)
+{{< figure src="image-22.png" alt="" >}}
 
 We do have to select them again on the next screen to begin the wizard
 
-![](image-23.png)
+{{< figure src="image-23.png" alt="" >}}
 
 We will once again login with the device ID and then be presented a number of restore options. Most noticeably is the need to set a default password and how you want to handle if the object is present.
 
-![](image-24.png)
+{{< figure src="image-24.png" alt="" >}}
 
 If you are bulk restoring users you can click the “Set temporary passwords” link and it will let you set separate passwords or auto-generate them all for you.
 
-![](image-25.png)
+{{< figure src="image-25.png" alt="" >}}
 
 Once you supply a reason, or not, you will be able to finish up. Unless you’ve used something common I recommend you click the Passwords link on the Summary page so you can download a CSV file with any passwords used.
 
-![](image-26.png)
+{{< figure src="image-26.png" alt="" >}}
 
 If you chose to overwrite existing then you will be prompted to do so if you are sure.
 
-![](image-27.png)
+{{< figure src="image-27.png" alt="" >}}
 
 Once you hit yes it will complete the process. If this was a recent deletion it will pull the data from the Entra Recycle Bin rather than the backup itself making for a very fast restore.
 
-![](image-28.png)
+{{< figure src="image-28.png" alt="" >}}
 
 It’s worth noting that while this has restored the Entra ID user it has not recovered any data within it. This is because Microsoft365 data is a function of the Entra user but not protected in the same process.
 
-![](image-29.png)
+{{< figure src="image-29.png" alt="" >}}
 
 If you are protecting this with 11:11 Office 365 backup you will simply need to hop over to [11:11 Console](https://console.1111systems.com) and recover all of your Microsoft365 data back to the now recovered Entra ID user.
 

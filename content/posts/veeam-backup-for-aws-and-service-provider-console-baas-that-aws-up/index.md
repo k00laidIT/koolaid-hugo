@@ -23,7 +23,7 @@ With each release not only has Veeam added to the deployment and management meth
 - EFS file systems
 - VPC configuration
 
-![](featured.png)
+{{< figure src="featured.png" alt="" >}}
 
 All of these backups will land into immutable, encrypted, and secured [AWS S3 storage](https://aws.amazon.com/s3/) with the capability to provide a second equally secured copy into a separate region and/or a separate AWS account. Further as part of your data protection policy creation you can also schedule AWS snapshots for the local availability zone (AZ) with replicas of snapshots then able to be sent to different regions and/or accounts. This is similar (but not quite) like VM replication. These replicas then show in inventory in the DR AZ and can be failed over to as needed. All in all you can protect the majority of services that most “cloud first” customers need and be able to backup, copy or replicate to a very promising number of locations.
 

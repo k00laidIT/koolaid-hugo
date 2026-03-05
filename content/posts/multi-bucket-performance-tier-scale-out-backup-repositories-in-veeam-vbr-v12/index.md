@@ -20,7 +20,7 @@ What this means to your backup plans is that you will have more capabilities, wh
 
 ## Flavors of Object Storage
 
-![](API-Call-Limits-1-568x660-1.png)
+{{< figure src="API-Call-Limits-1-568x660-1.png" alt="" >}}
 
 There are several ways to purchase and consume object storage. The hyperscale cloud names you are probably most familiar with: Amazon’s AWS (Amazon Web Services) S3 and Microsoft’s Azure Blob. But these providers can have several potentially unexpected [costs](https://aws.amazon.com/s3/pricing/?nc=sn&loc=4) around data egress, API call limits, and in some cases how long you store the data. As we all know with IT and disaster recovery, a good deal of our decisions come down to cost and budgeting, so having unexpected bursts can be a challenge.
 

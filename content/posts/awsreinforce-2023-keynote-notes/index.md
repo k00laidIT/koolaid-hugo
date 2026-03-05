@@ -54,7 +54,7 @@ This post is designed for me to capture and share my notes from the keynote of t
     - [Amazon Verified Permissions](https://aws.amazon.com/verified-permissions/) - Centrally manage permissions for applications using Cedar policies
         - Includes verification
 
-![AWS re:Inforce keynote slide introducing Amazon Verified Permissions, showing a workflow diagram of define model, manage and govern policy, authorize access, and identity providers steps](image-1.png)
+{{< figure src="image-1.png" alt="AWS re:Inforce keynote slide introducing Amazon Verified Permissions, showing a workflow diagram of define model, manage and govern policy, authorize access, and identity providers steps" >}}
 
 - [EC2 instance access](https://aws.amazon.com/blogs/compute/secure-connectivity-from-public-to-private-introducing-ec2-instance-connect-endpoint-june-13-2023/) - Instance Connect Endpoint - secure connect via SSH/RDP via secured endpoint, allows access to private instances as well
     - Strong auth before reaching the host

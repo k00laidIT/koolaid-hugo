@@ -36,6 +36,6 @@ Immediately following that will be “***Lessons From the Field: Modernizing and
 
 <figure class="wp-block-image size-large">
 
-![](img_0767-1024x367.png)
+{{< figure src="img_0767-1024x367.png" alt="" >}}
 
 </figure>Wrapping up I expect it to be a great event as always. Veeam this year in particular seems to have picked up the mantle created by VMworld events where it very much so feels community focused and allows for learning through collaboration. If you will be at the event I would love for you to reach out so we can meet up. I can be found in most places social media [@k00laidIT](https://twitter.com/k00laidIT).

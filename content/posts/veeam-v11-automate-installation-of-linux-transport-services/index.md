@@ -17,7 +17,7 @@ Get-VBRPhysicalHost | Where-Object {($_.OsType -eq "Linux") -and ($_.Components.
 ```
 <figure class="wp-block-image size-full">[
 
-![](image-2.png)
+{{< figure src="image-2.png" alt="" >}}
 
 ](image-2.png)<figcaption class="wp-element-caption">1 set without install, 1 set after installation of transport services</figcaption></figure>## Installing the Linux Transport Service
 

@@ -16,7 +16,7 @@ I was recently invited to attend [Gestalt IT](https://gestaltit.com)’s [Storag
 
 <figure class="wp-block-image alignright size-large">
 
-![](img_1046-1.jpg)
+{{< figure src="img_1046-1.jpg" alt="" >}}
 
 <figcaption class="wp-element-caption">Storage Field Day 26 Delegates at SDC2023</figcaption></figure>I’ll be honest, I’m not exactly a storage systems subject matter expert but I am a long time consumer of storage systems. Of late would definitely consider myself “storage adjacent” as my work has largely revolved around backups and data protection. I say that to say that going to an event like this was very much so a kick into the deep end of the pool. There were things that blew my mind (CXL and [DNA based storage media](https://gestaltit.com/tech-field-day/sulagna/preserving-data-through-centuries-without-hard-drives-meet-dna-data-storage/)) but also things which were completely in my lane such as the session advocating for S3 to become a standards based protocol.
 

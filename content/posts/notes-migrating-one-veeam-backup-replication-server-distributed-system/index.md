@@ -10,7 +10,7 @@ featureimage = "featured.png"
 
 One of the biggest headaches I not only have and have heard about from other Veeam Backup &amp; Replication administrators have is backup server migrations. In the past I have always gone the "All-in-One" approach, have one beefy physical server with Veeam directly installed and housing all the roles. This is great! It runs fast and it's a fairly simple system to manage, but the problem is every time you need more space or your upgrading an old server you have to migrate all the parts and all the data. With my latest backup repository upgrade I've decided to go to a bit more of a distributed architecture, moving the command and control part out to a VM with an integrated SQL server and then letting the physical box handle the repository and proxy functions producing a best of both worlds setup, the speed and simplicity of all the data mover and VM access happening from the single physical server while the setup and brains of the operation reside in a movable, upgradable VM. [
 
-![](before-and-after-300x275.png)
+{{< figure src="before-and-after-300x275.png" alt="" >}}
 
 ](before-and-after.png)This post is mostly composed of my notes from the migration of all parts of VBR. The best way to think of this is to split the migration into 3 major parts; repository migration, VBR migration, proxy migration, and VBR migration. These notes are fairly high level, not going too deep into the individual steps. As migrations are complex if any of these parts don't make sense to you or do not provide enough detail I would recommend that you give the fine folks at Veeam support a call to ride along as you perform your migration. **I. Migrating the Repository**
 

@@ -17,7 +17,7 @@ In the Datacenter or the cloud the edge is that firewall or gateway you have set
 
 Before we start defining problems it's worth calling out some normal use cases for edge computing. As we said edge computing exists outside of our normal boundaries. These use cases can be anything from an evolution of how we handle remote retail locations and traditional Remote Office, Branch Office (ROBO) to more modern use cases including manufacturing, agricultural monitoring and management and even smart car enablement.
 
-![](image-14.png)
+{{< figure src="image-14.png" alt="" >}}
 
 In all of these use cases one solution commonality that I found during the course of the presentations is that most of the software based solutions either already had a defined partnership with [OnLogic](https://www.onlogic.com/) or are in the process of it because they've solved the hardware problem for most if not all of the edge use cases. It was a great presentation that highlighted a company that puts customer and partner success above all else, finding solutions to some frankly hard problems.
 
@@ -29,7 +29,7 @@ The first thing that was consistently stated was that physical devices you deplo
 
 When you deploy computing to the edge you are most likely going to find yourself dealing with new environmental concerns that you don't typically in the Datacenter. First off is these locations often rely on connectivity that includes WiFi or 5g which will not always be available. As such you have to design systems as well as applications to handle being offline for periods of time.
 
-![](image.png)
+{{< figure src="image.png" alt="" >}}
 
 Next is the true environmental concern, these compute and storage nodes are often deployed in locations that deal with complications like extreme heat or moisture. Again this is another place where OnLogic truly shines, allowing for all the power that the solution needs in highly resilient system designs that are often fanless and sealed to allow for deployment where ever needed.
 
