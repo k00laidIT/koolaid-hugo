@@ -26,7 +26,7 @@
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
       </div>
-      {{ if not (.Params.showAuthorBottom | default (site.Params.article.showAuthorBottom | default false)) }}
+      {{ if and .Section (not (.Params.showAuthorBottom | default (site.Params.article.showAuthorBottom | default false))) }}
         {{ template "SingleAuthor" . }}
       {{ end }}
     </header>
@@ -63,7 +63,7 @@
             </strong>
           {{ end }}
         </div>
-        {{ if (.Params.showAuthorBottom | default (site.Params.article.showAuthorBottom | default false)) }}
+        {{ if and .Section (.Params.showAuthorBottom | default (site.Params.article.showAuthorBottom | default false)) }}
           {{ template "SingleAuthor" . }}
         {{ end }}
         {{ partial "series/series-closed.html" . }}

@@ -117,3 +117,8 @@ main article:not(.prose) {
   margin: auto;
   text-align: center;
 }
+
+/* Taxonomy tag names always lowercase */
+#taxonomy-terms a {
+  text-transform: lowercase;
+}
