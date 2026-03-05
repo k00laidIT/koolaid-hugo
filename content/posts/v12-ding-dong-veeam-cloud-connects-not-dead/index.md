@@ -18,7 +18,7 @@ It's appropriate to level set on the technologies at hand first. [Veeam Cloud Co
 
 {{< figure src="img_0667.jpg" alt="" >}}
 
-<figcaption class="wp-element-caption">https://helpcenter.veeam.com/archive/backup/120/cloud/cloud\_infrastructure.html</figcaption></figure>Veeam Cloud Connect Backup allows for a service provider to provision a slice of cloud storage and securely provision that a customer as a tenant. That storage can have further enhancements such as Immutability if on Linux repositories or with v12 object storage and Insider Protection, an out-of-band temporary storage location for deleted cloud backups as part of a ransomware mitigation strategy. Once the tenant is provisioned on the SP side a customer only needs to enter 3 pieces of information to add that storage as a repository or repositories to their backup infrastructure. Afterwards they can simply target that repo for backup copy or in some situations even direct backup jobs.
+<figcaption class='wp-element-caption'>https://helpcenter.veeam.com/archive/backup/120/cloud/cloud\_infrastructure.html</figcaption></figure>Veeam Cloud Connect Backup allows for a service provider to provision a slice of cloud storage and securely provision that a customer as a tenant. That storage can have further enhancements such as Immutability if on Linux repositories or with v12 object storage and Insider Protection, an out-of-band temporary storage location for deleted cloud backups as part of a ransomware mitigation strategy. Once the tenant is provisioned on the SP side a customer only needs to enter 3 pieces of information to add that storage as a repository or repositories to their backup infrastructure. Afterwards they can simply target that repo for backup copy or in some situations even direct backup jobs.
 
 Veeam Cloud Connect Replication is the same general concept as VCC-B, but just with VMs being stored directly in IaaS. Your Service Provider would provision quotas in a VMware Cloud Director or vCenter environment in which powered off copies of the source VMs are copied. These replicas maintain a shorter maximum number of restore points which are stored as snapshots on the replica. In conjunction with either a VPN connection or the Veeam Network Extension Appliance you can extend your on-prem environment into your replicated IaaS one and run those systems remotely for several reasons.
 
@@ -44,7 +44,7 @@ In all there has been a steady line of improvement and innovation towards object
 
 All that begs the question, should I as a Veeam Backup &amp; Replication administrator be migrating my offsite backups from Cloud Connect Backup to object storage? In my opinion, probably not. The compelling use case today regarding offsite backups is the same that's been around since v10; if you are only sending a copy of backups offsite for the purpose of compliance, checking the box if you will, then object storage may be a good fit for you. It is exceptional in how it supports Object Lock (Immutability). Further it is more efficient than anything else to date in how it writes data which makes it well suited for on-premises storage if available, but for cloud copy usage the capabilities quickly fall off.
 
-<figure class="wp-block-image size-large">
+<figure class='wp-block-image size-large'>
 
 {{< figure src="featured.jpg" alt="" >}}
 

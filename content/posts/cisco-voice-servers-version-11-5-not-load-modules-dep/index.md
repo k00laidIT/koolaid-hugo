@@ -18,7 +18,7 @@ About 6 months ago we updated 3/4 of our Cisco Telephony environment from 8.5 to
 
 {{< figure src="2.force-bios-150x150.png" alt="VMware VM settings showing Boot Options with Force BIOS Setup enabled and CD/DVD drive attached and connected at boot" >}}
 
-3. I personally like to launch the VMware Remote Console first and then boot from there, that way I've already got the screen up. After you power on the BIOS in a VM is the same old Phoenix BIOS we all know and love. Simply tell the VM to boot to CD before hard drive, move to Exit and "Save and Exit" and your VM will reboot directly into the recovery ISO.
+3. I personally like to launch the VMware Remote Console first and then boot from there, that way I've already got the screen up. After you power on the BIOS in a VM is the same old Phoenix BIOS we all know and love. Simply tell the VM to boot to CD before hard drive, move to Exit and 'Save and Exit' and your VM will reboot directly into the recovery ISO.
 
 {{< figure src="3.-boot-to-cd-150x150.png" alt="VMware Remote Console showing Phoenix BIOS boot order screen with CD-ROM set as the first boot device" >}}
 

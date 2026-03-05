@@ -20,7 +20,7 @@ Get-Service *Gateway | Stop-Service
  Now let's take a look at what's currently in place. You can do this with the following command, the output should look like the figure to the right. The relevant info we want to take note of here is 1) The port that we've got Honolulu listening on and 2) The Application ID attached to the certificate. I'm just going to reuse the one there but as Charbel points out this is generic and you can just generate a new one to use by[ using a generator](https://guidgenerator.com/online-guid-generator.aspx). ```
 netsh http show sslcert
 ```
- \[caption id="attachment\_726" align="alignright" width="150"\][
+ \[caption id='attachment\_726' align='alignright' width='150'\][
 
 {{< figure src="honolulu_cert_posh-150x150.png" alt="" >}}
 

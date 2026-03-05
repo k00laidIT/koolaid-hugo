@@ -27,7 +27,7 @@ Next we need to create an API token in Cloudflare for your uses. While you can u
 1. Login to Cloudflare as an account administrator
 2. Navigate to Manage Account &gt; Account API Tokens
 3. Click Create Token
-4. Click "Use template" by Edit zone DNS
+4. Click 'Use template' by Edit zone DNS
 5. Leave defaults for all except in Zone resources set to desired state. Easiest is Include + All zones from an account + Account name
 6. Click Continue to summary and then create token
 7. Capture your created token and save securely. You'll use this later.

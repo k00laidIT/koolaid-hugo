@@ -46,7 +46,7 @@ So what does this mean? Where in the above the files you write to the shared fol
 
 While the settings are the same for enabling this on a LUN (what you would use with NFS or iSCSI) let's what through what that looks like for a shared folder.
 
-If not present you may need to start with installing the "Snapshot Replication" application from the Synology Package Center. I won't walk through that but know it exists.
+If not present you may need to start with installing the 'Snapshot Replication' application from the Synology Package Center. I won't walk through that but know it exists.
 
 Once you launch the Snapshot Replication app navigate to the Snapshots menu item. From here you can see a set of lists of shared folders and LUNs and their protection status. To enable immutable local snapshots click on a storage container and then choose settings.
 

@@ -51,7 +51,7 @@ An example of when I use S3 Inventory is when I start evaluating how a new backu
 - Does it leverage object lock to protect the data as advertised
 - Does it correctly use it for everything
 
-S3 Inventory definitely isn't for everyone but it's a good tool to know its there when the bill skyrockets and you don't know why. If you'd like to set up S3 Inventory know that much like for AWS Server Access Logging you need to first provide the logging service access to the destination log bucket, then configure each bucket to enable the service. This can be done via the Console UI under Management and Inventory Configurations. Be sure to take note of all the "optional" data under the metadata fields
+S3 Inventory definitely isn't for everyone but it's a good tool to know its there when the bill skyrockets and you don't know why. If you'd like to set up S3 Inventory know that much like for AWS Server Access Logging you need to first provide the logging service access to the destination log bucket, then configure each bucket to enable the service. This can be done via the Console UI under Management and Inventory Configurations. Be sure to take note of all the 'optional' data under the metadata fields
 
 {{< figure src="image-55.png" alt="" >}}
 

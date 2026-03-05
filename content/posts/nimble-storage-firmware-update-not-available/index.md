@@ -11,7 +11,7 @@ Today, like everyday as a technology professional, I got the opportunity to lear
 
 {{< figure src="Nimble-Software-Blacklist-300x85.jpg" alt="" >}}
 
-](Nimble-Software-Blacklist.jpg) Blacklisted\[/caption\] \[caption id="attachment\_588" align="aligncenter" width="300"\][
+](Nimble-Software-Blacklist.jpg) Blacklisted\[/caption\] \[caption id='attachment\_588' align='aligncenter' width='300'\][
 
 {{< figure src="Nimble-Software-No-Blacklist-300x82.jpg" alt="" >}}
 

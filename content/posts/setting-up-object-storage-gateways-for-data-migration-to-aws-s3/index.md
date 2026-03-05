@@ -26,7 +26,7 @@ To overcome this the customer can deploy Object Storage Gateways in AWS to suppo
 
 To facilitate this architecture a few things should be considered:
 
-- In a perfect world the object storage gateways should be deployed in the cloud "closest" to the source bucket in terms of latency and access. This is often not possible due to compute availability, cost optimization, etc. Just know that any version of putting the data movers in the cloud is better than not doing it at all.
+- In a perfect world the object storage gateways should be deployed in the cloud 'closest' to the source bucket in terms of latency and access. This is often not possible due to compute availability, cost optimization, etc. Just know that any version of putting the data movers in the cloud is better than not doing it at all.
 - The VBR server will need to have management connectivity to both source and destination buckets as well as the object storage gateway servers. This may require connectivity solutions between on-premises network and the AWS VPC or other cloud datacenter solutions.
 - The VPC will also need connectivity to both the source and destination buckets. In AWS speak for the “other cloud” the VPC will need a public subnet with Internet Gateway configured. For AWS S3 access S3 Endpoint Gateway may need to be added.
 

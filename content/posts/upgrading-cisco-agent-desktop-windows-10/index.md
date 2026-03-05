@@ -16,11 +16,11 @@ So we recently had the joys of upgrading our Cisco Voice setup to version 11, in
 
 {{< figure src="1.-orca-find-item-300x157.png" alt="1-orca-find-item" >}}
 
-](1.-orca-find-item.png) Now we need to remove the offending condition which can be done by simply right clicking on it and choosing "Drop Row." It will prompt you to confirm, just hit OK to continue. [
+](1.-orca-find-item.png) Now we need to remove the offending condition which can be done by simply right clicking on it and choosing 'Drop Row.' It will prompt you to confirm, just hit OK to continue. [
 
 {{< figure src="2.-orca-delete-row-300x157.png" alt="2-orca-delete-row" >}}
 
-](2.-orca-delete-row.png) Finally before we save our new MSI we need to go to Tools and Options, choosing the Database tab. Here we need to check the "Copy embedded streams during 'Save As' so that our changes will be rolled into the package. [
+](2.-orca-delete-row.png) Finally before we save our new MSI we need to go to Tools and Options, choosing the Database tab. Here we need to check the 'Copy embedded streams during 'Save As' so that our changes will be rolled into the package. [
 
 {{< figure src="3.-orca-options-300x157.png" alt="3-orca-options" >}}
 

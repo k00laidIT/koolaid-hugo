@@ -43,7 +43,7 @@ Once the migration begins if the job is active it will be disabled automatically
 
 **Migrating a VM between backup jobs**
 
-- Open up your Backups list under Home in the VBR Console. Open a supported backup set and identify the VM you wish to move between backups. Click "Move Backup"
+- Open up your Backups list under Home in the VBR Console. Open a supported backup set and identify the VM you wish to move between backups. Click 'Move Backup'
 
 {{< figure src="image-33.png" alt="Veeam VBR Home Backups list with right-click context menu on an individual VM within a backup job, showing the Move backup option highlighted" >}}
 

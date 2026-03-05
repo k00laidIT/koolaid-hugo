@@ -16,12 +16,12 @@ As a SysAdmin I'm used to waking up, grabbing my phone and seeing the 20 or so e
 
 ](remote-browse.jpg) |
 |---|---|
-| Once in the Remote Browse dialog box choose "Trace Files" and then we really only need one of the services selected, Cisco Unified Intelligence Center Serviceability Service and then Next, Next, Finish. | [
+| Once in the Remote Browse dialog box choose 'Trace Files' and then we really only need one of the services selected, Cisco Unified Intelligence Center Serviceability Service and then Next, Next, Finish. | [
 
 {{< figure src="select-cuic-261x300.jpg" alt="select-cuic" >}}
 
 ](select-cuic.jpg) |
-| Once it is done gathering all of the log files it will tell you your browse is ready. You then need to drill all the way down through the menu on each node until you reach "jmx." Once you double-click on jmx you will see the bonanza of logs. It is best to just click one, Ctrl+A to select all and then just hit the Delete button. | [
+| Once it is done gathering all of the log files it will tell you your browse is ready. You then need to drill all the way down through the menu on each node until you reach 'jmx.' Once you double-click on jmx you will see the bonanza of logs. It is best to just click one, Ctrl+A to select all and then just hit the Delete button. | [
 
 {{< figure src="browse-to-node-300x198.jpg" alt="browse-to-node" >}}
 

@@ -34,7 +34,7 @@ If you weren't already aware you'll notice that there are number of roles that c
 
 {{< figure src="Screenshot-2023-02-02-at-6.46.23-PM.png" alt="" >}}
 
-3\. It is important to understand that once you protect an account with MFA you will not be able to use it with automation methods such as PowerShell. To allow for this you will need to create an automation specific user, preferably with a very robust and often changed password, and set it in VBR as a service account to disable MFA. Complete adding your needed users and check the "Require two-factor authentication for interactive logon" to complete the server setup portion.
+3\. It is important to understand that once you protect an account with MFA you will not be able to use it with automation methods such as PowerShell. To allow for this you will need to create an automation specific user, preferably with a very robust and often changed password, and set it in VBR as a service account to disable MFA. Complete adding your needed users and check the 'Require two-factor authentication for interactive logon' to complete the server setup portion.
 
 {{< figure src="Screenshot-2023-02-02-at-6.51.24-PM.png" alt="" >}}
 

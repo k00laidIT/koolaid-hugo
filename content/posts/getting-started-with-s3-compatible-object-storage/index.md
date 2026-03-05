@@ -116,7 +116,7 @@ Now that we've written a couple files let's look at what we have. As you can see
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api list-objects --bucket test-bucket-2-locked
 ```
-Take note of a few things here. While the s3 ls command gives more traditional file system output s3api refers to the objects with their entire "path" as the key. Essentially in object storage for our benefit it still has the concept of file and folder structure but it views each unique object as a single flat thing on the file system without a true tree. Key is also important because as we start to consider more advanced object storage capabilities such as object lock, encryption, etc. the key is often what you need to supply to complete the commands.
+Take note of a few things here. While the s3 ls command gives more traditional file system output s3api refers to the objects with their entire 'path' as the key. Essentially in object storage for our benefit it still has the concept of file and folder structure but it views each unique object as a single flat thing on the file system without a true tree. Key is also important because as we start to consider more advanced object storage capabilities such as object lock, encryption, etc. the key is often what you need to supply to complete the commands.
 
 {{< figure src="image-5.png" alt="" >}}
 
@@ -132,9 +132,9 @@ Object Lock is actually done in one of two ways (or a mix of both); creating a p
 Let's start with applying a basic policy to a bucket. In this situations for my test-bucket-2-locked bucket I'm going to enable compliance mode and then set retention to 21 days. A full breakdown of the formatting of the object-lock-configuration parameter and the options it provides can be found in the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-retention.html).
 
 ```bash
-aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-lock-configuration --bucket test-bucket-2-locked --object-lock-configuration '{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 21 }}}'
+aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-lock-configuration --bucket test-bucket-2-locked --object-lock-configuration '{ 'ObjectLockEnabled': 'Enabled', 'Rule': { 'DefaultRetention': { 'Mode': 'COMPLIANCE', 'Days': 21 }}}'
 ```
-Cool, now to check that compliance we can simply use s3api get-object-lock-configuration instead against the bucket to check what we've done. I'll note that for either the "put" above or the "get" below that there is no s3 endpoint equivalent, these are some of the more advanced features I've been going on about.
+Cool, now to check that compliance we can simply use s3api get-object-lock-configuration instead against the bucket to check what we've done. I'll note that for either the 'put' above or the 'get' below that there is no s3 endpoint equivalent, these are some of the more advanced features I've been going on about.
 
 ```bash
 aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api get-object-lock-configuration --bucket test-bucket-2-locked
@@ -144,21 +144,21 @@ aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com
 Ok, so we've applied a baseline policy of compliance and retention of 21 days to our bucket and confirmed that it's set. Now let's look at the objects within. You can view a particular object's retention with the s3api get-object-retention command. As we are dealing with advanced features at the object level you will need to capture the key for an object to test. If you'll remember we found those using the s3api list-objects command.
 
 ```bash
-aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api get-object-retention --bucket test-bucket-2-locked --key "folder1/aws-config.jpg"
+aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api get-object-retention --bucket test-bucket-2-locked --key 'folder1/aws-config.jpg'
 ```
 {{< figure src="image-8.png" alt="" >}}
 
 So as you can see we have both mode and retention date set on the individual object. What if we wanted this particular object to have a different retention period than the bucket itself? Let's now use the s3api put-object-retention option to work and try to set that down to 14 days instead. While we use a general purpose number of days when creating the policy when we set object level retention it's done by modifying the actual date stamp so we'll simply pick a day 14 days from today.
 
 ```bash
-aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-retention --bucket test-bucket-2-locked --key "folder1/aws-config.jpg" --retention '{ "Mode": "GOVERNANCE", "RetainUntilDate": "2022-02-16T00:00:00" }'
+aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-retention --bucket test-bucket-2-locked --key 'folder1/aws-config.jpg' --retention '{ 'Mode': 'GOVERNANCE', 'RetainUntilDate': '2022-02-16T00:00:00' }'
 ```
 {{< figure src="image-6.png" alt="" >}}
 
 Doh! Remember what we said about compliance mode? That you could make the retention shorter than what was previously set? We are running into that here and can see that it in fact works! Instead let's try this again and set it to 22 days.
 
 ```bash
-aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-retention --bucket test-bucket-2-locked --key "folder1/aws-config.jpg" --retention '{ "Mode": "GOVERNANCE", "RetainUntilDate": "2022-02-24T00:00:00" }'
+aws --profile jimtest --endpoint-url=https://us-central-1a.object.ilandcloud.com s3api put-object-retention --bucket test-bucket-2-locked --key 'folder1/aws-config.jpg' --retention '{ 'Mode': 'GOVERNANCE', 'RetainUntilDate': '2022-02-24T00:00:00' }'
 ```
 {{< figure src="image-9.png" alt="" >}}
 

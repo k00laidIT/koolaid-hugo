@@ -32,7 +32,7 @@ On top of this the DSM also supports docker based container workloads with in my
 
 ## The Bad
 
-**The HCL.** I'm going honest with you all, the [Synology HCL](https://www.synology.com/en-us/compatibility) truly dissapoints me. For a series of hardware devices that are largely targeting the low-end of the storage market only displaying hardware that is rebranded units under your own name and marking them up 2-3x isn't a great look. You can also find many 3rd party hard disk drives but really only on the higher end for those and no 3rd Party SSDs or nVME are supported. While it can be overcome those that may not necessarily know better are going to want to stay within the HCL and it definitely has "I void warranty" vibes. I'll be covering this more in my next post.
+**The HCL.** I'm going honest with you all, the [Synology HCL](https://www.synology.com/en-us/compatibility) truly dissapoints me. For a series of hardware devices that are largely targeting the low-end of the storage market only displaying hardware that is rebranded units under your own name and marking them up 2-3x isn't a great look. You can also find many 3rd party hard disk drives but really only on the higher end for those and no 3rd Party SSDs or nVME are supported. While it can be overcome those that may not necessarily know better are going to want to stay within the HCL and it definitely has 'I void warranty' vibes. I'll be covering this more in my next post.
 
 {{< figure src="image-3.png" alt="" >}}
 

@@ -14,7 +14,7 @@ First, let’s define [immutability](https://www.merriam-webster.com/dictionary/
 
 With VBR once Immutability is enabled objects are written with [Compliance mode retention](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html) for the duration of the protected period. It recognizes that the object bucket has object-lock enabled and then as it writes it each block is written with the policy directly rather than assuming a bucket level policy. If you attempt to delete a restore point that has not yet had its retention policy expire it won’t let you delete but instead gives you an error.
 
-{{< figure src="12.png" alt="Veeam backup deletion job log showing a failed attempt to delete an immutable backup with the error "Unable to delete backup in the Capacity Tier because it is immutable until 10 February 2022"" >}}
+{{< figure src="12.png" alt="Veeam backup deletion job log showing a failed attempt to delete an immutable backup with the error: Unable to delete backup in the Capacity Tier because it is immutable until 10 February 2022" >}}
 
 Setting up immutability with object storage in Veeam is the same as with non-immutability but with a few differences. This starts with how we create the bucket. In the last post we simply used the [**s3 mb**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mb.html) command to create a bucket, but when you need to work with object-lock you need to use the [**s3api create-bucket**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html) command.
 

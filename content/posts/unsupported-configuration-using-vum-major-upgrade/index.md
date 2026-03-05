@@ -20,7 +20,7 @@ I've recently been working on getting my environment upgraded from vSphere 5.1 t
 
 {{< figure src="tasks-and-events-output-300x69.jpg" alt="tasks-and-events-output" >}}
 
-](tasks-and-events-output.jpg)This is great except as I've moved from Veeam server to Veeam server with different names and I dismounted and removed the different datastores from the hosts the old lines of config weren't removed from esx.conf. Further after finally seeing the "Error in ESX configuration file (esx.conf)" we got lead down the rabbit hole of the preprocessing of a VUM upgrade. Evidently one of the first steps (at the 12% mark of the remediate task in my case) is to run a variant of the esxcfg-info CLI command which in my case was producing this: ```
+](tasks-and-events-output.jpg)This is great except as I've moved from Veeam server to Veeam server with different names and I dismounted and removed the different datastores from the hosts the old lines of config weren't removed from esx.conf. Further after finally seeing the 'Error in ESX configuration file (esx.conf)' we got lead down the rabbit hole of the preprocessing of a VUM upgrade. Evidently one of the first steps (at the 12% mark of the remediate task in my case) is to run a variant of the esxcfg-info CLI command which in my case was producing this: ```
 ~ # esxcfg-info | grep 'System UUID'
 Error: Unable to resolve hostname 'backupserver.domain.local'
 ~ #

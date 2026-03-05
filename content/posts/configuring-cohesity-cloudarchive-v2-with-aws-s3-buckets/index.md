@@ -24,49 +24,49 @@ We need to begin in AWS by capturing the Account ID for your AWS Account. Once l
 
 Next we need to create an IAM policy with the proper permissions to do all the things that the process needs. I will say that as I've been trying to work with this over the past few versions of CohesityOS two things have been consistent, that it changes with every release and the permissions are poorly documented. As of this exact release, 7.1.2\_u2\_release-20240925\_66722648, the policy below appears to be complete and functional but know that these may well change. The good news is that you can largely work your way through any changes via the error messages as you go to add buckets. I would probably make sure to add a new target anytime you update or patch the OS to to make sure any existing continue to work correctly.
 
-To create the policy navigate in the AWS console to IAM and then Policies and create a new policy. If you click the JSON selector in the "Specify Permissions" window you can simply cut the below code block and paste it right in. Afterwards you can name your policy whatever you'd like, add description and tags as dictated by your organization's requirements and then save your policy.
+To create the policy navigate in the AWS console to IAM and then Policies and create a new policy. If you click the JSON selector in the 'Specify Permissions' window you can simply cut the below code block and paste it right in. Afterwards you can name your policy whatever you'd like, add description and tags as dictated by your organization's requirements and then save your policy.
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
+    'Version': '2012-10-17',
+    'Statement': [
         {
-            "Sid": "Statement1",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:CreateBucket",
-                "s3:PutObject",
-                "s3:PutObjectRetention",
-                "s3:GetObject",
-                "s3:DeleteObject",
-                "s3:GetLifecycleConfiguration",
-                "s3:PutBucketObjectLockConfiguration",
-                "s3:GetObjectVersion",
-                "s3:GetObjectAttributes",
-                "s3:GetObjectVersionAttributes",
-                "s3:DeleteObjectVersion",
-                "s3:PutBucketVersioning",
-                "s3:GetBucketVersioning",
-                "s3:ListBucketVersions",
-                "s3:GetBucketLocation",
-                "s3:RestoreObject",
-                "iam:CreateRole",
-                "iam:GetRole",
-                "iam:PassRole",
-                "iam:CreatePolicy",
-                "iam:PutRolePolicy",
-                "iam:GetRolePolicy",
-                "lambda:GetFunction",
-                "lambda:CreateFunction",
-                "lambda:InvokeFunction",
-                "lambda:UpdateFunctionCode",
-                "cloudformation:CreateUploadBucket",
-                "cloudformation:CreateStack",
-                "cloudformation:ListStacks",
-                "cloudformation:GetTemplateSummary"
+            'Sid': 'Statement1',
+            'Effect': 'Allow',
+            'Action': [
+                's3:ListBucket',
+                's3:CreateBucket',
+                's3:PutObject',
+                's3:PutObjectRetention',
+                's3:GetObject',
+                's3:DeleteObject',
+                's3:GetLifecycleConfiguration',
+                's3:PutBucketObjectLockConfiguration',
+                's3:GetObjectVersion',
+                's3:GetObjectAttributes',
+                's3:GetObjectVersionAttributes',
+                's3:DeleteObjectVersion',
+                's3:PutBucketVersioning',
+                's3:GetBucketVersioning',
+                's3:ListBucketVersions',
+                's3:GetBucketLocation',
+                's3:RestoreObject',
+                'iam:CreateRole',
+                'iam:GetRole',
+                'iam:PassRole',
+                'iam:CreatePolicy',
+                'iam:PutRolePolicy',
+                'iam:GetRolePolicy',
+                'lambda:GetFunction',
+                'lambda:CreateFunction',
+                'lambda:InvokeFunction',
+                'lambda:UpdateFunctionCode',
+                'cloudformation:CreateUploadBucket',
+                'cloudformation:CreateStack',
+                'cloudformation:ListStacks',
+                'cloudformation:GetTemplateSummary'
             ],
-            "Resource": "*"
+            'Resource': '*'
         }
     ]
 }
@@ -75,7 +75,7 @@ Finally we need to simply create a IAM user, without console access, and apply y
 
 ## Create a Bucket
 
-As you've seen many a time here we now need to create a bucket with object-lock enabled. While you can walk through doing this in the AWS console UI I'll challenge you to do it via AWS CLI or Powershell instead. For AWS CLI you can simply do the following given that you've setup your user access keys from above in a profile named "mycav2profile"
+As you've seen many a time here we now need to create a bucket with object-lock enabled. While you can walk through doing this in the AWS console UI I'll challenge you to do it via AWS CLI or Powershell instead. For AWS CLI you can simply do the following given that you've setup your user access keys from above in a profile named 'mycav2profile'
 
 ```bash
 aws --profile mycav2profile s3api create-bucket --object-lock-enabled-for-bucket --create-bucket-configuration LocationConstraint=us-east-2 --bucket mycav2profile-cohesity-cav2-imm-02
@@ -84,7 +84,7 @@ Now that we've setup our access and created our bucket let's switch over to the 
 
 ## Adding an External Target
 
-Once we click "Add External Target" we'll have a few choices to make that annoyingly their UI makes you manually walk through. As you can see in the image below there are quite a few settings with information we've created through the steps above. Of note here is I've selected the S3-IA Storage Class. I am a big proponent of this class for data backup purposes, just be mindful of the default limitations and financial aspects of it if you haven't covered those off as is done with the 1[1:11 Cloud Object Storage for Amazon S3](https://1111systems.com/services/object-storage/) product.
+Once we click 'Add External Target' we'll have a few choices to make that annoyingly their UI makes you manually walk through. As you can see in the image below there are quite a few settings with information we've created through the steps above. Of note here is I've selected the S3-IA Storage Class. I am a big proponent of this class for data backup purposes, just be mindful of the default limitations and financial aspects of it if you haven't covered those off as is done with the 1[1:11 Cloud Object Storage for Amazon S3](https://1111systems.com/services/object-storage/) product.
 
 {{< figure src="image-11.png" alt="Cohesity Register External Target form showing AWS storage type, S3-IA storage class, bucket name, AWS US East Ohio region, account ID, access key fields, and Incremental Forever archival format selected with a prompt to download the Cloud Formation Template" >}}
 
@@ -135,7 +135,7 @@ Now that we have our external target we need to create a policy that can be appl
     - Retain for 90 days
     - Keep the data immutable for 90 days.
 
-You'll need to click the "More Options" button to get into our fun stuff but once you do that it's relatively simple. Simply fill in the blanks for the primary copy then click "Add Archive" and complete as needed.
+You'll need to click the 'More Options' button to get into our fun stuff but once you do that it's relatively simple. Simply fill in the blanks for the primary copy then click 'Add Archive' and complete as needed.
 
 {{< figure src="image-12.png" alt="Cohesity Create Policy screen showing daily backup with 30-day local retention and DataLock, plus an archive target configured to run every job with 90-day retention and 90-day lock" >}}
 

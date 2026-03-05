@@ -44,25 +44,25 @@ Now let's create a sub-folder, or prefix, to write our access-logs into. We'll a
 
 {{< figure src="image-43.png" alt="" >}}
 
-Now as the last step of setting up our logging bucket we need to create a bucket policy on our bucket to allow the AWS logging service access to write to our bucket. To do so go to your logging bucket's Permissions tab and choose edit for bucket policy. As you may have noticed above the name of my bucket is "us-east-2-logging-demo." In this policy you'll notice where those are part of the ARN for the bucket, essentially saying "AWS logging explicitly has write access to this bucket.
+Now as the last step of setting up our logging bucket we need to create a bucket policy on our bucket to allow the AWS logging service access to write to our bucket. To do so go to your logging bucket's Permissions tab and choose edit for bucket policy. As you may have noticed above the name of my bucket is 'us-east-2-logging-demo.' In this policy you'll notice where those are part of the ARN for the bucket, essentially saying 'AWS logging explicitly has write access to this bucket.
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
+  'Version': '2012-10-17',
+  'Statement': [
     {
-      "Sid": "AllowS3Logging",
-      "Effect": "Allow",
-      "Principal": { "Service": "logging.s3.amazonaws.com" },
-      "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::us-east-2-logging-demo/*"
+      'Sid': 'AllowS3Logging',
+      'Effect': 'Allow',
+      'Principal': { 'Service': 'logging.s3.amazonaws.com' },
+      'Action': 's3:PutObject',
+      'Resource': 'arn:aws:s3:::us-east-2-logging-demo/*'
     }
   ]
 }
 ```
 Once your policy is saved let's enable logging on a bucket.
 
-From EACH bucket you will need to go to Properties and "Enable Server Access Logging". Then you select your bucket and optionally add your created sub-folder. I personally like to use sub-folders in case I want to do more logging into this centralized bucket later.
+From EACH bucket you will need to go to Properties and 'Enable Server Access Logging'. Then you select your bucket and optionally add your created sub-folder. I personally like to use sub-folders in case I want to do more logging into this centralized bucket later.
 
 {{< figure src="image-46.png" alt="" >}}
 
@@ -72,7 +72,7 @@ That all seems like a lot, right? It does to me, especially if you have a bunch 
 
 ## Integrating Access Logs into Wazuh
 
-Security Information and Event Management, or SIEM, is effectively syslog on steroids, allowing for both log and information ingest as well as integration into many threat hunting, compliance and other security related tools and systems. There are many SIEM systems that you probably well know such as Splunk, ElasticStack or Azure Sentinel, but for SMB, lab or even well staffed enterprises you may want to look at Wazuh, an open source SIEM/XDR system that is easily deployable for testing or small environments as an OVA it's easy to get out of the gate with it. Even though it's "easy" like many OSS projects it's highly extensible and able to significantly scale.
+Security Information and Event Management, or SIEM, is effectively syslog on steroids, allowing for both log and information ingest as well as integration into many threat hunting, compliance and other security related tools and systems. There are many SIEM systems that you probably well know such as Splunk, ElasticStack or Azure Sentinel, but for SMB, lab or even well staffed enterprises you may want to look at Wazuh, an open source SIEM/XDR system that is easily deployable for testing or small environments as an OVA it's easy to get out of the gate with it. Even though it's 'easy' like many OSS projects it's highly extensible and able to significantly scale.
 
 {{< figure src="featured.png" alt="" >}}
 

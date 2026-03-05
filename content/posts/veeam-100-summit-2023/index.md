@@ -28,7 +28,7 @@ There was also quite a bit of content specifically for their Service Provider re
 
 As always Veeam does community and events well, arguably better than anybody else in the industry. While others may bring in big name rap acts to their conference parties or do glitzy announcements, Veeam does an impeccable job of finding their people and creating a two way street of communication between them and the company. This only works because the group is kept relatively tight but even with that necessary limitation they’ve managed to grow the group year over year. This past year they’ve made a point of providing paid trips to not only Summit but also [VeeamON 2023](https://www.veeam.com/veeamon) with many of us also having speaking slots in Miami in May.
 
-<figure class="wp-block-image size-large">
+<figure class='wp-block-image size-large'>
 
 {{< figure src="img_7844-1024x768.jpg" alt="" >}}
 

@@ -22,13 +22,13 @@ Now that we have folders let's go create some corresponding buckets to back them
 
 {{< figure src="image-18.png" alt="Terminal showing AWS CLI s3api create-bucket commands and s3 ls output confirming 4 VBM buckets created" >}}
 
-Ok so now we have folder and buckets, time to hop in to Veeam. First we need to add our object credentials to the server. This is a simple setup and most likely you will only need one set of credentials for all your buckets. Because in this example I will be consuming iland Secure Cloud Object Storage I need to choose the "S3 Compatible access key" under the "Add..." button in Cloud Credential Manager (menu&gt; Cloud Credentials). These should be the access key and secret provided to you by your service provider.
+Ok so now we have folder and buckets, time to hop in to Veeam. First we need to add our object credentials to the server. This is a simple setup and most likely you will only need one set of credentials for all your buckets. Because in this example I will be consuming iland Secure Cloud Object Storage I need to choose the 'S3 Compatible access key' under the 'Add...' button in Cloud Credential Manager (menu&gt; Cloud Credentials). These should be the access key and secret provided to you by your service provider.
 
 {{< figure src="image-19.png" alt="VBM Cloud Credential Manager Add Credential dialog for S3 compatible access key and secret key" >}}
 
-Now we need to go to Backup Infrastructure &gt; Object Storage Repositories to add our various buckets. Start by right clicking and choose "Add Object Storage."
+Now we need to go to Backup Infrastructure &gt; Object Storage Repositories to add our various buckets. Start by right clicking and choose 'Add Object Storage.'
 
-{{< figure src="image-20.png" alt="VBM New Object Storage Repository name step with "ilandproduct-exch" entered" >}}
+{{< figure src="image-20.png" alt="VBM New Object Storage Repository name step with 'ilandproduct-exch' entered" >}}
 
 {{< figure src="image-21.png" alt="VBM object storage type selection with S3 Compatible option chosen" >}}
 
@@ -44,19 +44,19 @@ Now simply repeat the process above for any and all buckets you need for this ta
 
 Now that we have all our object buckets added we need to pair these up with our on premises repository folders. It's worth noting that the on-prem repo is a bit misleading, no backup data as long as you use the defaults will ever live locally in that repository. Rather it will hold a metadata file in the form of a single jetDB file that service as pointers to the objects that is the actual data. For this reason the storage consumption here is really really low and shouldn't be part of your design constraints.
 
-Under Backup Infrastructure &gt; Backup Repositories we're going to click "Add Repository.." and let the wizard guide us.
+Under Backup Infrastructure &gt; Backup Repositories we're going to click 'Add Repository..' and let the wizard guide us.
 
-{{< figure src="image-26.png" alt="VBM New Backup Repository name step with "ilandproduct-exch" entered" >}}
+{{< figure src="image-26.png" alt="VBM New Backup Repository name step with 'ilandproduct-exch' entered" >}}
 
 {{< figure src="image-27.png" alt="VBM New Backup Repository location step specifying proxy server and folder path" >}}
 
-{{< figure src="image-29.png" alt="VBM Add Password dialog for encryption with hint "ilandproduct Encryption Password"" >}}
+{{< figure src="image-29.png" alt="VBM Add Password dialog for encryption with hint 'ilandproduct Encryption Password'" >}}
 
 {{< figure src="image-30.png" alt="VBM object storage backup repository step with offload and encrypt checkboxes enabled" >}}
 
 {{< figure src="image-31.png" alt="VBM retention policy step showing 7 years retention with item-level retention selected" >}}
 
-One note on that final step above. Often organization will take the "Keep Forever" option that is allowed here and I will say I highly advise against this. You should specify a retention policy that is agreed upon with your business/organization stakeholders as keeping any backup data longer than needed may have unintended consequences should a legal situation arise; data the organization believes to be long since gone is now discoverable through these backups.
+One note on that final step above. Often organization will take the 'Keep Forever' option that is allowed here and I will say I highly advise against this. You should specify a retention policy that is agreed upon with your business/organization stakeholders as keeping any backup data longer than needed may have unintended consequences should a legal situation arise; data the organization believes to be long since gone is now discoverable through these backups.
 
 Also worth noting item-level retention is great if you are using a service provider that does not charge you on egress fees because it gives you more granular control in terms of retention. If you use a hyperscaler such as Amazon S3 you may find this option will drive your AWS bill up because of a much higher load on egress each time the job runs.
 
@@ -68,7 +68,7 @@ Finally the only step left to do is create jobs targeting our newly created repo
 
 You can start the process under Organizations &gt; Your Organization &gt; Add to backup job...
 
-{{< figure src="image-32.png" alt="VBM New Backup Job name step with "ilandproduct-exch" entered" >}}
+{{< figure src="image-32.png" alt="VBM New Backup Job name step with 'ilandproduct-exch' entered" >}}
 
 {{< figure src="image-33.png" alt="VBM New Backup Job select objects step with Add dropdown showing Organization option highlighted" >}}
 
