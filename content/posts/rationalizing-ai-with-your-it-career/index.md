@@ -7,7 +7,7 @@ categories = [ "Career",]
 featureimage = "featured.png"
 +++
 
-*Note:* This post originally appeared on the 11:11 Systems blog. To read the company published version please see https://1111systems.com/blog/navigating-ai-in-it-balancing-innovation-privacy-and-expertise/.  
+*Note:* This post originally appeared on the 11:11 Systems blog. To read the company published version please see https://1111systems.com/blog/navigating-ai-in-it-balancing-innovation-privacy-and-expertise/.
 
 Let's be honest: if you work in IT right now, your feed is basically 50% AI hype, 40% AI fear, and 10% confused memes about both. Depending on who you ask, AI is either coming for your job, coming for everyone's job, or going to "free you up to do more strategic work" (which somehow always looks a lot like "do the same work, just faster, with fewer people").
 
