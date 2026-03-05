@@ -65,9 +65,9 @@
         </div>
         {{ if and .Section (.Params.showAuthorBottom | default (site.Params.article.showAuthorBottom | default false)) }}
           {{ template "SingleAuthor" . }}
+          {{ partial "sharing-links.html" . }}
         {{ end }}
         {{ partial "series/series-closed.html" . }}
-        {{ partial "sharing-links.html" . }}
         {{ partial "related.html" . }}
       </div>
     </section>
