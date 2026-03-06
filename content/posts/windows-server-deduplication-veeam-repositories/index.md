@@ -21,13 +21,13 @@ I have repeated these a few times as I've honed them over the years. If you feel
 format R: /L /A:64k /V:BackupRepo1
 ```
 
-{{< figure src="Per-VM.png" alt="" style="right" >}}
+{{< figure src="Per-VM.png" alt="" class="right" >}}
 
 2. **Control File Size As Best You Can.** Windows Server 2012 R2 Deduplication came with some pretty stringent recommendations when it came to maximum file size and using deduplication, 1 TB. With traditional backup files blowing past that is extremely easy to do when you have all of your VMDKs rolled into a single backup file even after compression. While I have violated that recommendation in the past without issue I've also heard many horror stories of people who found themselves with corrupted data due to this. Your best bet is to be sure to enable Per-VM backup chains on your Backup Repository (Backup Infrastructure&gt; Backup Repositories&gt; \[REPONAME\] &gt; Repository&gt; Advanced).
  
 3. **Schedule and Verify Weekly Defragmentation.** While by default Windows schedules weekly defragmentation jobs on all volumes these days the one and only time I came close to getting burnt but using dedupe was when said job was silently failing every week and the fragmentation became too much. I found out because my backup job began failing due to corrupted backup chain, but after a few passes of defragmenting the drive it was able to continue without error and test restores all worked correctly. For this reason I do recommend having the weekly job but make sure that it is actually happening.
 
-{{< figure src="Storage-level-corruption-guard.png" alt="" >}}
+{{< figure src="Storage-level-corruption-guard.png" alt="" class="right" >}}
 
 4. **Enable Storage-Level Corruption Guard.** Now that all of these things are done we should be good, but a system left untested can never be relied upon. With Veeam Backup &amp; Replication v9 we now have the added tool on our backup jobs of being able to do periodic backup corruption checks. When you are doing anything even remotely risky like this it doesn't hurt to make sure this is turned on and working. To enable this go to the Maintenance tab of the Advanced Storage settings of your job and check the top box. If you have a shorter retention time frame you may want to consider setting this to weekly.
 5. **Modify Deduplication Schedule To Allow for Synthetic Operations.** Finally the last recommendation has to do more with performance than with integrity of data. If you are going to be doing weekly synthetic fulls I've found performance is greatly decreased if you leave the default file age before deduplication setting (3 or 5 days depending on version of Windows) enabled. This is because in order to do the operation it has to reinflate each of the files before doing the operation. Instead set the deduplication age to 8 days to allow for the files to already be done processing before they were deduplicated. For more information on how to enable deduplication as well as how to modify this setting see my [blog over on 4sysops.com](https://4sysops.com/archives/how-to-install-data-deduplication-in-windows-server-2012-r2/).
