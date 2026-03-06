@@ -1,4 +1,4 @@
-baseURL = 'https://dev.koolaid.info'
+baseURL = 'https://koolaid.info'
 languageCode = 'en-us'
 title = 'koolaid.info'
 enableRobotsTXT = true

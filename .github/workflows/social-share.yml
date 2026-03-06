@@ -1,0 +1,89 @@
+name: Share New Post to Social Media
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/posts/**/index.md'
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Share new posts to social media
+        env:
+          MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          python3 << 'EOF'
+          import re, os, json, urllib.request, subprocess, sys
+
+          before = os.environ['BEFORE_SHA']
+          after  = os.environ['AFTER_SHA']
+
+          # Initial push to branch has no previous commit
+          if before == '0000000000000000000000000000000000000000':
+              print("Initial push — skipping social share.")
+              sys.exit(0)
+
+          result = subprocess.run(
+              ['git', 'diff', '--name-only', '--diff-filter=A', before, after,
+               '--', 'content/posts/*/index.md'],
+              capture_output=True, text=True
+          )
+          new_files = [f for f in result.stdout.strip().split('\n') if f]
+
+          if not new_files:
+              print("No new posts detected.")
+              sys.exit(0)
+
+          webhook_url = os.environ['MAKE_WEBHOOK_URL']
+
+          for post_file in new_files:
+              slug = post_file.replace('content/posts/', '').replace('/index.md', '')
+
+              with open(post_file, 'r') as f:
+                  content = f.read()
+
+              match = re.match(r'^\+\+\+\n(.*?)\n\+\+\+', content, re.DOTALL)
+              if not match:
+                  print(f"Skipping {post_file}: no TOML front matter")
+                  continue
+
+              fm = match.group(1)
+
+              draft_match = re.search(r'^draft\s*=\s*(true|false)', fm, re.MULTILINE)
+              if draft_match and draft_match.group(1) == 'true':
+                  print(f"Skipping draft: {slug}")
+                  continue
+
+              title_match = re.search(r"^title\s*=\s*['\"](.+?)['\"]", fm, re.MULTILINE)
+              title = title_match.group(1) if title_match else slug
+
+              img_match = re.search(r"^featureimage\s*=\s*['\"](.+?)['\"]", fm, re.MULTILINE)
+              featureimage = img_match.group(1) if img_match else ''
+
+              post_url   = f"https://koolaid.info/posts/{slug}/"
+              image_url  = f"https://koolaid.info/posts/{slug}/{featureimage}" if featureimage else ''
+
+              payload = json.dumps({
+                  "title":     title,
+                  "url":       post_url,
+                  "image_url": image_url
+              }).encode('utf-8')
+
+              req = urllib.request.Request(
+                  webhook_url,
+                  data=payload,
+                  headers={'Content-Type': 'application/json'},
+                  method='POST'
+              )
+              with urllib.request.urlopen(req) as resp:
+                  print(f"Shared: {title} (HTTP {resp.status})")
+          EOF
