@@ -12,7 +12,7 @@ As the first general keynote is wrapping up here in San Francisco I've been tryi
 
 - [
 
-{{< figure src="Picture2-1024x475-300x139.png" alt="Picture2-1024x475" >}}
+{{< figure src="Picture2-1024x475.png" alt="Picture2-1024x475" >}}
 
 ](Picture2-1024x475.png)EVO SDDC Manager 
     - "Single Pain of Glass for managing all the hardware in your datacenter racks including 

@@ -14,7 +14,7 @@ If you have been around the Veeam world for very long, you know they don't do sm
 
  [
 
-{{< figure src="repository-of-all-types-300x141.png" alt="" >}}
+{{< figure src="repository-of-all-types.png" alt="" >}}
 
 ](repository-of-all-types.png)One of the long asked for features of Veeam was greater ability to leverage public cloud capabilities for backups and data management in general. In 9.5 update 4, we got the ability to offload local storage to object as a way of extending on-prem resources through dehydrating local backup copies to S3, Azure Blob and the like. In v10 we now have what they call [Copy mode](https://www.veeam.com/blog/v10-sneak-peek-cloud-tier-copy-mode.html) which is the next step in the evolution. With Copy mode you will create a Scale Out Backup Repository containing any number of on-premises repository extents and a cloud storage provider, referred to as an External Repository. You will have the ability to have it mirror the local extent to cloud to give you a somewhat simplified method to getting your backups off-site. We've also already talked about the capability built in for the NFS backup capability. While Veeam Backup and Replication is the star of this post, it is worth noting here that the recently released Veeam Backup for Office 365 version 4.0 has the ability to address object storage as a direct repository with no need for local storage at all. This totally makes sense in this case; effectively it empowers you to take a cloud workload in location/system A and place the backups in location/storage B, while all the time maintaining control in an on-prem system, if you choose. End of the day, the day is coming where object storage is going to become THE first-class citizen in the Veeam ecosphere. Does this mean you have to start using Amazon, Microsoft, or Google for your backup storage, either as a backup copy or even for initial backups? Heck no! Any number of Veeam Cloud Service Providers (VCSPs) including, I don't know, [OffsiteDataSync](https://www.offsitedatasync.com), are capable of offering these solutions themselves along with more of the hands on assistance you've come to know and love. #### Restore Here, There and Everywhere
 
@@ -22,7 +22,7 @@ If you have been around the Veeam world for very long, you know they don't do sm
 
  [
 
-{{< figure src="on-prem-gfs-300x212.png" alt="" >}}
+{{< figure src="on-prem-gfs.png" alt="" >}}
 
 ](on-prem-gfs.png)One final thing of note is Veeam and the Backup industry as a whole has long advocated for the concept of Grandfather Father Son; Where you have your normal backup that runs for a given period, but outside of that, you have sealed backups on other given time periods created from the backup runs. For example, you might have a normal run job of 30 daily backups, but from that, you seal 12 monthly and 6 yearly backups to give you historical coverage. Traditionally with Veeam Backup and Replication, this is done as a function of the Backup Copy job, but now with version 10, we have the capability to make GFS restore points right on the primary backup job. #### Conclusion
 

@@ -16,13 +16,13 @@ Veeam Backup and Replication v10‘s release is now imminent after a loooooong w
 
  <span style="font-size: 11.0pt; font-family: 'Calibri',sans-serif;">[
 
-{{< figure src="NFS-backup-300x213.png" alt="" >}}
+{{< figure src="NFS-backup.png" alt="" >}}
 
 ](NFS-backup.png)Speaking of using Linux to front end NFS shares, that is no longer required as we can now [natively address them as a repository](https://helpcenter.veeam.com/archive/backup/100/vsphere/nfs_share.html). Over the years, many have tried to address this as common SMB shares, but this capability has always been flaky and poor performing, comparatively, so everybody had their work arounds from using it. Now we can add NFS in a server:/share/folder manner and make use of all the capabilities of NFS 3 or 4.</span> <span style='font-size: 11.0pt; font-family: 'Calibri',sans-serif;'>One of the other big features of the release is something I’m sure my friend </span>[<span style='font-size: 11.0pt; font-family: 'Calibri',sans-serif;'>Michael Cade</span>](https://twitter.com/michaelcade1)<span style='font-size: 11.0pt; font-family: 'Calibri',sans-serif;'> would love to tell you about, the ability to directly backup NFS or other file shares as a backup job. You can now go into the Inventory portion of your Veeam UI and add file shares there that can then be targeted for File Backup Jobs that are processed in a familiar manner. What is interesting to me with this is the backups are actually written in native blob format (think Azure Blob or Amazon S3). You have the ability to send them directly to object storage archives immediately after the backup hits the on-premises repository. It is worth noting that this is a Veeam Universal Licensed only feature with each 250 GB of data consuming a license instance. I personally think that threshold per instance is too low as it wouldn’t take long with these giant filers to have the NFS share consume more licenses than the virtualization workload at that rate, but licensing is not my fight (today)!</span>**<span style='font-size: 11.0pt; font-family: 'Calibri',sans-serif;'>Backup Copy Enhancements</span>**
 
 <span style='font-size: 11.0pt; font-family: 'Calibri',sans-serif;'>[
 
-{{< figure src="backup-copy-modes-300x213.png" alt="" >}}
+{{< figure src="backup-copy-modes.png" alt="" >}}
 
 ](backup-copy-modes.png)I'll be honest, as [a shiny new architect in the VCSP space](https://www.koolaid.info/movin-right-along/) this is near and dear to my heart (and my job). Before that, I was[ a Cloud Connect customer](https://www.offsitedatasync.com/), and there is quite a bit here to be happy about. Probably the most visible of these is the new Mirror Mode, which allows you to mirror any on-prem job to your backup copy job easily. This is great if you are wanting a very simplistic policy for cloud-based copies. This also FINALLY gives us the ability to ship transaction logs via backup copy, which is very nice. The old method, now referred to as Pruning Mode, is still available, allowing you to pick backups from an existing backup job on the fly to create your backup copy.</span>
 
@@ -30,7 +30,7 @@ Veeam Backup and Replication v10‘s release is now imminent after a loooooong w
 
 <span style='font-size: 11.0pt; font-family: 'Calibri',sans-serif;'>[
 
-{{< figure src="rpo-monitor-259x300.png" alt="" >}}
+{{< figure src="rpo-monitor.png" alt="" >}}
 
 ](rpo-monitor.png)Next, within the Advanced settings of your backup copy, you'll also now find a RPO monitor settings tab. I know from my limited time working for a provider, one of our common support concerns is customers will have a disconnect on the fact that their local jobs are failing for whatever reasons and then their off sites are silently broken because they have nothing to copy. With RPO monitor you can configure your backup copy job to send an alert if they job fails to copy any restore points for a given period of time. For me, I look forward to this being an escalation point by having it send text messages if it isn't happening. </span>
 

@@ -18,7 +18,7 @@ This year the content largely focused on 2023 2H releases that will begin trickl
 
 <figure class="wp-block-image size-large">
 
-{{< figure src="img_1065-1024x565.jpg" alt="" >}}
+{{< figure src="img_1065.jpg" alt="" >}}
 
 </figure>I’ll say that Veeam is not alone in this pursuit (see my next post) but they are decidedly a leader into that capability and are doing some interesting things with it. Most interesting to me is they are going to start supporting KMS integration for backup encryption key management. This has long been a concern with any backup’s encryption and it is a welcome change for those who know how to utilize it. Also very interesting is their approach towards recognizing if a server has been hit with ransomware and then tracing that back to a “known good” backup. This should assist SysAdmins in recovering more quickly.
 
@@ -30,7 +30,7 @@ As always Veeam does community and events well, arguably better than anybody els
 
 <figure class='wp-block-image size-large'>
 
-{{< figure src="img_7844-1024x768.jpg" alt="" >}}
+{{< figure src="img_7844.jpg" alt="" >}}
 
 </figure>This involvement leads many of us to have an inherent trust in the company, one that leads to a career long “stickiness” as opposed to this employer or that. The community member gets knowledge, opportunities and a basis for career advancement, Veeam gets feedback, evangelism and innovation ideas that no expensive party will ever create.
 

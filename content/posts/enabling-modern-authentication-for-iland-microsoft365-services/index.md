@@ -26,7 +26,7 @@ In my day job at [iland cloud](https://www.iland.com) we’ve been able to exten
 
 <div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide"><div class="wp-block-jetpack-slideshow_container swiper-container">- <figure>
 
-{{< figure src="image-1024x224.png" alt="" >}}
+{{< figure src="image.png" alt="" >}}
 
 <figcaption class='wp-block-jetpack-slideshow_caption gallery-caption'>Select Update MS Credentials from the Action menu of your M365 Organization in the iland console</figcaption></figure>
 - <figure>

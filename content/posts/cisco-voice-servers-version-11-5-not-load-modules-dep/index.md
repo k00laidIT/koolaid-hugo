@@ -16,24 +16,24 @@ About 6 months ago we updated 3/4 of our Cisco Telephony environment from 8.5 to
 
 2. Now we need to make a couple of modifications to the VM's settings to tell it 1) attach the downloaded ISO file and check the "Connected at boot" box and 2) Under VM Options > Boot Options to "Force BIOS setup" at next boot. By default VMs do not look at attached ISOs as the first boot device. Once both of these are done it's time to boot the VM.
 
-{{< figure src="2.force-bios-150x150.png" alt="VMware VM settings showing Boot Options with Force BIOS Setup enabled and CD/DVD drive attached and connected at boot" >}}
+{{< figure src="2.force-bios.png" alt="VMware VM settings showing Boot Options with Force BIOS Setup enabled and CD/DVD drive attached and connected at boot" >}}
 
 3. I personally like to launch the VMware Remote Console first and then boot from there, that way I've already got the screen up. After you power on the BIOS in a VM is the same old Phoenix BIOS we all know and love. Simply tell the VM to boot to CD before hard drive, move to Exit and 'Save and Exit' and your VM will reboot directly into the recovery ISO.
 
-{{< figure src="3.-boot-to-cd-150x150.png" alt="VMware Remote Console showing Phoenix BIOS boot order screen with CD-ROM set as the first boot device" >}}
+{{< figure src="3.-boot-to-cd.png" alt="VMware Remote Console showing Phoenix BIOS boot order screen with CD-ROM set as the first boot device" >}}
 
 4. Once you get up to the Recovery Disk menu screen as shown below we need to get out to a command prompt. To do this hit Alt-F2 and you'll be presented with a standard bash prompt.
 
-{{< figure src="4.-Rescue-CD-150x150.png" alt="Cisco Unified Communications Manager 11.5 Recovery Disk boot menu screen" >}}
+{{< figure src="4.-Rescue-CD.png" alt="Cisco Unified Communications Manager 11.5 Recovery Disk boot menu screen" >}}
 
 5. The root cause of this issue is that the initramfs file is improperly sized after an automatic VMware Tools upgrade. Now that we have our prompt we first need to verify that we are actually seeing the issue we expect. To do this run `find / -name initramfs*`. This command should produce the full path and filename of the file. To get the size run `ls -lh /mnt/part1/boot/initramfs-2.6.32-573.18.1.el6.x86_64.img`. If you aren't particularly used to the Linux CLI once you get past ...initr you should be able to hit tab to autocomplete. This should respond by showing you that that file is incorrectly sized somewhere between 11-15 MB.
 
-{{< figure src="5.-Verify-corrupt-file-150x150.png" alt="Linux bash prompt showing find and ls -lh commands confirming the initramfs file is undersized at approximately 13 MB" >}}
+{{< figure src="5.-Verify-corrupt-file.png" alt="Linux bash prompt showing find and ls -lh commands confirming the initramfs file is undersized at approximately 13 MB" >}}
 
 6. Now we need to perform a chroot on the directory that contains boot objects: `chroot /mnt/part1`
 
 7. Finally we need to manually re-run the VMware Tools installer to get the file properly sized. Run `/usr/bin/vmware-config-tools.pl -d`. There are various steps throughout the process where it is going to ask for input. Unless you know you have a reason to differ just hit enter at each one until it completes. Once done, rerun the `ls -lh` command from step 5. You should now see the file size changed to 24 MB or so.
 
-{{< figure src="6.-after-vmware-tools-install-150x150.png" alt="Linux bash prompt showing VMware Tools reinstallation output and ls -lh confirming initramfs file is now correctly sized at approximately 24 MB" >}}
+{{< figure src="6.-after-vmware-tools-install.png" alt="Linux bash prompt showing VMware Tools reinstallation output and ls -lh confirming initramfs file is now correctly sized at approximately 24 MB" >}}
 
 8. Now we just need to do a little clean up before we reboot. Go into Settings for your VM and tell it not to connect the ISO at boot. Once you make that change flip back over to your console and simply type `reboot` or `shutdown -r 0` to reboot back to full functionality.

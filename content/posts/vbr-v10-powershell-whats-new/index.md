@@ -10,7 +10,7 @@ featureimage = "featured.png"
 
 [
 
-{{< figure src="pwsh-2.-measure-object-300x173.png" alt="" >}}
+{{< figure src="pwsh-2.-measure-object.png" alt="" >}}
 
 ](pwsh-2.-measure-object.png)So one of the things that I always find interesting with each new Veeam Backup &amp; Replication release is the additions to the PowerShell cmdlets list. PowerShell was first introduced to the VBR universe with version 7 and with each release we have got more and more commands to play with. It still hurts me to this day that they haven't converted their Snap-In to a module yet but to quote my daughter's teacher, you get what you get and you don't throw a fit. In the spirt of this curiosity I decided to do a little differential fun with 9.5 update 4 and the soon to be GA version 10 Snap-Ins. I'm not going to bore you with all the commands and stuff that led us to here but if you want to reproduce any of this consider my work shown: ```
 asnp VeeamPSSnapin

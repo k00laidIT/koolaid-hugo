@@ -15,7 +15,7 @@ dism /online /enable-feature /featurename:NetFX3 /all /Source:<WIN10DISKLETTER>:
 ```
  [
 
-{{< figure src="Installed-300x108.jpg" alt="installed" >}}
+{{< figure src="Installed.jpg" alt="installed" >}}
 
 ](Installed.jpg)When done the window should look like the window to the left. Pretty simple, right? While this is all you really need to know to get it installed let's go over what all these parameters are that you just fed into your computer. - **/online** - This refers to the idea that you are changing the installed OS as opposed to an image
 - **/enable-feature** - the is the CLI equivalent of choosing Add Roles and Features from Server Manager

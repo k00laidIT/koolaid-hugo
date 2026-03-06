@@ -26,7 +26,7 @@ Congrats! You now have PowerShell on Linux. To run it simply run pwsh from the c
 pwsh -ep Unrestricted
 ```
 
-{{< figure src="InvalidCertificate-300x126.png" alt="" >}}
+{{< figure src="InvalidCertificate.png" alt="" >}}
 
 **Step 2: Installing VMware PowerCLI** Yes, this is the hard part... Just kidding! It's just like on Windows, enter the simple one-liner to install all available modules. 
 ```PowerShell

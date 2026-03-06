@@ -24,6 +24,6 @@ I don’t know about the rest of you but printing has long been the bane of my e
 
  [
 
-{{< figure src="PS-Note-263x300.jpg" alt="" >}}
+{{< figure src="PS-Note.jpg" alt="" >}}
 
 ](PS-Note.jpg)So the idea spark for this post was a need to recreate all the logical printers in response to an office reorganization. The old names made no sense so we just blew them away and created new. One thing I did find out is that since Windows Server 2012 you can create a Printer Preference with type Delete and choose "Delete all shared connections." Coupled with the Common options of "Apply once and do not reapply" this can be a very effective way to manage a print server migration, reorganization, or any other number of goals I can think of. If you do choose to do this be sure to 1) make sure any version of this you were using to do the "old printers" is gone before you set this to run and 2) you mess with the order of the Printer Preferences so it is number 1 in the order. In addition, when I was looking to use it I created it and then immediately right-click &gt; Disabled the preference until I was really ready for it to go.

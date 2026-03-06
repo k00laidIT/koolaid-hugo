@@ -32,20 +32,20 @@ Fixing this requires adding the “full\_access\_as\_app” permission but getti
             - <span style="font-family: Calibri; font-size: 11.0pt;">User.Read.All</span>
 5. <span style="font-family: Calibri; font-size: 11.0pt; color: black;">If you have performed the v5 upgrade and your backups are currently failing the bolded permissions above may likely be missing and you will need to add them. When done adding your API permissions window should look like this [
 
-{{< figure src="o365v5perms-1-300x137.jpg" alt="" >}}
+{{< figure src="o365v5perms-1.jpg" alt="" >}}
 
 ](featured.jpg) </span>
 6. <span style='font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal; color: black;'>To add permissions you will need to </span>
     1. <span style='font-family: Calibri; font-size: 11.0pt;'>click the “+ Add a permission” button</span>
     2. <span style='font-family: Calibri; font-size: 11.0pt;'>click the tile for the necessary API group (Graph, Office 365 Exchange Online) \* </span><span style='font-family: Calibri; font-size: 11.0pt;'>For the Office 365 Exchange Online direct access has been deprecated by Microsoft. In that case you will need to choose the “API my organization uses and search for “Office 365 Exchange” to find it. This looks like [
 
-{{< figure src="o365myAPIs-1-300x170.jpg" alt="" >}}
+{{< figure src="o365myAPIs-1.jpg" alt="" >}}
 
 ](o365myAPIs-1.jpg) </span>
     3. <span style='font-family: Calibri; font-size: 11.0pt;'>Choose “Application permissions”</span>
     4. <span style='font-family: Calibri; font-size: 11.0pt;'>Check the box for the permission you are requesting and click “Add permissions” [
 
-{{< figure src="o365addPerms-1-300x207.jpg" alt="" >}}
+{{< figure src="o365addPerms-1.jpg" alt="" >}}
 
 ](o365addPerms-1.jpg) </span>
 7. <span style="font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal; color: black;">After adding permissions you will need to click the “Grand admin consent for &lt;your organization&gt;” button to complete adding the permissions for your organization.</span>
