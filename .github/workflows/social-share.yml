@@ -69,6 +69,14 @@ jobs:
               img_match = re.search(r"^featureimage\s*=\s*['\"](.+?)['\"]", fm, re.MULTILINE)
               featureimage = img_match.group(1) if img_match else ''
 
+              # Fall back to featured.png/jpg/jpeg/webp if no featureimage in frontmatter
+              if not featureimage:
+                  post_dir = os.path.dirname(post_file)
+                  for ext in ('png', 'jpg', 'jpeg', 'webp'):
+                      if os.path.exists(os.path.join(post_dir, f'featured.{ext}')):
+                          featureimage = f'featured.{ext}'
+                          break
+
               post_url   = f"https://koolaid.info/posts/{slug}/"
               image_url  = f"https://koolaid.info/posts/{slug}/{featureimage}" if featureimage else ''
 
