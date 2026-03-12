@@ -26,6 +26,7 @@ I've been lucky enough in my career to be included in a number of vendor based a
 - [AWS Community Builders](https://builder.aws.com/community/community-builders)
 - [Veeam Vanguards](https://community.veeam.com/p/veeamvanguard)
 - [VMware vExpert](https://vexpert.vmware.com)
+
 Finally if you'd like to know more about me professionally you can check out my [LinkedIn](https://www.linkedin.com/in/k00laidIT/) or you see [my resume](resume.md). 
 </td>
 </tr></table>
