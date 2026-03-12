@@ -28,7 +28,7 @@ I've been lucky enough in my career to be included in a number of vendor based a
 - [Veeam Vanguards](https://community.veeam.com/p/veeamvanguard)
 - [VMware vExpert](https://vexpert.vmware.com)
 
-Finally if you'd like to know more about me professionally you can check out my [LinkedIn](https://www.linkedin.com/in/k00laidIT/) or you see [my resume](resume.md). 
+Finally if you'd like to know more about me professionally you can check out my [LinkedIn](https://www.linkedin.com/in/k00laidIT/) or [my resume](resume.md). 
 </td>
 </tr></table>
 <table style="width:100%; border:none"><tr>
