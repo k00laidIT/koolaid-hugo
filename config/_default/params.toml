@@ -9,7 +9,7 @@
   [homepage]
     layout = "page"
     showRecent = true
-    recentLimit = 7
+    recentLimit = 10
 
   [article]
     externalLinkForceNewTab = false
