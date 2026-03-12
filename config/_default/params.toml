@@ -12,6 +12,7 @@
     recentLimit = 7
 
   [article]
+    externalLinkForceNewTab = false
     showDate = true
     showAuthor = true
     showAuthorBottom = true
