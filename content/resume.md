@@ -3,6 +3,7 @@ title: "Resume"
 date: 2026-03-12
 draft: false
 showDate: false
+showTitle = false
 showReadingTime: false
 showTableOfContents: true
 ---
@@ -73,11 +74,11 @@ Data protection and cyber resilience architect with 25+ years designing, operati
 
 ## Education
 
-**MS, Information Technology** – University of Maryland University College | 2008
+**MS, Information Technology** – University of Maryland Global Campus
 
-**BA, Regent's Bachelor of Arts** – Marshall University | 2001
+**BA, Regent's Bachelor of Arts** – Marshall University
 
-**AAS, Computer Technology** – Mountwest Community & Technical College | 2000
+**AAS, Computer Technology** – Mountwest Community & Technical College
 
 ---
 
@@ -100,3 +101,5 @@ Data protection and cyber resilience architect with 25+ years designing, operati
 | Veeam Vanguard | 2015 – 2026 |
 | VMware vExpert | 2014 – 2025 |
 | AWS Community Builder | 2023 – 2025 |
+| Object First Ace | 2024 – 2025 |
+| Cisco Champion | 2020 – 2025 |
