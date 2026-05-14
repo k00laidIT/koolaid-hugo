@@ -3,7 +3,7 @@ title: "Resume"
 date: 2026-03-12
 draft: false
 showDate: false
-showTitle = false
+showTitle: false
 showReadingTime: false
 showTableOfContents: true
 ---
