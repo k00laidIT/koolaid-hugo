@@ -33,7 +33,7 @@ jobs:
               jpeg|jpg|png|webp|gif)
                 name="${filename%.*}"
                 echo "Writing: $name -> $filename"
-                wrangler kv key put --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" "$name" "$filename"
+                wrangler kv key put --remote --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" "$name" "$filename"
                 ;;
             esac
           done
@@ -56,11 +56,11 @@ jobs:
             esac
           done
 
-          wrangler kv key list --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" 2>/dev/null \
+          wrangler kv key list --remote --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" 2>/dev/null \
             | jq -r '.[].name // empty' \
             | while read -r key; do
                 if [[ ! " $current_names " =~ " $key " ]]; then
                   echo "Deleting stale key: $key"
-                  wrangler kv key delete --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" "$key"
+                  wrangler kv key delete --remote --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" "$key"
                 fi
               done
