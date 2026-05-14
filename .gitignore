@@ -4,6 +4,9 @@ node_modules/
 # Wrangler
 .wrangler/
 
+# Claude Code
+.claude/
+
 # Hugo build output
 public/
 _vendor/
