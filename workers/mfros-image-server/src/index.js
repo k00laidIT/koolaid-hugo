@@ -30,13 +30,19 @@ export default {
       return createRedirect(REDIRECT_URL);
     }
 
-    return new Response(renderPage(name, `${IMAGE_BASE}/${filename}`), {
+    const mediaUrl = `${IMAGE_BASE}/${filename}`;
+    const isVideo = filename.endsWith('.mp4');
+    return new Response(renderPage(name, mediaUrl, isVideo), {
       headers: { 'content-type': 'text/html;charset=UTF-8' },
     });
   },
 };
 
-function renderPage(name, imageUrl) {
+function renderPage(name, mediaUrl, isVideo) {
+  const media = isVideo
+    ? `<video src="${mediaUrl}" autoplay loop muted playsinline></video>`
+    : `<img src="${mediaUrl}" alt="${name}">`;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,11 +53,11 @@ function renderPage(name, imageUrl) {
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     html,body{width:100%;height:100%;background:#111;display:flex;align-items:center;justify-content:center}
-    img{max-width:100%;max-height:100vh;object-fit:contain}
+    img,video{max-width:100%;max-height:100vh;object-fit:contain}
   </style>
 </head>
 <body>
-  <img src="${imageUrl}" alt="${name}">
+  ${media}
 </body>
 </html>`;
 }

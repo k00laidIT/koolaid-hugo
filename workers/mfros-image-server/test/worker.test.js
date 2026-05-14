@@ -4,7 +4,7 @@ import worker from '../src/index.js';
 const mockEnv = {
   MFROS_IMAGES: {
     async get(key) {
-      const registry = { ian: 'ian.jpeg', jim: 'jim.jpeg' };
+      const registry = { ian: 'ian.jpeg', jim: 'jim.jpeg', clip: 'clip.mp4' };
       return registry[key] ?? null;
     },
   },
@@ -56,6 +56,27 @@ describe('unknown or missing subdomain', () => {
     const res = await worker.fetch(new Request('https://mfros.com/'), mockEnv);
     expect(res.status).toBe(301);
     expect(res.headers.get('location')).toBe('https://koolaid.info');
+  });
+});
+
+describe('mp4 subdomain', () => {
+  it('returns 200 with HTML content-type', async () => {
+    const res = await worker.fetch(new Request('https://clip.mfros.com/'), mockEnv);
+    expect(res.status).toBe(200);
+    expect(res.headers.get('content-type')).toContain('text/html');
+  });
+
+  it('renders a video element instead of an img', async () => {
+    const res = await worker.fetch(new Request('https://clip.mfros.com/'), mockEnv);
+    const html = await res.text();
+    expect(html).toContain('<video');
+    expect(html).not.toContain('<img');
+  });
+
+  it('includes the correct koolaid.info video URL in the source', async () => {
+    const res = await worker.fetch(new Request('https://clip.mfros.com/'), mockEnv);
+    const html = await res.text();
+    expect(html).toContain('https://koolaid.info/img/mfros/clip.mp4');
   });
 });
 

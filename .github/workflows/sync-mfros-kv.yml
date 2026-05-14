@@ -30,7 +30,7 @@ jobs:
             filename=$(basename "$filepath")
             ext="${filename##*.}"
             case "$ext" in
-              jpeg|jpg|png|webp|gif)
+              jpeg|jpg|png|webp|gif|mp4)
                 name="${filename%.*}"
                 echo "Writing: $name -> $filename"
                 wrangler kv key put --remote --namespace-id="${{ secrets.CF_KV_NAMESPACE_ID }}" "$name" "$filename"
@@ -49,7 +49,7 @@ jobs:
             filename=$(basename "$filepath")
             ext="${filename##*.}"
             case "$ext" in
-              jpeg|jpg|png|webp|gif)
+              jpeg|jpg|png|webp|gif|mp4)
                 name="${filename%.*}"
                 current_names="$current_names $name"
                 ;;
