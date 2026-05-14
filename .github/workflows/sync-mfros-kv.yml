@@ -18,7 +18,7 @@ jobs:
 
       - name: Write current images to KV
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_KV_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           for filepath in static/img/mfros/*; do
@@ -36,7 +36,7 @@ jobs:
 
       - name: Delete stale KV keys
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_KV_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           current_names=""
