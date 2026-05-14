@@ -1,6 +1,9 @@
 # Node
 node_modules/
 
+# Wrangler
+.wrangler/
+
 # Hugo build output
 public/
 _vendor/
