@@ -42,6 +42,7 @@ function renderPage(name, imageUrl) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
   <title>${name}</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
