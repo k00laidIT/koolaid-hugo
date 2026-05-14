@@ -1,0 +1,13 @@
+{
+  "name": "mfros-image-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.0.0",
+    "wrangler": "^3.0.0"
+  }
+}

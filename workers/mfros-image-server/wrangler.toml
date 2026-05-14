@@ -1,0 +1,11 @@
+name = "mfros-image-server"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+[[kv_namespaces]]
+binding = "MFROS_IMAGES"
+id = "4056f341bb75427ea2462f43c2ea5191"
+
+[[routes]]
+pattern = "*.mfros.com/*"
+zone_name = "mfros.com"
