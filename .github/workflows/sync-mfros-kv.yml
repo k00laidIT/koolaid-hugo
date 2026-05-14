@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'static/img/mfros/**'
+  workflow_dispatch:
 
 jobs:
   sync-kv:
