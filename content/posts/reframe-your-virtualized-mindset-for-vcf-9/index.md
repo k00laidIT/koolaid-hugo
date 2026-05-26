@@ -21,10 +21,10 @@ In this post let's take a bit of a look at what it means to be truly cloud nativ
 I know, I know, cloud native is just another one of those terms you've mentally put into the dustbin of marketing hype. In previous years iterations I've seen it as shorthand for everything from "running in hyperscaler cloud using one or more named capabilities" to "refactor applications to be completely container-based microservices." In a more modern use we can think of cloud native as infrastructure that supports the following characteristics:
 
 - **Loosely Coupled** - allows all of its services to be as tightly integrated or separated as needed for the application
-- **Varied infrastructure** - This isn't VMware vs Hyper-V, but instead think of it as VM, container, all the way to serverless applications
+- **Varied Infrastructure** - This isn't VMware vs Hyper-V, but instead think of it as VM, container, all the way to serverless applications
 - **Zero Trust** - by default virtually every VM or service you deploy in the cloud has no capability to talk to any other VM or service let alone outside of the local subnet. In olden times we referred to this as microsegmentation.
-- **Highly available** - the infrastructure of all services is natively resilient to failure or maintenance windows without downtime.
-- **Central management, distributed deployment** - the ability to deploy workloads to various locations, including on-premises, while managing them with centralized UI, both graphical and programmatic. For the sake of brevity I'll include central IAM (users, groups, policies) here as well.
+- **Highly Available** - the infrastructure of all services is natively resilient to failure or maintenance windows without downtime.
+- **Central Management, Distributed Deployment** - the ability to deploy workloads to various locations, including on-premises, while managing them with centralized UI, both graphical and programmatic. For the sake of brevity I'll include central IAM (users, groups, policies) here as well.
 
 ## How VCF Fits Into Cloud Native
 
