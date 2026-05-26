@@ -9,7 +9,9 @@
   [homepage]
     layout = "page"
     showRecent = true
-    recentLimit = 10
+    showRecentItems = 10
+    showMoreLink = true
+    showMoreLinkDest = "/posts/"
 
   [article]
     externalLinkForceNewTab = false
