@@ -86,6 +86,8 @@ Data protection and cyber resilience architect with 25+ years designing, operati
 
 **Veeam:** Certified Architect (VMCA) | Certified Engineer (VMCE)
 
+**Broadcom** VCP-VCF Administrator
+
 **AWS:** Solutions Architect – Associate | AI Practitioner | Cloud Practitioner
 
 **Microsoft:** Azure Fundamentals (AZ-900)
