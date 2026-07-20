@@ -18,6 +18,7 @@ showTaxonomies = false
 
 - [Charleston Gazette Mail (WV)](https://wvgazettemail.com/)
 - [NBC News](https://www.nbcnews.com/)
+- [Ground News](https://ground.news/)
 - [CNN](https://www.cnn.com/)
 
 ## Techie News
@@ -26,6 +27,7 @@ showTaxonomies = false
 - [The Register](https://www.theregister.co.uk/)
 - [Bleeping Computer](https://www.bleepingcomputer.com/)
 - [CRN](https://www.crn.com/)
+- [Channel Insider](https://www.channelinsider.com/)
 
 ## Sports
 - [ESPN](https://espn.com)
